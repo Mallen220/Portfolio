@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 # gem 'jekyll', '~> 4.3.3'
 gem 'bundler', '~> 2.5.15'
+gem 'faraday'
 gem 'faraday-retry'
 gem 'backports', '~> 3.25.0'
 gem 'kramdown'
@@ -9,6 +10,8 @@ gem 'puma'
 gem 'csv'
 gem 'base64'
 gem 'jekyll-paginate-v2'
+gem 'nokogiri'
+gem "ffi"
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
