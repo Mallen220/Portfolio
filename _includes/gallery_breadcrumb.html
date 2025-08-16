@@ -4,7 +4,8 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
           <a href="{{site.url}}{{site.baseurl}}/gallery">
-            <i class="fa fa-home" aria-hidden="true"></i> Gallery Home
+            <i class="fa fa-home" aria-hidden="true"></i>
+            <span>Gallery Home</span>
           </a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
@@ -17,15 +18,66 @@
 
 <style>
   .gallery-breadcrumb {
-    background-color: #f8f9fa;
+    background-color: var(--breadcrumb-bg);
     padding: 15px 0;
     margin-bottom: 30px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--breadcrumb-border);
   }
 
   .breadcrumb {
     margin-bottom: 0;
     background: transparent;
-    padding: 0;
+  }
+
+  /* Variables */
+  :root {
+    --breadcrumb-bg: #f8f9fa;
+    --breadcrumb-border: #eee;
+    --breadcrumb-text: #212529;
+    --breadcrumb-link: #0d6efd;
+    --breadcrumb-separator: #6c757d;
+  }
+
+  [data-theme="dark"] {
+    --breadcrumb-bg: #2d2d2d;
+    --breadcrumb-border: #444;
+    --breadcrumb-text: #e9ecef;
+    --breadcrumb-link: #6ea8fe;
+    --breadcrumb-separator: #aaa;
+  }
+
+  /* Align everything inside breadcrumb items */
+  .breadcrumb-item,
+  .breadcrumb-item a {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Fix home icon alignment */
+  .breadcrumb-item i.fa {
+    margin-right: 6px;
+    font-size: 2em;
+  }
+
+  /* Colors */
+  .breadcrumb-item,
+  .breadcrumb-item.active {
+    color: var(--breadcrumb-text);
+  }
+
+  .breadcrumb-item a {
+    color: var(--breadcrumb-link);
+    text-decoration: none;
+  }
+
+  .breadcrumb-item a:hover {
+    text-decoration: underline;
+  }
+
+  /* Override Bootstrap separator (the "/") */
+  .breadcrumb-item + .breadcrumb-item::before {
+    color: var(--breadcrumb-separator);
+    display: inline-flex;
+    align-items: center;
   }
 </style>
