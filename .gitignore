@@ -2,7 +2,7 @@
 build
 _site
 .gradle
-assets/bower_components
+#assets/bower_components
 .jekyll-metadata
 .DS_Store
 node_modules
