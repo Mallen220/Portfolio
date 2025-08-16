@@ -12,14 +12,31 @@ permalink: /gallery/
     <h1 class="text-center mb-4">{{ page.title }}</h1>
 
     {% if site.data.galleries.overview %}
+    <!-- Create array of galleries with dates -->
+    {% assign galleries_with_dates = "" | split: "" %} {% for gallery in
+    site.data.galleries.overview %} {% assign gallery_page = site.galleries |
+    where: "picture_path", gallery.directory | first %} {% if gallery_page.date
+    %} {% assign gallery_entry = gallery %} {% assign gallery_entry.date =
+    gallery_page.date %} {% assign galleries_with_dates = galleries_with_dates |
+    push: gallery_entry %} {% else %}
+    <!-- Galleries without dates will be placed at the end -->
+    {% assign gallery_entry = gallery %} {% assign gallery_entry.date =
+    "1900-01-01" %} {% assign galleries_with_dates = galleries_with_dates |
+    push: gallery_entry %} {% endif %} {% endfor %}
+
+    <!-- Sort galleries by date -->
+    {% assign sorted_galleries = galleries_with_dates | sort: "date" | reverse
+    %}
+
     <div class="row">
-      {% for gallery in site.data.galleries.overview %} {% comment %} Get
-      gallery data from site.data.galleries[gallery.directory] {% endcomment %}
-      {% assign gallery_data = site.data.galleries[gallery.directory] %}
+      {% for gallery in sorted_galleries %} {% comment %} Get gallery data from
+      site.data.galleries[gallery.directory] {% endcomment %} {% assign
+      gallery_data = site.data.galleries[gallery.directory] %} {% assign
+      gallery_page = site.galleries | where: "picture_path", gallery.directory |
+      first %}
 
       <div class="col-md-6 col-lg-4 mb-4">
         <div class="gallery-card card">
-          <!--           h-70-->
           <a
             href="{{ site.baseurl }}/gallery/{{ gallery.directory }}"
             class="gallery-card-link"
@@ -41,7 +58,13 @@ permalink: /gallery/
 
             <div class="card-body">
               <h5 class="card-title">{{ gallery.title }}</h5>
-              {% if gallery_data and gallery_data.pictures %}
+
+              <!-- Display date if available -->
+              {% if gallery_page.date %}
+              <p class="card-date text-muted small">
+                {{ gallery_page.date | date: "%B %d, %Y" }}
+              </p>
+              {% endif %} {% if gallery_data and gallery_data.pictures %}
               <p class="card-text">{{ gallery_data.pictures | size }} photos</p>
               {% endif %}
             </div>
@@ -84,7 +107,6 @@ permalink: /gallery/
   }
 
   .gallery-card .card-img-top {
-    /*change card height*/
     height: 175px;
     object-fit: cover;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -94,8 +116,26 @@ permalink: /gallery/
     padding: 1.25rem;
   }
 
+  .card-date {
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+  }
+
   .card-img-placeholder {
     height: 200px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  /* Date badge for visual indication */
+  .date-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    z-index: 1;
   }
 </style>
