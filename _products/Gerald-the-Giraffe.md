@@ -1,4 +1,5 @@
 ---
+layout: product
 identifier: Gerald-the-Giraffe
 name: Gerald the Giraffe
 description: Giraffe t-shirt

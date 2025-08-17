@@ -24,30 +24,45 @@ layout: default
   <div class="product-grid">
     {% for product in site.products %}
     <div class="product-card">
-      <img
-        src="{{ site.url }}{{ site.baseurl }}{{ product.image }}"
-        alt="{{ product.name }}"
-        class="product-image"
-      />
-      <div class="product-info">
-        <h3 class="product-title">{{ product.name }}</h3>
-        <div class="product-price">${{ product.price }}</div>
-        <div class="product-meta">
-          <span class="product-badge badge-{{ product.type | downcase }}">
-            <i
-              class="fas fa-{% if product.type == 'physical' %}box{% else %}download{% endif %}"
-              style="margin-right: 0.25rem"
-            ></i>
-            {{ product.type | capitalize }}
-          </span>
-          {% if product.subscription %}
-          <span class="product-badge badge-subscription">
-            <i class="fas fa-sync-alt" style="margin-right: 0.25rem"></i>
-            Subscription
-          </span>
-          {% endif %}
+      {% assign product_image = product.image %} {% if product_image == nil or
+      product_image == '' %} {% if product.images and product.images.size > 0 %}
+      {% assign product_image = product.images[0].image %} {% endif %} {% endif
+      %}
+
+      <a
+        href="{{ site.url }}{{ site.baseurl }}/products/{{ product.identifier }}"
+        class="product-card-link"
+        style="text-decoration: none"
+      >
+        {% if product_image %}
+        <img
+          src="{{ site.url }}{{ site.baseurl }}{{ product_image }}"
+          alt="{{ product.name }}"
+          class="product-image"
+        />
+        {% endif %}
+
+        <div class="product-info">
+          <h3 class="product-title">{{ product.name }}</h3>
+          <div class="product-price">{{ product.description }}</div>
+          <div class="product-price">${{ product.price }}</div>
+          <div class="product-meta">
+            <span class="product-badge badge-{{ product.type | downcase }}">
+              <i
+                class="fas fa-{% if product.type == 'physical' %}box{% else %}download{% endif %}"
+                style="margin-right: 0.25rem"
+              ></i>
+              {{ product.type | capitalize }}
+            </span>
+            {% if product.subscription %}
+            <span class="product-badge badge-subscription">
+              <i class="fas fa-sync-alt" style="margin-right: 0.25rem"></i>
+              Subscription
+            </span>
+            {% endif %}
+          </div>
         </div>
-      </div>
+      </a>
       <div class="product-actions">
         <button
           class="btn btn-cart add-to-cart"

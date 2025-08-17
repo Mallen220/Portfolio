@@ -1,4 +1,5 @@
 ---
+layout: product
 identifier: jekyll-starry-night-3
 name: John Doe Mug
 price: 10

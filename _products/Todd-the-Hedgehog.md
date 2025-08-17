@@ -1,4 +1,5 @@
 ---
+layout: product
 identifier: Todd-the-Hedgehog
 name: Todd the Hedgehog
 description: Hedgehog t-shirt

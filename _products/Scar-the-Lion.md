@@ -1,4 +1,5 @@
 ---
+layout: product
 identifier: Scar-the-Lion
 name: Scar the Lion
 description: Lion t-shirt

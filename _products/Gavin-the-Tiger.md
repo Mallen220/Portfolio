@@ -1,4 +1,5 @@
 ---
+layout: product
 identifier: Gavin-the-Tiger
 name: Gavin the Tiger
 description: Tiger t-shirt
