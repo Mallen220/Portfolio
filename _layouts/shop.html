@@ -1,0 +1,72 @@
+---
+title: Products
+layout: default
+---
+
+<br />
+<br />
+
+<link
+  rel="stylesheet"
+  href="{{ '/assets/css/product-grid.css' | relative_url }}"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
+<div class="product-grid-container">
+  <div class="product-grid-header">
+    <h1><i class="fas fa-shopping-bag me-2"></i>Product Collection</h1>
+    <p>Browse our premium selection of physical and digital products</p>
+  </div>
+
+  <div class="product-grid">
+    {% for product in site.products %}
+    <div class="product-card">
+      <img
+        src="{{ site.url }}{{ site.baseurl }}{{ product.image }}"
+        alt="{{ product.name }}"
+        class="product-image"
+      />
+      <div class="product-info">
+        <h3 class="product-title">{{ product.name }}</h3>
+        <div class="product-price">${{ product.price }}</div>
+        <div class="product-meta">
+          <span class="product-badge badge-{{ product.type | downcase }}">
+            <i
+              class="fas fa-{% if product.type == 'physical' %}box{% else %}download{% endif %}"
+              style="margin-right: 0.25rem"
+            ></i>
+            {{ product.type | capitalize }}
+          </span>
+          {% if product.subscription %}
+          <span class="product-badge badge-subscription">
+            <i class="fas fa-sync-alt" style="margin-right: 0.25rem"></i>
+            Subscription
+          </span>
+          {% endif %}
+        </div>
+      </div>
+      <div class="product-actions">
+        <button
+          class="btn btn-cart add-to-cart"
+          data-id="{{ product.identifier }}"
+          data-name="{{ product.name }}"
+          data-price="{{ product.price }}"
+          data-image="{{ product.image }}"
+          data-type="{{ product.type }}"
+          data-subscription="{{ product.subscription }}"
+        >
+          <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+        </button>
+        <button class="btn-wishlist">
+          <i class="far fa-heart"></i>
+        </button>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script src="{{ '/assets/js/product-grid.js' | relative_url }}"></script>
