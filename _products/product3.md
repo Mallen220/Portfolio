@@ -3,6 +3,8 @@ identifier: jekyll-starry-night-3
 name: John Doe Mug
 price: 10
 image: /assets/img/products/product3.jpg
+type: digital
+subscription: true
 ---
 
 # John Doe Mug

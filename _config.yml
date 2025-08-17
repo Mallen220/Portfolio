@@ -93,6 +93,15 @@ linkedin_username: matthew-allen-frc1987ftc17218
 # dribbble_username: johndoe
 # flickr_username: johndoe
 
+# Payment settings
+payment_processors:
+  stripe:
+    publishable_key: "pk_test_your_stripe_key"
+    success_url: "/thank-you"
+    cancel_url: "/cart"
+  paypal:
+    client_id: "your_paypal_client_id"
+
 #for comments ( we got Disqus and Hyvor Commenting, uncomment the one you want to use )
 
 # disqus_shortname: sujay-kundu

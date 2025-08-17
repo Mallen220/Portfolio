@@ -3,6 +3,8 @@ identifier: john-doe-tshrirt
 name: John Doe Tshirt
 price: 50
 image: /assets/img/products/product1.jpg
+type: physical
+subscription: false
 ---
 
 # John Doe Tshirt

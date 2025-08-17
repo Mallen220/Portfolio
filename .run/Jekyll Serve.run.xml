@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Jekyll Serve" type="ShConfigurationType">
-    <option name="SCRIPT_TEXT" value="watchexec -r -e md,html,scss,css,js,yml,png,jpg,jpeg,yaml,rb --ignore 'languages/**' --ignore 'assets/img/gallery/**' --ignore '_data/galleries/**' --ignore '_config_languages.yml' -- sh -c &quot;bundle exec jekyll clean &amp;&amp; ruby generate_language_pages.rb &amp;&amp; ruby generate_language_map.rb &amp;&amp; ruby gallery_generator.rb &amp;&amp; bundle exec jekyll build &amp;&amp; bundle exec jekyll serve&quot;" />
+    <option name="SCRIPT_TEXT" value="watchexec -r -e md,html,scss,css,js,yml,png,jpg,jpeg,yaml,rb --ignore 'languages/**' --ignore 'assets/img/gallery/**' --ignore '_data/galleries/**' --ignore '_config_languages.yml' -- sh -c &quot;bundle exec jekyll clean &amp;&amp; ruby generate_language_pages.rb &amp;&amp; ruby generate_language_map.rb &amp;&amp; ruby gallery_generator.rb &amp;&amp; bundle exec jekyll serve&quot;" />
     <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
     <option name="SCRIPT_PATH" value="Jekyll Serve" />
     <option name="SCRIPT_OPTIONS" value="" />
