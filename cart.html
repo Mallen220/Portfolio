@@ -2,3 +2,114 @@
 title: Cart
 layout: default
 ---
+
+<link rel="stylesheet" href="{{ '/assets/css/cart.css' | relative_url }}" />
+<script src="{{ site.baseurl }}/assets/js/cart.js"></script>
+
+<div class="cart-container">
+  <div class="cart-header">
+    <h1><i class="fas fa-shopping-cart"></i> Your Shopping Cart</h1>
+    <p>Review your items before checkout</p>
+  </div>
+
+  <div class="cart-wrapper">
+    <!-- Cart Items Section -->
+    <div class="cart-items">
+      <div class="cart-items-header">
+        <span>Cart Items</span>
+        <span><span class="simpleCart_quantity">0</span> items</span>
+      </div>
+
+      <div class="cart-items-list simpleCart_items">
+        <!-- Each item will render like this -->
+        <div class="cart-item simpleCart_shelfItem">
+          <div class="item-image">
+            <img class="item_image" src="" alt="Product image" />
+          </div>
+
+          <div class="item-details">
+            <div class="item-name item_name">Product Name</div>
+            <div class="item-price item_price">$0.00</div>
+
+            <div class="item-meta">
+              <span class="physical">Physical</span>
+              <span class="subscription">Subscription</span>
+            </div>
+
+            <div class="item-quantity">
+              <button class="quantity-btn simpleCart_decrement">-</button>
+              <input
+                type="text"
+                value="1"
+                class="quantity-input item_quantity"
+                readonly
+              />
+              <button class="quantity-btn simpleCart_increment">+</button>
+              <span class="item-remove simpleCart_remove">
+                <i class="fas fa-trash"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shown only when empty -->
+        <div class="empty-cart">
+          <i class="fas fa-shopping-cart"></i>
+          <h2>Your cart is empty</h2>
+          <p>Looks like you haven't added any items to your cart yet</p>
+          <a href="/" class="continue-shopping">Continue Shopping</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cart Summary Section -->
+    <div class="cart-summary">
+      <div class="summary-header">Order Summary</div>
+      <div class="summary-content">
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span class="summary-value simpleCart_total">$0.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping:</span>
+          <span class="summary-value">$5.99</span>
+        </div>
+        <div class="summary-row">
+          <span>Tax:</span>
+          <span class="summary-value">$0.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Discount:</span>
+          <span class="summary-value">-$0.00</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total:</span>
+          <span class="summary-value simpleCart_grandTotal">$0.00</span>
+        </div>
+
+        <div class="coupon-section">
+          <h3>Have a coupon?</h3>
+          <div class="coupon-input">
+            <input type="text" placeholder="Enter coupon code" />
+            <button>Apply</button>
+          </div>
+        </div>
+
+        <button class="checkout-btn simpleCart_checkout">
+          <i class="fas fa-lock"></i> Proceed to Checkout
+        </button>
+
+        <div
+          style="
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--gray-color);
+          "
+        >
+          <i class="fas fa-shield-alt"></i> Secure Payment
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
