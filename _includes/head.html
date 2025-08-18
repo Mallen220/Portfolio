@@ -1,15 +1,21 @@
 <head>
   <meta charset="utf-8" />
   <title>
-    {% if {page.title %}{{ page.title }} - {{site.title}}{% else %}{{ site.title }} - {{
-    site.subtitle }}{% endif %}
+    {% if {page.title %}{{ page.title }} - {{site.title}}{% else %}{{ site.title
+    }} - {{ site.subtitle }}{% endif %}
   </title>
   <meta http-equip="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   {% if page.summary %}
-    <meta name="description" content="{{ page.summary | escape }}- {% if {page.title %}{{ page.title }}{% else %}{{ site.description }}{% endif %}">
+  <meta
+    name="description"
+    content="{{ page.summary | escape }}- {% if {page.title %}{{ page.title }}{% else %}{{ site.description }}{% endif %}"
+  />
   {% endif %}
-   <meta name="keywords" content="{% if page.title %}{{ page.title }}, {{ site.title }}, {% for lang in page.languages %}{{ lang }}{% if forloop.last == false %}, {% endif %}{% endfor %}{% else %}{{ site.title }}, {% for language in site.languages %}{% capture languages_slug %}{{ language | first }}{% endcapture %}{% for lang in languages_slug %}{{ lang }}{% endfor %}{% if forloop.last == false %}, {% endif %}{% endfor %}{% endif %},{{ page.keywords | escape }}"/>
+  <meta
+    name="keywords"
+    content="{% if page.title %}{{ page.title }}, {{ site.title }}, {% for lang in page.languages %}{{ lang }}{% if forloop.last == false %}, {% endif %}{% endfor %}{% else %}{{ site.title }}, {% for language in site.languages %}{% capture languages_slug %}{{ language | first }}{% endcapture %}{% for lang in languages_slug %}{{ lang }}{% endfor %}{% if forloop.last == false %}, {% endif %}{% endfor %}{% endif %},{{ page.keywords | escape }}"
+  />
 
   <link
     rel="alternate"
@@ -41,8 +47,8 @@
   <meta content="{{ site.url }}/about/" property="article:author" />
   {% endif %} {% if page.thumbnail %}
   <meta content="{{ site.url }}{{ page.thumbnail }}" property="og:image" />
-  {% endif %} {% if page.languages %} {% for language in page.languages
-  limit:1 %}
+  {% endif %} {% if page.languages %} {% for language in page.languages limit:1
+  %}
   <meta content="{{ language }}" property="article:section" />
   {% endfor %} {% endif %} {% if page.tags %} {% for tag in page.tags %}
   <meta content="{{ tag }}" property="article:tag" />
@@ -57,22 +63,20 @@
   <meta name="twitter:title" content="{{ page.title }}" />
   {% else %}
   <meta name="twitter:title" content="{{ site.title }}" />
-  {% endif %}
-
-  {% if page.url %}
+  {% endif %} {% if page.url %}
   <meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
   {% endif %} {% if page.summary %}
   <meta name="twitter:description" content="{{ page.summary }}" />
   {% else %}
   <meta name="twitter:description" content="{{ site.description }}" />
   {% endif %} {% if page.header-img %}
-  <meta
-    name="twitter:image:src"
-    content="{{ site.url }}{{ page.thumbnail }}"
-  />
+  <meta name="twitter:image:src" content="{{ site.url }}{{ page.thumbnail }}" />
   {% endif %}
 
-  <link rel="stylesheet" href="{{site.url}}{{site.baseurl}}/assets/css/main.css" />
+  <link
+    rel="stylesheet"
+    href="{{site.url}}{{site.baseurl}}/assets/css/main.css"
+  />
   <!-- <link rel="stylesheet" href="{{site.url}}{{site.baseurl}}/assets/css/custom-style.css" /> -->
   <link
     rel="stylesheet"
@@ -107,8 +111,8 @@
     sizes="16x16"
   />
   <script>
-      var base_url = '{{ site.url}}{{site.baseurl}}' ;
-   </script>
+    var base_url = "{{ site.url}}{{site.baseurl}}";
+  </script>
 
   <!-- Jquery -->
   <script
@@ -132,14 +136,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
- <!-- for Mathjax support -->
+  <!-- for Mathjax support -->
   {% if page.usemathjax %}
-   <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-      TeX: { equationNumbers: { autoNumber: "AMS" } }
-      });
-   </script>
-   <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" } }
+    });
+  </script>
+  <script
+    type="text/javascript"
+    async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+  ></script>
   {% endif %}
 
   <!-- Github Button -->
@@ -153,17 +161,20 @@
   <script
     data-name="BMC-Widget"
     src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-    data-id="sujaykundu"
+    data-id="allenmc"
     data-description="Support me on Buy me a coffee!"
     data-message=""
     data-color="#FF813F"
-    data-position="right"
-    data-x_margin="10"
+    data-position="{% if page.layout == 'products' or page.layout == 'shop' or page.layout == 'product' %}left{% else %}right{% endif %}"
+    data-x_margin="15"
     data-y_margin="10"
   ></script>
 
   <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-  <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <!--[if gt IE 8]><!-->
+  <html class="no-js">
+    <!--<![endif]-->
+  </html>
 </head>
