@@ -6,7 +6,10 @@ layout: default
 <link rel="stylesheet" href="{{ '/assets/css/cart.css' | relative_url }}" />
 <script src="{{ site.baseurl }}/assets/js/cart.js"></script>
 
-<div class="notification" id="notification">Item removed from cart!</div>
+<br />
+<br />
+
+<!--<div class="notification" id="notification">Item removed from cart!</div>-->
 
 <div class="cart-container">
   <div class="cart-header">
@@ -42,8 +45,8 @@ layout: default
         </div>
 
         <div class="summary-row">
-          <span>Shipping:</span>
-          <span class="summary-value">$5.99</span>
+          <span>Handling:</span>
+          <span class="summary-value" id="handling-fee">$0.00</span>
         </div>
 
         <div class="summary-row">

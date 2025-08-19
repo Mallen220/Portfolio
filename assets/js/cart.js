@@ -193,16 +193,18 @@ function updateCartTotals() {
     itemCount += item.quantity;
   });
 
-  const shipping = 5.99;
-  const taxRate = 0.08;
+  const Handling = 4.99;
+  const taxRate = 0.1085; //10.85% TODO: Find the actual value and make this dynamic.
   const tax = subtotal * taxRate;
-  const total = subtotal + shipping + tax;
+  const total = subtotal + Handling + tax;
 
   // Update DOM elements
   document.getElementById("item-count").textContent = itemCount;
   document.getElementById("cart-subtotal").textContent =
     "$" + subtotal.toFixed(2);
   document.getElementById("cart-tax").textContent = "$" + tax.toFixed(2);
+  document.getElementById("handling-fee").textContent =
+    "$" + Handling.toFixed(2);
   document.getElementById("cart-total").textContent = "$" + total.toFixed(2);
 }
 
