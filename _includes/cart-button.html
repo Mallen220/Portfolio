@@ -1,0 +1,16 @@
+<!-- cart-button.html -->
+<link
+  rel="stylesheet"
+  href="{{ '/assets/css/cart-button.css' | relative_url }}"
+/>
+
+<div class="cart-button-fixed">
+  <a href="{{ site.url }}{{ site.baseurl }}/cart" class="cart-button-link">
+    <button class="cart-button" type="button" aria-label="Cart">
+      <div class="icon-wrapper" aria-hidden="true">
+        <i class="fa-solid fa-cart-shopping"></i>
+      </div>
+      <span class="cart-text">Cart</span>
+    </button>
+  </a>
+</div>
