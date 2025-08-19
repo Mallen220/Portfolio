@@ -7,6 +7,10 @@ price: 4
 image: /assets/img/products/tiger/black.jpg
 type: physical
 subscription: false
+weight_oz: 16
+# (optional) length_in: 10
+# (optional) width_in: 7
+# (optional) height_in: 2
 ---
 
 Gavin the tiger was brought up vegan. His favorite meal is chickpea salad with a lemon juice dressing.

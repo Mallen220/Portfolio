@@ -6,6 +6,10 @@ price: 10
 image: /assets/img/products/product2.jpg
 type: physical
 subscription: false
+weight_oz: 16
+# (optional) length_in: 10
+# (optional) width_in: 7
+# (optional) height_in: 2
 ---
 
 # John Doe Mug

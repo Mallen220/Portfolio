@@ -1,12 +1,12 @@
 // Show loading state
 document.addEventListener("DOMContentLoaded", function () {
-  const loadingOverlay = document.getElementById("loading-overlay");
+  // const loadingOverlay = document.getElementById("loading-overlay");
 
   // Simulate loading delay for demo purposes
   setTimeout(() => {
     generateCartItems();
-    loadingOverlay.style.opacity = "0";
-    loadingOverlay.style.visibility = "hidden";
+    // loadingOverlay.style.opacity = "0";
+    // loadingOverlay.style.visibility = "hidden";
   }, 800);
 });
 
@@ -77,6 +77,11 @@ function generateCartItems() {
 
   // Add event listeners to new elements
   initCartInteractions();
+
+  // Update shipping UI if available
+  if (typeof window.toggleShippingUI === "function") {
+    window.toggleShippingUI();
+  }
 }
 
 // Get cart data from localStorage
@@ -212,45 +217,6 @@ function updateCartTotals() {
 function initializeCart() {
   generateCartItems();
 }
-
-// Set up test environment
-function setupTestEnvironment() {
-  // Clear localStorage for testing
-  localStorage.clear();
-
-  // Add test data to localStorage
-  const testData = {
-    "SCI-1": {
-      quantity: 2,
-      id: "SCI-1",
-      price: 4,
-      name: "Gavin the Tiger",
-      number: "Gavin-the-Tiger",
-      image:
-        "https://images.unsplash.com/photo-1543852786-1cf6624b9987?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&w=300",
-      type: "physical",
-      subscription: "false",
-    },
-    "SCI-2": {
-      quantity: 1,
-      id: "SCI-2",
-      price: 8.99,
-      name: "Elephant Plush Toy",
-      number: "Elephant-Plush",
-      image:
-        "https://images.unsplash.com/photo-1564349683136-77e08dba69c2?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&w=300",
-      type: "physical",
-      subscription: "false",
-    },
-  };
-
-  localStorage.setItem("simpleCart_items", JSON.stringify(testData));
-
-  console.log("Test data loaded. Refresh the page to see your cart.");
-}
-
-// Uncomment to set up test environment
-// setupTestEnvironment();
 
 // Initialize the cart
 initializeCart();

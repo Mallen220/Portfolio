@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         number: this.dataset.id,
         image: this.dataset.image,
         type: this.dataset.type,
+        weight_oz: this.dataset.weight_oz,
         subscription: this.dataset.subscription,
       });
     });

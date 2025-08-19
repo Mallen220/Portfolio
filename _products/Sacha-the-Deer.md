@@ -20,6 +20,10 @@ Sizes:
 Stars: 5
 type: physical
 subscription: true
+weight_oz: 16
+# (optional) length_in: 10
+# (optional) width_in: 7
+# (optional) height_in: 2
 ---
 
 Sacha’s elegant antlers have never been seen on such a beautiful t-shirt. Wear this majestic beast and feel all your problems float away.

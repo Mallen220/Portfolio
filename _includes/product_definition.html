@@ -1,11 +1,12 @@
 <button
-  class="buy-button add-to-cart btn-lg btn-warning"
+  class="btn btn-cart add-to-cart"
   data-id="{{ product.identifier }}"
   data-name="{{ product.name }}"
   data-price="{{ product.price }}"
   data-image="{{ product.image }}"
   data-type="{{ product.type }}"
   data-subscription="{{ product.subscription }}"
+  data-weight-oz="{{ product.weight_oz | default: 16 }}"
 >
-  Add to cart (${{ product.price }})
+  <i class="fas fa-shopping-cart me-2"></i>Add to Cart
 </button>
