@@ -40,6 +40,12 @@ author_work_experiences:
     designation: STEM Teacher
     description: Teacher for Elementary school students in the Kansas City area. Taught students about STEM and how to build robots.
     visibility: true
+  - company_name: Brookline Bots, FTC 17218
+    company_logo: BBots.png
+    company_url: https://brooklinebots.org/
+    designation: Team Head Mentor
+    description: Mentor for a FIRST Tech Challenge robotics team. Helped students design, build, and program robots for competitions.
+    visibility: true
   - company_name: Goodwill of Western MO & Eastern KS
     company_logo: Goodwill.png
     company_url: https://www.mokangoodwill.org/
