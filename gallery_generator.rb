@@ -17,9 +17,9 @@ require "yaml"
 require "fileutils"
 
 ROOT       = File.expand_path(__dir__ + "/..") # repo root (scripts/..)
-GALLERY    = File.join(ROOT, "Website-Portfolio/assets/img/gallery")
-GALLERY_MD = File.join(ROOT, "Website-Portfolio/gallery") # Markdown files location
-DATA_DIR   = File.join(ROOT, "Website-Portfolio/_data/galleries")
+GALLERY    = File.join(ROOT, "Portfolio/assets/img/gallery")
+GALLERY_MD = File.join(ROOT, "Portfolio/gallery") # Markdown files location
+DATA_DIR   = File.join(ROOT, "Portfolio/_data/galleries")
 VALID_EXTS = %w[jpg jpeg png gif webp]
 
 # Find title from gallery markdown files
