@@ -28,7 +28,7 @@ author: Matthew Allen
 author_bio: Hi, my name is Matthew Allen. I am a student at Boston University studying Computer Science!
 author_email: "allenmc220@gmail.com"
 author_location: Boston & Kansas City
-author_website_url: "https://mallen220.github.io/Website-Portfolio/" #TODO: Update this with my website URL
+author_website_url: "https://mallen220.github.io/Portfolio/" #TODO: Update this with my website URL
 typewrite-text: Hello! I'm a student at Boston University studying Computer Science!
 hero_cover_img: home_screen.jpg # replace this for changing homepage cover (eg. try cover.jpeg). Image should be in /assets/img
 
