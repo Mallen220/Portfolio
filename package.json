@@ -1,5 +1,5 @@
 {
-  "name": "website-portfolio",
+  "name": "portfolio",
   "version": "1.0.0",
   "description": "<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section --> [![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors-) <!-- ALL-CONTRIBUTORS-BADGE:END -->",
   "main": "index.js",
@@ -9,16 +9,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mallen220/Website-Portfolio.git"
+    "url": "git+https://github.com/Mallen220/Portfolio.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/Mallen220/Website-Portfolio/issues"
+    "url": "https://github.com/Mallen220/Portfolio/issues"
   },
-  "homepage": "https://github.com/Mallen220/Website-Portfolio#readme",
+  "homepage": "https://github.com/Mallen220/Portfolio#readme",
   "devDependencies": {
     "husky": "^9.1.7",
     "lint-staged": "^16.1.5",
