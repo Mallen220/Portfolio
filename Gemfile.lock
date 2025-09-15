@@ -259,7 +259,7 @@ GEM
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (5.1.1)
-    puma (7.0.0)
+    puma (7.0.2)
       nio4r (~> 2.0)
     racc (1.8.1)
     rb-fsevent (0.11.2)
