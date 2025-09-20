@@ -322,10 +322,21 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Navigation
+
+  function syncScrollPosition() {
+    if (galleryItems[currentIndex]) {
+      galleryItems[currentIndex].scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }
+
   function goToPrev() {
     currentIndex =
       (currentIndex - 1 + galleryItems.length) % galleryItems.length;
     updateLightbox();
+    syncScrollPosition(); // Scroll to the new image
 
     // Preload additional images as we navigate
     const preloadStart = Math.max(0, currentIndex - 3);
@@ -336,6 +347,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function goToNext() {
     currentIndex = (currentIndex + 1) % galleryItems.length;
     updateLightbox();
+    syncScrollPosition(); // Scroll to the new image
 
     // Preload additional images as we navigate
     const preloadStart = Math.max(0, currentIndex - 1);
