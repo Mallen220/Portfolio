@@ -171,19 +171,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize lightbox functionality
   function initLightbox() {
-    // Get all gallery items
-    galleryItems = Array.from(document.querySelectorAll(".gallery-item"));
+    const grid = document.querySelector(".gallery-grid");
+    if (!grid) return;
 
-    // Preload first 5 original images on page load
-    const initialPreloadEnd = Math.min(4, galleryItems.length - 1);
-    preloadOriginalRange(0, initialPreloadEnd);
+    grid.addEventListener("click", function (e) {
+      const galleryItem = e.target.closest(".gallery-item");
 
-    // Add click event to each gallery item
-    galleryItems.forEach((item, index) => {
-      item.addEventListener("click", () => openLightbox(index));
+      if (galleryItem) {
+        e.preventDefault();
+
+        galleryItems = Array.from(document.querySelectorAll(".gallery-item"));
+
+        const index = galleryItems.indexOf(galleryItem);
+
+        if (index > -1) {
+          openLightbox(index);
+        }
+      }
     });
 
-    // Add event listeners to controls
+    // Preload first 5 original images on page load
+    const initialItems = Array.from(document.querySelectorAll(".gallery-item"));
+    const initialPreloadEnd = Math.min(4, initialItems.length - 1);
+    preloadOriginalRange(0, initialPreloadEnd);
+
+    // Add event listeners to controls (these only need to be added once)
     closeBtn.addEventListener("click", closeLightbox);
     prevBtn.addEventListener("click", goToPrev);
     nextBtn.addEventListener("click", goToNext);
