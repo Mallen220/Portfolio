@@ -110,11 +110,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Track preloaded originals
   const preloadedOriginals = new Set();
+  function refreshGalleryItems() {
+    const newItemsList = Array.from(document.querySelectorAll(".gallery-item"));
 
-  // Initialize Masonry for gallery grids
+    if (newItemsList.length > galleryItems.length) {
+      galleryItems = newItemsList;
+
+      if (lightbox.classList.contains("active")) {
+        counter.textContent = `${currentIndex + 1}/${galleryItems.length}`;
+        const preloadStart = currentIndex;
+        const preloadEnd = Math.min(galleryItems.length - 1, currentIndex + 5);
+        preloadOriginalRange(preloadStart, preloadEnd);
+      }
+    }
+  }
+
   function initMasonry() {
     document.querySelectorAll(".gallery-grid").forEach((grid) => {
-      // Skip if already initialized
       if (grid.dataset.masonryInitialized) return;
       grid.dataset.masonryInitialized = true;
 
@@ -196,6 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
     preloadOriginalRange(0, initialPreloadEnd);
 
     // Add event listeners to controls (these only need to be added once)
+
     closeBtn.addEventListener("click", closeLightbox);
     prevBtn.addEventListener("click", goToPrev);
     nextBtn.addEventListener("click", goToNext);
@@ -321,7 +334,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Navigation
+  function checkAndLoadNextBatch() {
+    const preloadThreshold = 5;
+    if (currentIndex >= galleryItems.length - preloadThreshold) {
+      if (typeof window.loadMoreImages === "function") {
+        window.loadMoreImages();
+      }
+    }
+  }
 
   function syncScrollPosition() {
     if (galleryItems[currentIndex]) {
@@ -338,7 +358,6 @@ document.addEventListener("DOMContentLoaded", function () {
     updateLightbox();
     syncScrollPosition(); // Scroll to the new image
 
-    // Preload additional images as we navigate
     const preloadStart = Math.max(0, currentIndex - 3);
     const preloadEnd = Math.min(galleryItems.length - 1, currentIndex + 1);
     preloadOriginalRange(preloadStart, preloadEnd);
@@ -349,7 +368,6 @@ document.addEventListener("DOMContentLoaded", function () {
     updateLightbox();
     syncScrollPosition(); // Scroll to the new image
 
-    // Preload additional images as we navigate
     const preloadStart = Math.max(0, currentIndex - 1);
     const preloadEnd = Math.min(galleryItems.length - 1, currentIndex + 3);
     preloadOriginalRange(preloadStart, preloadEnd);
