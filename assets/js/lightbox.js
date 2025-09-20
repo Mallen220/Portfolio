@@ -207,7 +207,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const initialPreloadEnd = Math.min(4, initialItems.length - 1);
     preloadOriginalRange(0, initialPreloadEnd);
 
-    // Add event listeners to controls (these only need to be added once)
+    // This observer watches for new items being added to the grid
+    const observer = new MutationObserver(refreshGalleryItems);
+    observer.observe(grid, { childList: true });
 
     closeBtn.addEventListener("click", closeLightbox);
     prevBtn.addEventListener("click", goToPrev);
@@ -356,7 +358,8 @@ document.addEventListener("DOMContentLoaded", function () {
     currentIndex =
       (currentIndex - 1 + galleryItems.length) % galleryItems.length;
     updateLightbox();
-    syncScrollPosition(); // Scroll to the new image
+    syncScrollPosition();
+    checkAndLoadNextBatch();
 
     const preloadStart = Math.max(0, currentIndex - 3);
     const preloadEnd = Math.min(galleryItems.length - 1, currentIndex + 1);
@@ -366,7 +369,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function goToNext() {
     currentIndex = (currentIndex + 1) % galleryItems.length;
     updateLightbox();
-    syncScrollPosition(); // Scroll to the new image
+    syncScrollPosition();
+    checkAndLoadNextBatch();
 
     const preloadStart = Math.max(0, currentIndex - 1);
     const preloadEnd = Math.min(galleryItems.length - 1, currentIndex + 3);
