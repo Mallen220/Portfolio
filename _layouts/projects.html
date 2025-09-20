@@ -56,7 +56,9 @@ layout: default
           </li>
           {% endif %}
 
-          <li class="pagination-link"><a href="/projects">First</a></li>
+          <li class="pagination-link">
+            <a href="{{site.url}}{{site.baseurl}}projects">First</a>
+          </li>
 
           {% for page in (1..paginator.total_pages) %} {% if page ==
           paginator.page %}
@@ -64,7 +66,9 @@ layout: default
             <span><b>{{ page }}</b></span>
           </li>
           {% elsif page == 1 %}
-          <li class="pagination-link"><a href="/projects">{{ page }}</a></li>
+          <li class="pagination-link">
+            <a href="{{site.url}}{{site.baseurl}}projects">{{ page }}</a>
+          </li>
           {% else %}
           <li class="pagination-link">
             <a
