@@ -110,11 +110,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Track preloaded originals
   const preloadedOriginals = new Set();
+  function refreshGalleryItems() {
+    const newItemsList = Array.from(document.querySelectorAll(".gallery-item"));
 
-  // Initialize Masonry for gallery grids
+    if (newItemsList.length > galleryItems.length) {
+      galleryItems = newItemsList;
+
+      if (lightbox.classList.contains("active")) {
+        counter.textContent = `${currentIndex + 1}/${galleryItems.length}`;
+        const preloadStart = currentIndex;
+        const preloadEnd = Math.min(galleryItems.length - 1, currentIndex + 5);
+        preloadOriginalRange(preloadStart, preloadEnd);
+      }
+    }
+  }
+
   function initMasonry() {
     document.querySelectorAll(".gallery-grid").forEach((grid) => {
-      // Skip if already initialized
       if (grid.dataset.masonryInitialized) return;
       grid.dataset.masonryInitialized = true;
 
@@ -171,19 +183,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize lightbox functionality
   function initLightbox() {
-    // Get all gallery items
-    galleryItems = Array.from(document.querySelectorAll(".gallery-item"));
+    const grid = document.querySelector(".gallery-grid");
+    if (!grid) return;
 
-    // Preload first 5 original images on page load
-    const initialPreloadEnd = Math.min(4, galleryItems.length - 1);
-    preloadOriginalRange(0, initialPreloadEnd);
+    grid.addEventListener("click", function (e) {
+      const galleryItem = e.target.closest(".gallery-item");
 
-    // Add click event to each gallery item
-    galleryItems.forEach((item, index) => {
-      item.addEventListener("click", () => openLightbox(index));
+      if (galleryItem) {
+        e.preventDefault();
+
+        galleryItems = Array.from(document.querySelectorAll(".gallery-item"));
+
+        const index = galleryItems.indexOf(galleryItem);
+
+        if (index > -1) {
+          openLightbox(index);
+        }
+      }
     });
 
-    // Add event listeners to controls
+    // Preload first 5 original images on page load
+    const initialItems = Array.from(document.querySelectorAll(".gallery-item"));
+    const initialPreloadEnd = Math.min(4, initialItems.length - 1);
+    preloadOriginalRange(0, initialPreloadEnd);
+
+    // This observer watches for new items being added to the grid
+    const observer = new MutationObserver(refreshGalleryItems);
+    observer.observe(grid, { childList: true });
+
     closeBtn.addEventListener("click", closeLightbox);
     prevBtn.addEventListener("click", goToPrev);
     nextBtn.addEventListener("click", goToNext);
@@ -309,13 +336,31 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Navigation
+  function checkAndLoadNextBatch() {
+    const preloadThreshold = 10; // When to trigger loading more
+    if (currentIndex >= galleryItems.length - preloadThreshold) {
+      if (typeof window.loadMoreImages === "function") {
+        window.loadMoreImages();
+      }
+    }
+  }
+
+  function syncScrollPosition() {
+    if (galleryItems[currentIndex]) {
+      galleryItems[currentIndex].scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }
+
   function goToPrev() {
     currentIndex =
       (currentIndex - 1 + galleryItems.length) % galleryItems.length;
     updateLightbox();
+    syncScrollPosition();
+    checkAndLoadNextBatch();
 
-    // Preload additional images as we navigate
     const preloadStart = Math.max(0, currentIndex - 3);
     const preloadEnd = Math.min(galleryItems.length - 1, currentIndex + 1);
     preloadOriginalRange(preloadStart, preloadEnd);
@@ -324,8 +369,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function goToNext() {
     currentIndex = (currentIndex + 1) % galleryItems.length;
     updateLightbox();
+    syncScrollPosition();
+    checkAndLoadNextBatch();
 
-    // Preload additional images as we navigate
     const preloadStart = Math.max(0, currentIndex - 1);
     const preloadEnd = Math.min(galleryItems.length - 1, currentIndex + 3);
     preloadOriginalRange(preloadStart, preloadEnd);

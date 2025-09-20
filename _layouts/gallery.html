@@ -3,24 +3,65 @@ layout: default
 ---
 
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/lightbox.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
 <script src="{{ site.baseurl }}/assets/js/lightbox.js"></script>
 
 <style>
-  /* Ensure proper gallery item sizing */
+  .gallery-grid {
+    margin: 0 auto;
+  }
+
   .gallery-item {
-    display: block;
+    width: calc(25% - 20px);
+    margin-bottom: 20px;
     break-inside: avoid;
     page-break-inside: avoid;
     -webkit-column-break-inside: avoid;
   }
 
-  /* Remove float from grid items */
-  .gallery-item:after {
-    content: "";
-    display: table;
-    clear: both;
+  .gallery-grid-sizer {
+    width: calc(25% - 20px);
+  }
+
+  .gallery-thumbnail {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-thumbnail:hover {
+    transform: scale(1.02);
+  }
+
+  #loader {
+    text-align: center;
+    padding: 20px;
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
+    .gallery-item,
+    .gallery-grid-sizer {
+      width: calc(33.333% - 20px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .gallery-item,
+    .gallery-grid-sizer {
+      width: calc(50% - 15px);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .gallery-item,
+    .gallery-grid-sizer {
+      width: 100%;
+    }
   }
 </style>
 
@@ -60,13 +101,12 @@ layout: default
             class="gallery-grid"
             id="gallery-{{ page.picture_path | slugify }}"
           >
-            <!-- Masonry grid sizer -->
             <div class="gallery-grid-sizer"></div>
 
-            {% for picture in site.data.galleries[page.picture_path].pictures %}
-            {% assign base_name = picture.filename %} {% assign ext =
-            picture.original | split: '.' | last %} {% assign caption =
-            picture.title | default: picture.filename %}
+            {% assign initial_load_count = 12 %} {% for picture in
+            site.data.galleries[page.picture_path].pictures
+            limit:initial_load_count %} {% assign caption = picture.title |
+            default: picture.filename %}
 
             <div class="gallery-item">
               <a
@@ -80,16 +120,129 @@ layout: default
                   loading="lazy"
                   class="gallery-thumbnail"
                   alt="{{ caption }}"
-                  src="{{ site.baseurl }}/assets/img/gallery/{{ page.picture_path }}/{{ picture.original }}"
+                  src="{{ site.baseurl }}/assets/img/gallery/{{ page.picture_path }}/{{ picture.filename }}"
                 />
               </a>
             </div>
             {% endfor %}
           </div>
+          <div id="loader">Loading more photos...</div>
         </div>
       </div>
     </div>
-    <!--    end if for private gallery-->
     {% endif%}
   </div>
 </div>
+
+<script>
+  {%- assign gallery_data = site.data.galleries[page.picture_path] -%}
+  {%- if gallery_data and gallery_data.pictures.size > 0 -%}
+
+  const allPictures = {{ gallery_data.pictures | jsonify }};
+  const baseImgUrl = "{{ site.baseurl }}/assets/img/gallery/{{ page.picture_path }}";
+  const picturePath = "{{ page.picture_path }}";
+
+  const initialLoadCount = 12;
+  const batchSize = 8;
+  let currentIndex = initialLoadCount;
+  let isLoading = false;
+  let masonry;
+
+  $(document).ready(function () {
+    const $grid = $("#gallery-{{ page.picture_path | slugify }}");
+
+    function initMasonry() {
+      if (typeof Masonry !== 'undefined') {
+        masonry = new Masonry($grid[0], {
+          itemSelector: ".gallery-item",
+          columnWidth: ".gallery-grid-sizer",
+          percentPosition: true,
+          gutter: 20
+        });
+      }
+    }
+
+    function updateLightbox() {
+      if (typeof window.updateLightboxItems === 'function') {
+        window.updateLightboxItems();
+      }
+      else if (typeof initLightbox === 'function') {
+        initLightbox();
+      }
+    }
+
+    function checkAndLoad() {
+      if (isLoading) return;
+
+      const buffer = 1000;
+      if ($(window).scrollTop() + $(window).height() >= $(document).height() - buffer) {
+        loadMoreImages();
+      }
+    }
+
+    $grid.imagesLoaded(function() {
+      initMasonry();
+      updateLightbox();
+      checkAndLoad();
+    });
+
+    function loadMoreImages() {
+      if (isLoading || currentIndex >= allPictures.length) {
+        if (currentIndex >= allPictures.length) {
+          $('#loader').hide();
+        }
+        return;
+      }
+
+      isLoading = true;
+      $("#loader").show();
+
+      let itemsHtml = '';
+      const endIndex = Math.min(currentIndex + batchSize, allPictures.length);
+
+      for (let i = currentIndex; i < endIndex; i++) {
+        const picture = allPictures[i];
+        const caption = picture.title || picture.filename;
+        const safeCaption = caption.replace(/"/g, '&quot;');
+        itemsHtml += `
+          <div class="gallery-item">
+            <a href="javascript:void(0);" class="gallery-link"
+               data-src="${baseImgUrl}/${picture.original}"
+               data-original="${baseImgUrl}/${picture.filename}"
+               data-caption="${safeCaption}">
+              <img loading="lazy" class="gallery-thumbnail" alt="${safeCaption}"
+                   src="${baseImgUrl}/${picture.filename}" />
+            </a>
+          </div>
+        `;
+      }
+
+      const $newItems = $(itemsHtml);
+      $grid.append($newItems);
+
+      $newItems.imagesLoaded().done(function() {
+        if (masonry) {
+          masonry.appended($newItems);
+          masonry.layout();
+        }
+
+        updateLightbox();
+
+        isLoading = false;
+        $("#loader").hide();
+        checkAndLoad();
+      });
+
+      currentIndex = endIndex;
+    }
+
+    $(window).on("scroll", checkAndLoad);
+  });
+
+  {%- else -%}
+  console.error(
+    "Jekyll Gallery Error: Could not find picture data for '{{ page.picture_path | default: 'undefined' }}'. " +
+    "Ensure 'picture_path' is set in the page's front matter and that a corresponding file exists in the _data/galleries/ directory."
+  );
+  {%- endif -%}
+</script>
