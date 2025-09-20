@@ -337,7 +337,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function checkAndLoadNextBatch() {
-    const preloadThreshold = 5;
+    const preloadThreshold = 10; // When to trigger loading more
     if (currentIndex >= galleryItems.length - preloadThreshold) {
       if (typeof window.loadMoreImages === "function") {
         window.loadMoreImages();
