@@ -174,7 +174,7 @@ layout: default
     function checkAndLoad() {
       if (isLoading) return;
 
-      const buffer = 500;
+      const buffer = 1000;
       if ($(window).scrollTop() + $(window).height() >= $(document).height() - buffer) {
         loadMoreImages();
       }
