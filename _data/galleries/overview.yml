@@ -1,72 +1,90 @@
-- title: Boston Marathon 2025 Gallery
-  directory: BostonMarathon2025
-  preview:
-    filename: BostonMarathon2025-13.jpg
-- title: Boston March For Science Protest 2025
-  directory: MarchForScience2025
-  preview:
-    filename: MarchForScience2025.jpg
-- title: Boston University Photo Adventures
-  directory: BUPhotoAdventures
-  preview:
-    filename: BUPhotoAdventures.jpg
-- title: Brookline Bots Canada Premiere Event 2025 Gallery
-  directory: 17218CanadianPremiere2025
-  preview:
-    filename: CanadaPremiereEvent2025-7103.jpg
-- title: BU Men's Ice Hockey on 1/24
-  directory: MensIceHockey1-24-2025
-  preview:
-    filename: BUHockeyVsBC--10.jpg
-- title: BU Men's Ice Hockey on 1/31
-  directory: MensIceHockey1-31-2025
-  preview:
-    filename: BUHockeyVsUNH--10.jpg
-- title: BU Men's Ice Hockey on 10/12
-  directory: MensIceHockey10-12-2024
-  preview:
-    filename: BU-Hockey-10-12-2024--10.jpg
-- title: BU Women's Hockey vs UConn 2025 Gallery
-  directory: BUICEWVSUCONN
-  preview:
-    filename: BUvsUCONN--10.jpg
-- title: BU Women's Rugby on 10/20/24
-  directory: BUWomensRugby10-20-2024
-  preview:
-    filename: BU-Rugby-10-20-2024--10.jpg
-- title: BU Women's Rugby on 10/6/24
-  directory: BURugby10-6-2024
-  preview:
-    filename: BU-Rugby-10-6-2024--11.jpg
-- title: BU Women's Rugby on 9/29/24
-  directory: BURugby9-29-2024
-  preview:
-    filename: BURugby9-29-2024.jpg
 - title: Europe 2025 Adventure!
   directory: Europe2025
   preview:
     filename: Europe2025.jpg
-- title: New York City Photos
-  directory: NYCPhotos
-  preview:
-    filename: NYC--10.jpg
-- title: Offside Ostriches 06/22.
-  directory: OO2025-6-22
-  preview:
-    filename: OOSoccer2025-4907.jpg
-- title: Offside Ostriches 06/29.
-  directory: OO2025-6-29
-  preview:
-    filename: OOSoccer2025-5332.jpg
-- title: Offside Ostriches 07/13.
-  directory: OO2025-7-13
-  preview:
-    filename: OOSoccer2025-6502.jpg
-- title: Offside Ostriches 7/6.
-  directory: OO2025-7-6
-  preview:
-    filename: OOSoccer2025-5844.jpg
+  date: "2025-08-04"
 - title: Offside Ostriches 8/3.
   directory: OO2025-8-3
   preview:
     filename: OOSoccerAug3-7683.jpg
+  date: "2025-08-03"
+- title: Brookline Bots Canada Premiere Event 2025 Gallery
+  directory: 17218CanadianPremiere2025
+  preview:
+    filename: CanadaPremiereEvent2025-7103.jpg
+  date: "2025-07-25"
+- title: Offside Ostriches 07/13.
+  directory: OO2025-7-13
+  preview:
+    filename: OOSoccer2025-6502.jpg
+  date: "2025-07-13"
+- title: Offside Ostriches 7/6.
+  directory: OO2025-7-6
+  preview:
+    filename: OOSoccer2025-5844.jpg
+  date: "2025-07-06"
+- title: Offside Ostriches 06/29.
+  directory: OO2025-6-29
+  preview:
+    filename: OOSoccer2025-5332.jpg
+  date: "2025-06-29"
+- title: Offside Ostriches 06/22.
+  directory: OO2025-6-22
+  preview:
+    filename: OOSoccer2025-4907.jpg
+  date: "2025-06-22"
+- title: Boston Marathon 2025 Gallery
+  directory: BostonMarathon2025
+  preview:
+    filename: BostonMarathon2025-13.jpg
+  date: "2025-04-21"
+- title: New York City Photos
+  directory: NYCPhotos
+  preview:
+    filename: NYC--10.jpg
+  date: "2025-03-17"
+- title: Boston March For Science Protest 2025
+  directory: MarchForScience2025
+  preview:
+    filename: MarchForScience2025.jpg
+  date: "2025-03-15"
+- title: BU Women's Hockey vs UConn 2025 Gallery
+  directory: BUICEWVSUCONN
+  preview:
+    filename: BUvsUCONN--10.jpg
+  date: "2025-02-22"
+- title: BU Men's Ice Hockey on 1/31
+  directory: MensIceHockey1-31-2025
+  preview:
+    filename: BUHockeyVsUNH--10.jpg
+  date: "2025-01-31"
+- title: BU Men's Ice Hockey on 1/24
+  directory: MensIceHockey1-24-2025
+  preview:
+    filename: BUHockeyVsBC--10.jpg
+  date: "2025-01-24"
+- title: BU Women's Rugby on 10/20/24
+  directory: BUWomensRugby10-20-2024
+  preview:
+    filename: BU-Rugby-10-20-2024--10.jpg
+  date: "2024-10-20"
+- title: BU Men's Ice Hockey on 10/12
+  directory: MensIceHockey10-12-2024
+  preview:
+    filename: BU-Hockey-10-12-2024--10.jpg
+  date: "2024-10-12"
+- title: BU Women's Rugby on 10/6/24
+  directory: BURugby10-6-2024
+  preview:
+    filename: BU-Rugby-10-6-2024--11.jpg
+  date: "2024-10-06"
+- title: Boston University Photo Adventures
+  directory: BUPhotoAdventures
+  preview:
+    filename: BUPhotoAdventures.jpg
+  date: "2024-10-01"
+- title: BU Women's Rugby on 9/29/24
+  directory: BURugby9-29-2024
+  preview:
+    filename: BURugby9-29-2024.jpg
+  date: "2024-09-29"

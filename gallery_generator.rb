@@ -5,16 +5,18 @@
 #   - _data/galleries/overview.yml with one entry per folder
 #
 # Behavior:
-#   - Uses gallery markdown files to find titles
+#   - Uses gallery markdown files to find titles and dates
 #   - Sets preview image to first image in folder if custom preview doesn't exist
 #   - Only considers originals (ignores files ending with -thumbnail.*).
 #   - Supports extensions: jpg|jpeg|png|gif|webp (case-insensitive).
 #   - Writes "filename" without extension; "original" uses the same extension as source.
 #   - Ensures overview preview images exist; if missing, uses first picture.
 #   - Removes stale *_data/galleries/*.yml (except overview.yml) that no longer correspond to folder.
+#   - Includes date field from markdown front matter in overview.yml
 
 require "yaml"
 require "fileutils"
+require "date"
 
 ROOT       = File.expand_path(__dir__ + "/..") # repo root (scripts/..)
 GALLERY    = File.join(ROOT, "Portfolio/assets/img/gallery")
@@ -22,20 +24,27 @@ GALLERY_MD = File.join(ROOT, "Portfolio/gallery") # Markdown files location
 DATA_DIR   = File.join(ROOT, "Portfolio/_data/galleries")
 VALID_EXTS = %w[jpg jpeg png gif webp]
 
-# Find title from gallery markdown files
-def find_title_for_folder(folder_name)
-  return folder_name.capitalize unless Dir.exist?(GALLERY_MD)
+# Find title and date from gallery markdown files
+def find_metadata_for_folder(folder_name)
+  metadata = { title: folder_name.capitalize, date: nil }
+  return metadata unless Dir.exist?(GALLERY_MD)
 
   Dir.glob(File.join(GALLERY_MD, "*.md")).each do |file|
     content = File.read(file)
     if content.include?("picture_path: #{folder_name}")
+      # Extract title
       if match = content.match(/title: ["']?(.+?)["']?(\n|$)/)
-        return match[1].strip
+        metadata[:title] = match[1].strip
+      end
+
+      # Extract date
+      if match = content.match(/date: ["']?(\d{4}-\d{2}-\d{2})["']?(\n|$)/)
+        metadata[:date] = match[1].strip
       end
     end
   end
 
-  folder_name.capitalize # Fallback to capitalized folder name
+  metadata
 end
 
 def valid_image?(filename)
@@ -162,22 +171,40 @@ def generate
     yml_path = write_gallery_yaml(folder_name, yaml_pictures)
     generated_files << File.basename(yml_path)
 
-    # Get title from markdown file or use folder name
-    title = find_title_for_folder(folder_name)
+    # Get title and date from markdown file or use folder name
+    metadata = find_metadata_for_folder(folder_name)
+    title = metadata[:title]
+    date = metadata[:date]
 
     # Get preview filename
     preview_filename = get_preview_filename(folder_path, folder_name, pictures)
 
-    overview_entries << {
+    # Create overview entry with date if available
+    overview_entry = {
       "title" => title,
       "directory" => folder_name,
       "preview" => {
         "filename" => preview_filename,
       }
     }
+
+    # Add date to overview entry if available
+    overview_entry["date"] = date if date
+
+    overview_entries << overview_entry
   end
 
-  overview_entries.sort_by! { |e| e["title"].downcase }
+  # Sort overview entries by date (if available) or by title
+  overview_entries.sort_by! do |e|
+    if e["date"]
+      # Parse date for proper sorting (newest first)
+      [Date.parse(e["date"]), e["title"]]
+    else
+      # For entries without date, use a very old date so they appear last
+      [Date.parse("1900-01-01"), e["title"]]
+    end
+  end.reverse!
+
   write_overview_yaml(overview_entries)
   generated_files << "overview.yml"
 
@@ -191,6 +218,7 @@ def generate
      end
 
   puts "Generated YAML for #{folders.size} galleries."
+  puts "Overview entries sorted by date (newest first)."
 end
 
 generate
