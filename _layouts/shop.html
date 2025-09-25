@@ -66,20 +66,16 @@ layout: default
         </div>
       </a>
       <div class="product-actions">
-        <button
-          class="btn btn-cart add-to-cart"
-          data-id="{{ product.identifier }}"
-          data-name="{{ product.name }}"
-          data-price="{{ product.price }}"
-          data-image="{{ product.image }}"
-          data-type="{{ product.type }}"
-          data-subscription="{{ product.subscription }}"
+        <a
+          style="color: white !important"
+          class="btn btn-cart"
+          href="{{ site.url }}{{ site.baseurl }}/products/{{ product.identifier }}"
         >
-          <i class="fas fa-shopping-cart me-2"></i>Add to Cart
-        </button>
-        <button class="btn-wishlist">
-          <i class="far fa-heart"></i>
-        </button>
+          <i class="me-2"></i>Learn More!
+        </a>
+        <!--        <button class="btn-wishlist">-->
+        <!--          <i class="far fa-heart"></i>-->
+        <!--        </button>-->
       </div>
     </div>
     {% endfor %}
@@ -87,4 +83,3 @@ layout: default
 </div>
 
 <script src="{{ '/assets/js/product-grid.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/add-to-cart.js' | relative_url }}"></script>
