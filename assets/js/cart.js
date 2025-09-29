@@ -12,18 +12,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Function to show notification
 function showNotification(message) {
-  const notification = document.getElementById("notification");
+  let notification = document.getElementById("notification");
+  if (!notification) {
+    notification = document.createElement("div");
+    notification.id = "notification";
+    notification.className = "notification";
+    // Basic styles for notification (customize as needed)
+    notification.style.position = "fixed";
+    notification.style.top = "20px";
+    notification.style.right = "20px";
+    notification.style.background = "#333";
+    notification.style.color = "#fff";
+    notification.style.padding = "12px 24px";
+    notification.style.borderRadius = "6px";
+    notification.style.zIndex = 2000;
+    notification.style.fontSize = "1rem";
+    notification.style.boxShadow = "0 2px 8px rgba(0,0,0,0.15)";
+    notification.style.display = "none";
+    document.body.appendChild(notification);
+  }
   notification.textContent = message;
   notification.classList.add("show");
-
+  notification.style.display = "block";
   setTimeout(() => {
     notification.classList.remove("show");
+    notification.style.display = "none";
   }, 3000);
 }
 
 // Function to generate cart items from localStorage
 function generateCartItems() {
   const container = document.getElementById("cart-items-container");
+  if (!container) return; // Prevent null errors if container is missing
   const cartData = getCartData();
   const items = Object.values(cartData);
 
@@ -37,6 +57,8 @@ function generateCartItems() {
                     </div>
                 `;
     updateCartTotals();
+    // No items, but still re-init interactions for empty state
+    initCartInteractions();
     return;
   }
 
