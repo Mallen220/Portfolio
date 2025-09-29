@@ -62,49 +62,49 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Add to cart functionality
-  const addToCartBtn = document.querySelector(".add-to-cart-btn");
+  // const addToCartBtn = document.querySelector(".add-to-cart-btn");
 
-  addToCartBtn.addEventListener("click", function () {
-    const productName = document.querySelector(".product-title").textContent;
-    const quantity = parseInt(quantityInput.value);
-    const selectedColor = document
-      .querySelector(".color-option.active")
-      .getAttribute("data-color");
-    const sizeSelect = document.querySelector(".size-select");
-    const selectedSize = sizeSelect.options[sizeSelect.selectedIndex].text;
+  // addToCartBtn.addEventListener("click", function () {
+  //   const productName = document.querySelector(".product-title").textContent;
+  //   const quantity = parseInt(quantityInput.value);
+  //   const selectedColor = document
+  //     .querySelector(".color-option.active")
+  //     .getAttribute("data-color");
+  //   const sizeSelect = document.querySelector(".size-select");
+  //   const selectedSize = sizeSelect.options[sizeSelect.selectedIndex].text;
 
-    // Create notification
-    const notification = document.createElement("div");
-    notification.innerHTML = `
-      <div class="cart-notification">
-        <i class="fas fa-check-circle"></i>
-        <div>
-          <div class="notification-title">Added to cart!</div>
-          <div class="notification-detail">${quantity} x ${productName}</div>
-          <div class="notification-meta">${selectedColor}, ${selectedSize}</div>
-        </div>
-      </div>
-    `;
+  //   // Create notification
+  //   const notification = document.createElement("div");
+  //   notification.innerHTML = `
+  //     <div class="cart-notification">
+  //       <i class="fas fa-check-circle"></i>
+  //       <div>
+  //         <div class="notification-title">Added to cart!</div>
+  //         <div class="notification-detail">${quantity} x ${productName}</div>
+  //         <div class="notification-meta">${selectedColor}, ${selectedSize}</div>
+  //       </div>
+  //     </div>
+  //   `;
 
-    document.body.appendChild(notification);
+  //   document.body.appendChild(notification);
 
-    // Remove notification after 3 seconds
-    setTimeout(() => {
-      notification.style.animation = "slideOut 0.3s ease forwards";
-      setTimeout(() => {
-        notification.remove();
-      }, 300);
-    }, 3000);
+  //   // Remove notification after 3 seconds
+  //   setTimeout(() => {
+  //     notification.style.animation = "slideOut 0.3s ease forwards";
+  //     setTimeout(() => {
+  //       notification.remove();
+  //     }, 300);
+  //   }, 3000);
 
-    // Button animation
-    this.innerHTML = '<i class="fas fa-check"></i> Added to Cart';
-    this.style.backgroundColor = "#4caf50";
+  //   // Button animation
+  //   this.innerHTML = '<i class="fas fa-check"></i> Added to Cart';
+  //   this.style.backgroundColor = "#4caf50";
 
-    setTimeout(() => {
-      this.innerHTML = '<i class="fas fa-shopping-cart"></i> Add to Cart';
-      this.style.backgroundColor = "";
-    }, 2000);
-  });
+  //   setTimeout(() => {
+  //     this.innerHTML = '<i class="fas fa-shopping-cart"></i> Add to Cart';
+  //     this.style.backgroundColor = "";
+  //   }, 2000);
+  // });
 
   // Wishlist functionality
   const wishlistBtn = document.querySelector(".wishlist-btn");
