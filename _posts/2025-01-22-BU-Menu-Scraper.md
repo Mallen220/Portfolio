@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "My first college project! BU Menu Scrapper."
+title: "My first college project! BU Menu Scraper."
 summary: "Scrapes the BU Menu to find the likely favorite food for a given day."
 author: MatthewAllen
 date: "2025-01-12 0:00:00 +0530"
 category: ["Python"]
-thumbnail: /assets/img/projects/BUMenuScrapper.png
+thumbnail: /assets/img/projects/BUMenuScraper.png
 keywords: devlopr jekyll, how to use devlopr, devlopr, how to use devlopr-jekyll, devlopr-jekyll tutorial,best jekyll themes, multi languages and tags
 usemathjax: true
-permalink: /projects/BU-Menu-Scrapper/
-github_url: "https://github.com/Mallen220/BUMenuScrapper"
+permalink: /projects/BU-Menu-Scraper/
+github_url: "https://github.com/Mallen220/BUMenuScraper"
 pagination:
   enabled: true
   collection: projects
