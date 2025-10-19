@@ -32,8 +32,8 @@ languages:
     - title: Tetris Machine Learning
       url: "/projects/Tetris-ML/"
       date: 2025-06-25
-    - title: My first college project! BU Menu Scrapper.
-      url: "/projects/BU-Menu-Scrapper/"
+    - title: My first college project! BU Menu Scraper.
+      url: "/projects/BU-Menu-Scraper/"
       date: 2025-01-12
     - title: Smart Clicker (Previously Windows-Autoclicker)
       url: "/projects/Smart-Clicker/"
