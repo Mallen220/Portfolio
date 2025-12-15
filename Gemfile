@@ -4,7 +4,7 @@ source "https://rubygems.org"
 gem 'bundler', '~> 2.5.15'
 gem 'faraday'
 gem 'faraday-retry'
-gem 'backports', '~> 3.25.2'
+gem 'backports', '~> 3.25.3'
 gem 'kramdown'
 gem 'puma'
 gem 'csv'
