@@ -1591,20 +1591,21 @@ footer {
 .hero-buttons .btn-primary {
   background-color: var(--link-color);
   border-color: var(--link-color);
+  color: #fff !important;
 }
 
 .hero-buttons .btn-primary:hover {
   background-color: #d94e0b; /* Darker orange */
   border-color: #d94e0b;
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .hero-buttons .btn-outline-light:hover {
   background-color: #fff;
   color: #000 !important;
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .hero-profile-img {
@@ -1612,8 +1613,8 @@ footer {
   height: 300px;
   border-radius: 50%;
   object-fit: cover;
-  border: 5px solid rgba(255,255,255,0.2);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border: 5px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Sections */
@@ -1630,7 +1631,7 @@ footer {
 }
 
 .section-title::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: -10px;
@@ -1646,20 +1647,27 @@ footer {
 }
 
 /* Cards */
-.experience-card, .education-card, .project-card {
+.experience-card,
+.education-card,
+.project-card {
   border: none !important;
   background-color: var(--card-background-color) !important;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05) !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05) !important;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   overflow: hidden;
 }
 
-.experience-card:hover, .education-card:hover, .project-card:hover {
+.experience-card:hover,
+.education-card:hover,
+.project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
 }
 
-.company-logo-sm, .college-logo-sm {
+.company-logo-sm,
+.college-logo-sm {
   width: 50px;
   height: 50px;
   object-fit: contain;
@@ -1669,12 +1677,14 @@ footer {
   border: 1px solid var(--light-border-color);
 }
 
-.company-link, .college-link {
+.company-link,
+.college-link {
   color: var(--bold-color) !important;
   text-decoration: none;
 }
 
-.company-link:hover, .college-link:hover {
+.company-link:hover,
+.college-link:hover {
   color: var(--link-color) !important;
 }
 
