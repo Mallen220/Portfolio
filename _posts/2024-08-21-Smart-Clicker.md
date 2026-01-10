@@ -5,7 +5,7 @@ summary: "Uses a great deal of logic and user input to create a powerful cross-p
 author: MatthewAllen
 date: "2024-08-21 0:00:00 +0530"
 category: ["Python"]
-thumbnail: /assets/img/projects/SmartClicker.png
+thumbnail: assets/img/projects/SmartClicker.png
 keywords: devlopr jekyll, how to use devlopr, devlopr, how to use devlopr-jekyll, devlopr-jekyll tutorial,best jekyll themes, multi languages and tags
 usemathjax: true
 permalink: /projects/Smart-Clicker/
