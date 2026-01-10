@@ -238,7 +238,23 @@ function updateCartTotals() {
 // Initialize cart when page loads
 function initializeCart() {
   generateCartItems();
+
+  // Attach listener to checkout button
+  const checkoutBtn = document.querySelector(".checkout-btn");
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener("click", function () {
+      // Basic check if cart is empty
+      const items = Object.values(getCartData());
+      if (items.length === 0) {
+        showNotification("Your cart is empty!");
+        return;
+      }
+      window.location.href = "/checkout/";
+    });
+  }
 }
 
 // Initialize the cart
-initializeCart();
+document.addEventListener("DOMContentLoaded", function () {
+  initializeCart();
+});
