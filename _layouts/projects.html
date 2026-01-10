@@ -11,7 +11,7 @@ layout: default
           <div class="card blog-post">
             <img
               class="card-img-top"
-              src="{{site.url}}{{site.baseurl}}{{ post.thumbnail }}"
+              src="{{ site.url }}{{ site.baseurl }}{{ post.thumbnail | prepend: '/' | replace: '//', '/' }}"
               alt="{{ post.title }}"
             />
             <div class="card-body center">
