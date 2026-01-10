@@ -9,6 +9,23 @@ layout: full-width
     });
   });
 </script>
-<!-- hero section-->
+
 {%- include hero.html -%}
-<div class="col-lg-8 offset-md-2">{%- include recent_articles.html -%}</div>
+
+<div class="container main-content-wrapper">
+    <div class="col-lg-10 offset-lg-1">
+        {%- include recent_articles.html -%}
+
+        <hr class="section-divider">
+
+        {% if site.show_author_work_experiences %}
+        {%- include work_experience.html -%}
+        {% endif %}
+
+        <hr class="section-divider">
+
+        {% if site.show_author_education_details %}
+        {%- include education.html -%}
+        {% endif %}
+    </div>
+</div>

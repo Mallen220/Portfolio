@@ -1,0 +1,27 @@
+<section id="work-experience" class="section-padding">
+  <h2 class="section-title">Work Experience</h2>
+  <div class="row">
+    {% for experience in site.author_work_experiences %}
+    {% if experience.visibility == true %}
+    <div class="col-lg-6 col-md-12 mb-4">
+      <div class="card experience-card h-100">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            {% if experience.company_logo %}
+            <img src="{{site.url}}{{site.baseurl}}/assets/img/{{experience.company_logo}}" alt="{{experience.company_name}}" class="company-logo-sm mr-3">
+            {% endif %}
+            <div>
+              <h5 class="card-title mb-0">
+                <a href="{{experience.company_url}}" target="_blank" class="company-link">{{experience.company_name}}</a>
+              </h5>
+              <p class="card-subtitle text-muted">{{experience.designation}}</p>
+            </div>
+          </div>
+          <p class="card-text">{{experience.description}}</p>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</section>
