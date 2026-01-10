@@ -1,0 +1,112 @@
+name: Matthew Allen
+title: Computer Science Student
+email: allenmc220@gmail.com
+phone: 816-325-9060
+location: Boston, MA
+linkedin: allenmc220
+github: mallen220
+portfolio: https://mallen220.github.io/Portfolio
+
+bio: |
+  I am a student at Boston University studying Computer Science with minors in German and Data Science. I have a strong background in Java, Python, and C++, with leadership experience in robotics and teaching. I am passionate about creating efficient solutions and fostering technical growth in others.
+
+summary: |
+  Programming in Java, Python, and C++ with strong project leadership experience. Collaboration and mentoring through robotics and teaching roles. Proven adaptability and initiative in high-stakes technical competitions (CyberPatriots, Robotics). Effective communicator with experience managing projects, leading teams, and presenting technical work.
+
+education:
+  - degree: B.A. in Computer Science, Minor in German and Data Science
+    school: Boston University – Kilachand Honors College
+    location: Boston, MA
+    date: May 2028
+    gpa: 4.0
+    logo: Boston_University.svg
+    url: https://www.bu.edu/
+  - degree: IB Diploma, High School Diploma with Honors
+    school: Lee’s Summit North High School
+    location: Lee’s Summit, MO
+    date: May 2024
+    gpa: 4.49
+    details: Top 10 in Class
+    logo: LSNHS.png
+    url: https://lsnhs.lsr7.org/
+
+experience:
+  - role: STEM Instructor
+    company: Tech Academy
+    location: Overland Park, KS
+    date: Summer 2025
+    url: https://www.techacademymn.com
+    logo: TechAcademy.jpg
+    description:
+      - Taught programming, LEGO robotics, and digital media to students ages 5–14.
+      - Led classes of up to 22 students, balancing instruction with guided exploration.
+      - Prepared and delivered engaging, hands-on lessons fostering problem-solving skills.
+      - Collaborated with site managers and instructors to ensure a structured, energetic learning environment.
+  - role: Head Mentor
+    company: FTC Robotics Team 17218 (Brookline Bots)
+    location: Brookline, MA
+    date: 2025–Present
+    url: https://brooklinebots.org/
+    logo: BBots.png
+    description:
+      - Mentored an all-girls STEM robotics team in Java programming, robot design, build, and competition.
+      - Guided students through the engineering design process and competition readiness.
+      - Fostered technical growth in coding, mechanical design, and teamwork.
+  - role: Leader of Programming, Website, Media, and PR
+    company: Robotics Team, Lee’s Summit North High School
+    location: Lee’s Summit, MO
+    date: 2020–2024
+    logo: Transparent.png
+    description:
+      - Led Java programming for four years, achieving globally recognized autonomous performance (Top 50 worldwide, 2022–2023).
+      - Rebuilt team website with modern responsive design and API integrations.
+      - Founded and managed the media team; directed PR campaigns to enhance outreach.
+      - Hosted annual summer camps for younger students, leading workshops in programming and media.
+  - role: Cyber Security Team Lead
+    company: Cyber Patriots
+    location: Lee’s Summit, MO
+    date: 2018–2024
+    description:
+      - Advanced to State Finals each year; twice to Nationals with “Best in Class” honors in four seasons.
+      - Led Linux security configurations, scripting, and optimization; mentored teammates on Windows OS.
+      - Recognized as Missouri’s top performer in 2020, placing top 35 nationally while soloing on a six-person team.
+  - role: Tournament Judge Program Manager
+    company: Speech & Debate, Lee’s Summit North
+    location: Lee’s Summit, MO
+    date: 2020–2024
+    description:
+      - Managed judge assignments and logistics across tournaments for four years.
+      - Designed a web-based database to automate scheduling, prevent conflicts, and streamline communication.
+      - Developed tools for postcards, notifications, and workflow automation, allowing tournaments to finish ahead of schedule.
+  - role: E-Commerce Photographer
+    company: Goodwill
+    location: Blue Springs, MO
+    date: Summer 2024
+    url: https://www.mokangoodwill.org/
+    logo: Goodwill.png
+    description:
+      - Captured high-quality product images using studio lighting and editing techniques.
+      - Delivered consistent photography meeting corporate standards.
+
+skills:
+  languages:
+    - Java
+    - Python
+    - C++
+    - HTML/CSS/JavaScript
+    - Shell/Bash
+    - German
+    - ASL
+  tools:
+    - Adobe Suite
+  strengths:
+    - Effective Communication
+    - Consistency
+    - Initiative
+    - Collaborative Leadership
+  distinctions:
+    - Brookline Robotics Initiative Board Member
+    - Adobe Certified Professional
+
+downloads:
+  resume: /assets/docs/resume.pdf

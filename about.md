@@ -1,5 +1,5 @@
 ---
 title: About
-layout: about-me
+layout: modern-resume
 permalink: /about/
 ---
