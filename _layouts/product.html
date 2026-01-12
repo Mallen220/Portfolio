@@ -24,7 +24,8 @@ layout: default
           id="main-image"
           src="{{ page.image | default: page.images[0].image }}"
           alt="{{ page.name }}"
-          class="main-image"
+          class="main-image smooth-load"
+          loading="eager"
         />
       </div>
 
@@ -35,7 +36,7 @@ layout: default
           class="thumbnail {% if forloop.first %}active{% endif %}"
           data-image="{{ img.image }}"
         >
-          <img src="{{ img.image }}" alt="Thumbnail {{ forloop.index }}" />
+          <img src="{{ img.image }}" alt="Thumbnail {{ forloop.index }}" class="smooth-load" loading="lazy" />
         </div>
         {% endfor %}
       </div>

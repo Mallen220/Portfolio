@@ -5,7 +5,8 @@
       <div class="col-md-4">
         {% if site.author_logo %}
         <img
-          class="author-profile-img"
+          class="author-profile-img smooth-load"
+          loading="lazy"
           src="{{site.url}}{{site.baseurl}}/assets/img/{{ site.author_logo }}"
           alt=" "
         />

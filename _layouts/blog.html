@@ -15,7 +15,8 @@ layout: default
           >
             <div class="card blog-post">
               <img
-                class="card-img-top"
+                class="card-img-top smooth-load"
+                loading="lazy"
                 src="{{ site.url }}{{ site.baseurl }}{{ post.thumbnail | prepend: '/' | replace: '//', '/' }}"
                 alt="{{ post.title }}"
               />
