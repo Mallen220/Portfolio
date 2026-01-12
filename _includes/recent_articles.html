@@ -15,7 +15,7 @@
             <div class="col-md-4">
                {% if post.thumbnail %}
                <div class="project-thumbnail-wrapper">
-                 <img src="{{site.url}}{{site.baseurl}}/{{post.thumbnail}}" class="card-img" alt="{{post.title}}">
+                 <img src="{{site.url}}{{site.baseurl}}/{{post.thumbnail}}" class="card-img smooth-load" alt="{{post.title}}" loading="lazy">
                </div>
                {% else %}
                <div class="project-thumbnail-wrapper placeholder-img">

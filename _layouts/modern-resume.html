@@ -9,7 +9,8 @@ layout: default
       <img
         src="{{ site.url }}{{ site.baseurl }}/assets/img/{{ site.author_logo }}"
         alt="{{ site.data.resume.name }}"
-        class="profile-img"
+        class="profile-img smooth-load"
+        loading="eager"
       />
     </div>
     {% endif %}
@@ -106,7 +107,8 @@ layout: default
               <img
                 src="{{ site.baseurl }}/assets/img/experience/{{ job.logo }}"
                 alt="{{ job.company }}"
-                class="company-logo-small"
+                class="company-logo-small smooth-load"
+                loading="lazy"
               />
               {% endif %}
               <span class="company-name">
@@ -139,6 +141,8 @@ layout: default
             <img
               src="{{ site.baseurl }}/assets/img/experience/{{ edu.logo }}"
               alt="{{ edu.school }}"
+              class="smooth-load"
+              loading="lazy"
             />
             {% endif %}
           </div>
