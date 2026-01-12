@@ -1,72 +1,79 @@
 ---
 layout: default
-title: Gallery Home
+title: Photo Galleries
 permalink: /gallery/
 ---
 
-<div class="gallery-index">
+<div class="gallery-index py-5">
   <div class="container">
-    <br />
-    <br />
-    <br />
-    <h1 class="text-center mb-4">{{ page.title }}</h1>
+    <div class="text-center mb-5 fade-in-up">
+      <h1 class="display-4 fw-bold">{{ page.title }}</h1>
+      <p class="lead text-muted">A collection of moments and memories.</p>
+    </div>
 
     {% if site.data.galleries.overview %}
     <!-- Create array of galleries with dates -->
-    {% assign galleries_with_dates = "" | split: "" %} {% for gallery in
-    site.data.galleries.overview %} {% assign gallery_page = site.galleries |
-    where: "picture_path", gallery.directory | first %} {% if gallery_page.date
-    %} {% assign gallery_entry = gallery %} {% assign gallery_entry.date =
-    gallery_page.date %} {% assign galleries_with_dates = galleries_with_dates |
-    push: gallery_entry %} {% else %}
-    <!-- Galleries without dates will be placed at the end -->
-    {% assign gallery_entry = gallery %} {% assign gallery_entry.date =
-    "1900-01-01" %} {% assign galleries_with_dates = galleries_with_dates |
-    push: gallery_entry %} {% endif %} {% endfor %}
+    {% assign galleries_with_dates = "" | split: "" %}
+    {% for gallery in site.data.galleries.overview %}
+      {% assign gallery_page = site.galleries | where: "picture_path", gallery.directory | first %}
+      {% if gallery_page.date %}
+        {% assign gallery_entry = gallery %}
+        {% assign gallery_entry.date = gallery_page.date %}
+        {% assign galleries_with_dates = galleries_with_dates | push: gallery_entry %}
+      {% else %}
+        <!-- Galleries without dates will be placed at the end -->
+        {% assign gallery_entry = gallery %}
+        {% assign gallery_entry.date = "1900-01-01" %}
+        {% assign galleries_with_dates = galleries_with_dates | push: gallery_entry %}
+      {% endif %}
+    {% endfor %}
 
     <!-- Sort galleries by date -->
-    {% assign sorted_galleries = galleries_with_dates | sort: "date" | reverse
-    %}
+    {% assign sorted_galleries = galleries_with_dates | sort: "date" | reverse %}
 
-    <div class="row">
-      {% for gallery in sorted_galleries %} {% comment %} Get gallery data from
-      site.data.galleries[gallery.directory] {% endcomment %} {% assign
-      gallery_data = site.data.galleries[gallery.directory] %} {% assign
-      gallery_page = site.galleries | where: "picture_path", gallery.directory |
-      first %}
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+      {% for gallery in sorted_galleries %}
+        {% assign gallery_data = site.data.galleries[gallery.directory] %}
+        {% assign gallery_page = site.galleries | where: "picture_path", gallery.directory | first %}
+        {% assign delay_index = forloop.index | modulo: 10 %}
 
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="gallery-card card">
-          <a
-            href="{{ site.baseurl }}/gallery/{{ gallery.directory }}"
-            class="gallery-card-link"
-          >
-            {% if gallery.preview and gallery.preview.filename %}
-            <img
-              loading="lazy"
-              class="card-img-top"
-              alt="{{ gallery.title }}"
-              src="{{ site.baseurl }}/assets/img/gallery/{{ gallery.directory }}/{{ gallery.preview.filename }}"
-            />
-            {% else %}
-            <div
-              class="card-img-placeholder bg-light d-flex align-items-center justify-content-center"
-            >
-              <i class="fa fa-image fa-3x text-muted"></i>
-            </div>
-            {% endif %}
-
-            <div class="card-body">
-              <h5 class="card-title">{{ gallery.title }}</h5>
-
-              <!-- Display date if available -->
-              {% if gallery_page.date %}
-              <p class="card-date text-muted small">
-                {{ gallery_page.date | date: "%B %d, %Y" }}
-              </p>
-              {% endif %} {% if gallery_data and gallery_data.pictures %}
-              <p class="card-text">{{ gallery_data.pictures | size }} photos</p>
+      <div class="col fade-in-up" style="animation-delay: {{ delay_index | times: 0.1 }}s">
+        <div class="gallery-card h-100">
+          <a href="{{ site.baseurl }}/gallery/{{ gallery.directory }}" class="gallery-card-link">
+            <div class="gallery-card-img-wrapper">
+              {% if gallery.preview and gallery.preview.filename %}
+              <img
+                loading="lazy"
+                class="gallery-card-img smooth-load"
+                alt="{{ gallery.title }}"
+                src="{{ site.baseurl }}/assets/img/gallery/{{ gallery.directory }}/{{ gallery.preview.filename }}"
+              />
+              {% else %}
+              <div class="gallery-card-placeholder d-flex align-items-center justify-content-center bg-light">
+                <i class="fa fa-image fa-3x text-muted"></i>
+              </div>
               {% endif %}
+              <div class="gallery-card-overlay">
+                <span class="view-gallery-btn">View Gallery</span>
+              </div>
+            </div>
+
+            <div class="gallery-card-body">
+              <h5 class="gallery-card-title">{{ gallery.title }}</h5>
+
+              <div class="d-flex justify-content-between align-items-center mt-2">
+                {% if gallery_page.date %}
+                <small class="text-muted">
+                  <i class="far fa-calendar-alt me-1"></i> {{ gallery_page.date | date: "%b %d, %Y" }}
+                </small>
+                {% endif %}
+
+                {% if gallery_data and gallery_data.pictures %}
+                <span class="badge bg-light text-dark border">
+                  <i class="fas fa-camera me-1"></i> {{ gallery_data.pictures | size }}
+                </span>
+                {% endif %}
+              </div>
             </div>
           </a>
         </div>
@@ -76,66 +83,143 @@ permalink: /gallery/
     {% else %}
     <div class="alert alert-warning text-center">
       <p>No galleries found. Please check your gallery configuration.</p>
-      <p class="mb-0">
-        Debug info: site.data.galleries.overview = {{
-        site.data.galleries.overview | inspect }}
-      </p>
     </div>
     {% endif %}
   </div>
 </div>
 
 <style>
+  /* Modern Gallery Index Styles */
+  .gallery-index {
+    min-height: 80vh;
+    background-color: #f8f9fa;
+  }
+
+  .fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   .gallery-card {
-    transition: transform 0.3s ease;
-    border-radius: 10px;
+    border: none;
+    border-radius: 16px;
+    background: white;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 85%;
+    display: flex;
+    flex-direction: column;
   }
 
   .gallery-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   }
 
   .gallery-card-link {
-    color: inherit;
     text-decoration: none;
-    display: block;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
     height: 100%;
   }
 
-  .gallery-card .card-img-top {
-    height: 175px;
-    object-fit: cover;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  .gallery-card-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding-top: 66.66%; /* 3:2 Aspect Ratio */
   }
 
-  .gallery-card .card-body {
-    padding: 1.25rem;
-  }
-
-  .card-date {
-    margin-bottom: 0.5rem;
-    font-size: 0.85rem;
-  }
-
-  .card-img-placeholder {
-    height: 200px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  /* Date badge for visual indication */
-  .date-badge {
+  .gallery-card-img, .gallery-card-placeholder {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .gallery-card:hover .gallery-card-img {
+    transform: scale(1.05);
+  }
+
+  .gallery-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-card:hover .gallery-card-overlay {
+    opacity: 1;
+  }
+
+  .view-gallery-btn {
     color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    z-index: 1;
+    border: 2px solid white;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+  }
+
+  .gallery-card:hover .view-gallery-btn {
+    transform: translateY(0);
+  }
+
+  .gallery-card-body {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .gallery-card-title {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+
+  /* Dark mode support adjustments if needed */
+  @media (prefers-color-scheme: dark) {
+    .gallery-index {
+      background-color: #1a1a1a;
+    }
+    .gallery-card {
+      background-color: #2d2d2d;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    .gallery-card-title {
+      color: #e0e0e0;
+    }
+    .text-muted {
+      color: #aaa !important;
+    }
   }
 </style>
