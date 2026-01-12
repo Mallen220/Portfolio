@@ -118,7 +118,7 @@ layout: default
               >
                 <img
                   loading="lazy"
-                  class="gallery-thumbnail"
+                  class="gallery-thumbnail smooth-load"
                   alt="{{ caption }}"
                   src="{{ site.baseurl }}/assets/img/gallery/{{ page.picture_path }}/{{ picture.filename }}"
                 />
@@ -210,7 +210,7 @@ layout: default
                data-src="${baseImgUrl}/${picture.original}"
                data-original="${baseImgUrl}/${picture.filename}"
                data-caption="${safeCaption}">
-              <img loading="lazy" class="gallery-thumbnail" alt="${safeCaption}"
+              <img loading="lazy" class="gallery-thumbnail smooth-load" alt="${safeCaption}"
                    src="${baseImgUrl}/${picture.filename}" />
             </a>
           </div>
@@ -219,6 +219,11 @@ layout: default
 
       const $newItems = $(itemsHtml);
       $grid.append($newItems);
+
+      // Initialize image loader for new items if available
+      if (typeof window.initImageLoader === 'function') {
+        window.initImageLoader($grid[0]);
+      }
 
       $newItems.imagesLoaded().done(function() {
         if (masonry) {

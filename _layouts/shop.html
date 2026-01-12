@@ -40,7 +40,8 @@ layout: default
         <img
           src="{{ site.url }}{{ site.baseurl }}{{ product_image }}"
           alt="{{ product.name }}"
-          class="product-image"
+          class="product-image smooth-load"
+          loading="lazy"
         />
         {% endif %}
 
