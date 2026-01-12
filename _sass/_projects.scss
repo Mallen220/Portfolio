@@ -1,0 +1,45 @@
+
+.projects-hero-section {
+    background-color: var(--box-background-color);
+    border-bottom: 1px solid var(--light-border-color);
+    padding-top: 100px; /* Account for navbar */
+    padding-bottom: 60px;
+}
+
+.badge {
+    padding: 0.5em 0.8em;
+    font-size: 80%;
+}
+
+.page-item.active .page-link {
+    background-color: var(--link-color);
+    border-color: var(--link-color);
+    color: #fff;
+}
+
+.page-link {
+    color: var(--link-color);
+    border-color: var(--light-border-color);
+    background-color: var(--card-background-color);
+}
+
+.page-link:hover {
+    color: #d94e0b;
+    background-color: var(--highlight-color);
+    border-color: var(--light-border-color);
+}
+
+/* Ensure images in cards are same height */
+.project-thumbnail-wrapper {
+    height: 200px;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-thumbnail-wrapper img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
