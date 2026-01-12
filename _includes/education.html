@@ -1,0 +1,39 @@
+<section id="education" class="section-padding">
+  <h2 class="section-title">Education</h2>
+  <div class="row">
+    {% for education in site.author_education_details %} {% if
+    education.visibility == true %}
+    <div class="col-lg-6 col-md-12 mb-4">
+      <div class="card education-card h-100">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            {% if education.college_logo %}
+            <img
+              src="{{site.url}}{{site.baseurl}}/assets/img/experience/{{education.college_logo}}"
+              alt="{{education.college_name}}"
+              class="college-logo-sm mr-3"
+            />
+            {% endif %}
+            <div>
+              <h5 class="card-title mb-0">
+                <a
+                  href="{{education.college_url}}"
+                  target="_blank"
+                  class="college-link"
+                  >{{education.college_name}}</a
+                >
+              </h5>
+              <p class="card-subtitle text-muted">
+                {{education.college_degree}}
+              </p>
+            </div>
+          </div>
+          {% if education.description %}
+          <p class="card-text">{{education.description}}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endif %} {% endfor %}
+  </div>
+</section>

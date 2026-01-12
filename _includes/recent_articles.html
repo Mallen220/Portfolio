@@ -1,53 +1,43 @@
-<section id="recent-articles">
-  <div id="recent-articles-header">
-    <div id="recent-articles-title">
-      <h1 class="card-title">Recent Projects</h1>
-    </div>
-    <div id="recent-articles-show-all">
-      <a class="btn btn-lg btn-dark" href="{{site.baseurl}}/projects">
-        View All
-      </a>
-    </div>
+<section id="recent-articles" class="section-padding">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="section-title">Recent Projects</h2>
+    <a class="btn btn-outline-primary" href="{{site.baseurl}}/projects">
+      View All
+    </a>
   </div>
-  <br />
 
-  <ul>
-    {% for post in site.posts limit:5 %}
-    <li class="article-card">
-      <a
-        href="{{site.url}}{{site.baseurl}}/{{post.url}}"
-        class="article-card-link"
-      >
-        <div id="article-container">
-          <div id="article-img">
-            {% if post.thumbnail %}
-            <img
-              src="{{site.url}}{{site.baseurl}}/{{post.thumbnail}}"
-              width="100px"
-            />
-            {% endif %}
+  <div class="row">
+    {% for post in site.posts limit:4 %}
+    <div class="col-lg-6 col-md-12 mb-4">
+      <div class="card project-card h-100">
+        <a href="{{site.url}}{{site.baseurl}}{{post.url}}" class="card-link-wrapper">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+               {% if post.thumbnail %}
+               <div class="project-thumbnail-wrapper">
+                 <img src="{{site.url}}{{site.baseurl}}/{{post.thumbnail}}" class="card-img" alt="{{post.title}}">
+               </div>
+               {% else %}
+               <div class="project-thumbnail-wrapper placeholder-img">
+                 <span>No Image</span>
+               </div>
+               {% endif %}
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{post.title}}</h5>
+                <p class="card-text"><small class="text-muted"><time datetime="{{ post.date }}">{{ post.date | date: "%b %-d, %Y" }}</time></small></p>
+                <div class="card-tags">
+                  {% for cat in post.category limit:2 %}
+                  <span class="badge badge-secondary">{{cat}}</span>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
           </div>
-          <div id="article-link">
-            <p class="recent-article-link">
-              {{post.title}}
-              <span style="color: #ccc; font-size: 15px">
-                -
-                <i
-                  ><time datetime="{{ post.date }}" itemprop="datePublished"
-                    >{{ post.date | date: "%b %-d, %Y" }}</time
-                  ></i
-                ></span
-              >
-            </p>
-          </div>
-          <div id="article-alert">
-            {% for cat in post.category limit:1 %}
-            <button class="btn btn-sm btn-dark">{{cat}}</button>
-            {% endfor %}
-          </div>
-        </div>
-      </a>
-    </li>
+        </a>
+      </div>
+    </div>
     {% endfor %}
-  </ul>
+  </div>
 </section>
