@@ -635,6 +635,66 @@ header {
   margin-left: 20px !important;
 }
 
+/* Modern pill-style pagination, dark/light friendly */
+.pagination-modern {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25rem;
+  list-style: none;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+}
+
+.pagination-modern li {
+  display: inline-block;
+}
+
+.pagination-modern .page-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--light-border-color);
+  background: var(--card-background-color);
+  color: var(--main-text-color);
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.pagination-modern .page-link:hover:not(.active):not(.disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  background: var(--button-background-color);
+}
+
+.pagination-modern .page-link.active {
+  background: var(--link-color);
+  color: #fff;
+  border-color: var(--link-color);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.pagination-modern .page-link.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+@media (max-width: 576px) {
+  .pagination-modern .page-link {
+    min-width: 32px;
+    height: 32px;
+    padding: 0 8px;
+  }
+}
+
 .jumbotron-heading {
   font-size: 35px;
 }
