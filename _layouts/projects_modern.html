@@ -58,40 +58,46 @@ layout: default
     %}
   </div>
 
-  <!-- Pagination -->
+  <!-- Pagination (modern style) -->
   {% if paginator.total_pages > 1 %}
   <div class="row mt-5">
     <div class="col-12">
       <nav aria-label="Project pagination">
-        <ul class="pagination justify-content-center">
+        <ul class="pagination-modern" role="navigation" aria-label="Pagination">
           {% if paginator.previous_page %}
-          <li class="page-item">
+          <li>
             <a
-              class="page-link"
+              class="page-link prev-next"
               href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"
               aria-label="Previous"
             >
-              <span aria-hidden="true">&laquo;</span>
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>
               <span class="sr-only">Previous</span>
             </a>
           </li>
           {% else %}
-          <li class="page-item disabled">
-            <span class="page-link" aria-hidden="true">&laquo;</span>
+          <li>
+            <span
+              class="page-link prev-next disabled"
+              aria-hidden="true"
+              aria-disabled="true"
+            >
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>
+            </span>
           </li>
           {% endif %} {% for page in (1..paginator.total_pages) %} {% if page ==
           paginator.page %}
-          <li class="page-item active">
-            <span class="page-link">{{ page }}</span>
+          <li>
+            <span class="page-link active" aria-current="page">{{ page }}</span>
           </li>
           {% elsif page == 1 %}
-          <li class="page-item">
+          <li>
             <a class="page-link" href="{{site.url}}{{site.baseurl}}/projects"
               >{{ page }}</a
             >
           </li>
           {% else %}
-          <li class="page-item">
+          <li>
             <a
               class="page-link"
               href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}"
@@ -99,19 +105,25 @@ layout: default
             >
           </li>
           {% endif %} {% endfor %} {% if paginator.next_page %}
-          <li class="page-item">
+          <li>
             <a
-              class="page-link"
+              class="page-link prev-next"
               href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"
               aria-label="Next"
             >
-              <span aria-hidden="true">&raquo;</span>
+              <i class="fas fa-chevron-right" aria-hidden="true"></i>
               <span class="sr-only">Next</span>
             </a>
           </li>
           {% else %}
-          <li class="page-item disabled">
-            <span class="page-link" aria-hidden="true">&raquo;</span>
+          <li>
+            <span
+              class="page-link prev-next disabled"
+              aria-hidden="true"
+              aria-disabled="true"
+            >
+              <i class="fas fa-chevron-right" aria-hidden="true"></i>
+            </span>
           </li>
           {% endif %}
         </ul>
