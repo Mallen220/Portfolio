@@ -1,12 +1,16 @@
 ---
 layout: default
 ---
-<div class="resume-wrapper">
 
+<div class="resume-wrapper">
   <div class="resume-header">
     {% if site.author_logo %}
     <div class="header-image">
-      <img src="{{ site.url }}{{ site.baseurl }}/assets/img/{{ site.author_logo }}" alt="{{ site.data.resume.name }}" class="profile-img">
+      <img
+        src="{{ site.url }}{{ site.baseurl }}/assets/img/{{ site.author_logo }}"
+        alt="{{ site.data.resume.name }}"
+        class="profile-img"
+      />
     </div>
     {% endif %}
     <div class="header-content">
@@ -17,33 +21,38 @@ layout: default
         <a href="mailto:{{ site.data.resume.email }}" class="contact-item">
           <i class="fas fa-envelope"></i> {{ site.data.resume.email }}
         </a>
-        {% endif %}
-        {% if site.data.resume.location %}
+        {% endif %} {% if site.data.resume.location %}
         <span class="contact-item">
           <i class="fas fa-map-marker-alt"></i> {{ site.data.resume.location }}
         </span>
-        {% endif %}
-        {% if site.data.resume.linkedin %}
-        <a href="https://linkedin.com/in/{{ site.data.resume.linkedin }}" class="contact-item" target="_blank">
-          <i class="fab fa-linkedin"></i> linkedin.com/in/{{ site.data.resume.linkedin }}
+        {% endif %} {% if site.data.resume.linkedin %}
+        <a
+          href="https://linkedin.com/in/{{ site.data.resume.linkedin }}"
+          class="contact-item"
+          target="_blank"
+        >
+          <i class="fab fa-linkedin"></i> linkedin.com/in/{{
+          site.data.resume.linkedin }}
         </a>
-        {% endif %}
-        {% if site.data.resume.github %}
-        <a href="https://github.com/{{ site.data.resume.github }}" class="contact-item" target="_blank">
+        {% endif %} {% if site.data.resume.github %}
+        <a
+          href="https://github.com/{{ site.data.resume.github }}"
+          class="contact-item"
+          target="_blank"
+        >
           <i class="fab fa-github"></i> {{ site.data.resume.github }}
         </a>
         {% endif %}
       </div>
-      <div class="resume-actions">
+      <!-- <div class="resume-actions">
         <a href="{{ site.baseurl }}{{ site.data.resume.downloads.resume }}" class="btn btn-primary" download>
           <i class="fas fa-download"></i> Download Resume
         </a>
-      </div>
+      </div> -->
     </div>
   </div>
 
   <div class="resume-content">
-
     <section class="resume-section summary">
       <h3>About Me</h3>
       <p>{{ site.data.resume.bio }}</p>
@@ -56,10 +65,9 @@ layout: default
           <h4>Languages & Tools</h4>
           <div class="tags">
             {% for skill in site.data.resume.skills.languages %}
-              <span class="tag">{{ skill }}</span>
-            {% endfor %}
-            {% for skill in site.data.resume.skills.tools %}
-              <span class="tag">{{ skill }}</span>
+            <span class="tag">{{ skill }}</span>
+            {% endfor %} {% for skill in site.data.resume.skills.tools %}
+            <span class="tag">{{ skill }}</span>
             {% endfor %}
           </div>
         </div>
@@ -67,7 +75,7 @@ layout: default
           <h4>Strengths</h4>
           <div class="tags">
             {% for strength in site.data.resume.skills.strengths %}
-              <span class="tag strength">{{ strength }}</span>
+            <span class="tag strength">{{ strength }}</span>
             {% endfor %}
           </div>
         </div>
@@ -75,7 +83,7 @@ layout: default
           <h4>Distinctions</h4>
           <ul class="distinctions-list">
             {% for item in site.data.resume.skills.distinctions %}
-              <li>{{ item }}</li>
+            <li>{{ item }}</li>
             {% endfor %}
           </ul>
         </div>
@@ -95,21 +103,23 @@ layout: default
             </div>
             <div class="job-company">
               {% if job.logo %}
-                <img src="{{ site.baseurl }}/assets/img/experience/{{ job.logo }}" alt="{{ job.company }}" class="company-logo-small">
+              <img
+                src="{{ site.baseurl }}/assets/img/experience/{{ job.logo }}"
+                alt="{{ job.company }}"
+                class="company-logo-small"
+              />
               {% endif %}
               <span class="company-name">
                 {% if job.url %}
-                  <a href="{{ job.url }}" target="_blank">{{ job.company }}</a>
-                {% else %}
-                  {{ job.company }}
-                {% endif %}
+                <a href="{{ job.url }}" target="_blank">{{ job.company }}</a>
+                {% else %} {{ job.company }} {% endif %}
               </span>
               <span class="job-location"> | {{ job.location }}</span>
             </div>
             <div class="job-description">
               <ul>
                 {% for item in job.description %}
-                  <li>{{ item }}</li>
+                <li>{{ item }}</li>
                 {% endfor %}
               </ul>
             </div>
@@ -125,9 +135,12 @@ layout: default
         {% for edu in site.data.resume.education %}
         <div class="education-card">
           <div class="edu-logo">
-             {% if edu.logo %}
-                <img src="{{ site.baseurl }}/assets/img/experience/{{ edu.logo }}" alt="{{ edu.school }}">
-              {% endif %}
+            {% if edu.logo %}
+            <img
+              src="{{ site.baseurl }}/assets/img/experience/{{ edu.logo }}"
+              alt="{{ edu.school }}"
+            />
+            {% endif %}
           </div>
           <div class="edu-details">
             <h4 class="degree">{{ edu.degree }}</h4>
@@ -146,6 +159,5 @@ layout: default
         {% endfor %}
       </div>
     </section>
-
   </div>
 </div>
