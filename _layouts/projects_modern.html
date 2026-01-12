@@ -1,0 +1,95 @@
+---
+layout: default
+---
+
+{%- include projects_hero.html -%}
+
+<div class="container section-padding">
+    {% if site.author_project_details %}
+    <div class="row mb-5">
+        <div class="col-12 text-center mb-4">
+            <h2 class="section-title">Featured Projects</h2>
+        </div>
+        {% for project in site.author_project_details %}
+        {% if project.visibility %}
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="card project-card h-100">
+                <a href="{{ project.project_url }}" target="_blank" class="card-link-wrapper h-100 d-flex flex-column">
+                    <div class="project-thumbnail-wrapper">
+                        <img class="card-img-top smooth-load" loading="lazy" src="{{ site.url }}{{ site.baseurl }}/assets/img/projects/{{ project.project_thumbnail }}" alt="{{ project.project_title }}">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h4 class="card-title font-weight-bold mb-2">{{ project.project_title }}</h4>
+                        <p class="card-text flex-grow-1">{{ project.project_description }}</p>
+                        <div class="mt-3">
+                            <span class="btn btn-primary btn-sm">View Project</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="section-divider mb-5"></div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-12 text-center mb-4">
+            <h2 class="section-title">Project Log</h2>
+        </div>
+    </div>
+
+    <div class="row" id="project-grid">
+        {% for post in paginator.posts %}
+            {% include project_card.html %}
+        {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if paginator.total_pages > 1 %}
+    <div class="row mt-5">
+        <div class="col-12">
+            <nav aria-label="Project pagination">
+                <ul class="pagination justify-content-center">
+                    {% if paginator.previous_page %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link" aria-hidden="true">&laquo;</span>
+                    </li>
+                    {% endif %}
+
+                    {% for page in (1..paginator.total_pages) %}
+                        {% if page == paginator.page %}
+                        <li class="page-item active"><span class="page-link">{{ page }}</span></li>
+                        {% elsif page == 1 %}
+                        <li class="page-item"><a class="page-link" href="{{site.url}}{{site.baseurl}}/projects">{{ page }}</a></li>
+                        {% else %}
+                        <li class="page-item"><a class="page-link" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if paginator.next_page %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link" aria-hidden="true">&raquo;</span>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+    {% endif %}
+</div>
