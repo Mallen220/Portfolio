@@ -75,11 +75,39 @@ def filename_yaml_value(base)
   base.match?(/\A\d+\z/) ? base.to_i : base
 end
 
+# Ensure YAML uses single quotes for string scalars (no double quotes) and normalize date quoting.
+def normalize_quotes_in_yaml(yaml)
+  yaml.lines.map do |line|
+    # Normalize date lines to single-quoted dates
+    if line =~ /^(\s*date:\s*)(['"]?)(\d{4}-\d{2}-\d{2})(['"]?)\s*$/
+      "#{$1}'#{$3}'\n"
+
+    # Convert any double-quoted values to single-quoted, escaping single quotes inside
+    elsif line =~ /^(\s*[\w\-]+:\s*)\"(.*)\"\s*$/
+      key = $1
+      val = $2
+      val = val.gsub("'", "''")
+      "#{key}'#{val}'\n"
+
+    else
+      line
+    end
+  end.join
+end
+
 def write_yaml_file(path, data)
   yaml = YAML.dump(data)
   yaml.sub!(/\A---\s*\n/, "")
+  normalized = normalize_quotes_in_yaml(yaml)
+
+  # Write file only if content would change (idempotent behavior)
+  if File.exist?(path)
+    existing = File.read(path)
+    return path if existing == normalized
+  end
+
   FileUtils.mkdir_p(File.dirname(path))
-  File.write(path, yaml)
+  File.write(path, normalized)
   path
 end
 
@@ -111,7 +139,16 @@ def write_gallery_yaml(folder_name, pictures)
   end
 
   FileUtils.mkdir_p(File.dirname(yml_path))
-  File.write(yml_path, fixed_yaml.join)
+  fixed_content = fixed_yaml.join
+  normalized = normalize_quotes_in_yaml(fixed_content)
+
+  # Write only if content differs
+  if File.exist?(yml_path)
+    existing = File.read(yml_path)
+    return yml_path if existing == normalized
+  end
+
+  File.write(yml_path, normalized)
   yml_path
 end
 
@@ -216,6 +253,13 @@ def generate
        stale_path = File.join(DATA_DIR, stale)
        FileUtils.rm_f(stale_path) if stale != "overview.yml"
      end
+
+  # Validation: ensure no generated YAML file contains double quotes
+  bad_files = Dir.glob(File.join(DATA_DIR, "*.yml")).select { |f| File.read(f).include?("\"") }
+  unless bad_files.empty?
+    warn "Error: Found double quotes in generated YAML files: #{bad_files.join(', ')}"
+    abort
+  end
 
   puts "Generated YAML for #{folders.size} galleries."
   puts "Overview entries sorted by date (newest first)."
