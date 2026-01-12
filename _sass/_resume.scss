@@ -4,7 +4,7 @@
   max-width: 900px;
   margin: 0 auto;
   padding: 3rem 1.5rem;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: #333;
 
   @media (prefers-color-scheme: dark) {
@@ -17,12 +17,12 @@
     padding: 3rem 2rem;
     background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 
     .header-image {
       width: 150px;
@@ -30,7 +30,7 @@
       border-radius: 50%;
       overflow: hidden;
       border: 4px solid #fff;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 
       .profile-img {
         width: 100%;
@@ -40,7 +40,7 @@
     }
 
     .header-content {
-        width: 100%;
+      width: 100%;
     }
 
     .name {
@@ -77,12 +77,12 @@
         transition: all 0.2s;
         padding: 0.5rem 1rem;
         border-radius: 50px;
-        background: rgba(255,255,255,0.5);
+        background: rgba(255, 255, 255, 0.5);
 
         &:hover {
           color: #e67e22;
           background: #fff;
-          box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
           transform: translateY(-2px);
         }
 
@@ -134,14 +134,14 @@
       position: relative;
 
       &:after {
-          content: '';
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          width: 60px;
-          height: 4px;
-          background: #e67e22;
-          border-radius: 2px;
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 60px;
+        height: 4px;
+        background: #e67e22;
+        border-radius: 2px;
       }
     }
   }
@@ -167,13 +167,13 @@
       background: #fff;
       padding: 1.5rem;
       border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
       border: 1px solid #f0f0f0;
       transition: transform 0.2s;
 
       &:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
       }
 
       h4 {
@@ -200,7 +200,7 @@
       font-size: 0.95rem;
       border: 1px solid #e9ecef;
       font-weight: 500;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
 
       &.strength {
         background: rgba(230, 126, 34, 0.1);
@@ -219,6 +219,7 @@
       padding-left: 1.5rem;
       position: relative;
       line-height: 1.5;
+      color: #2c3e50; /* Ensure good contrast in light mode */
 
       &:before {
         content: "\f091"; /* FontAwesome Trophy */
@@ -259,7 +260,7 @@
       }
 
       &:not(:last-child):before {
-        content: '';
+        content: "";
         position: absolute;
         left: 7px;
         top: 1rem;
@@ -272,14 +273,14 @@
         background: #fff;
         padding: 1.5rem;
         border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
         border: 1px solid #f0f0f0;
         transition: all 0.2s ease;
 
         &:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            border-left: 3px solid #e67e22;
+          transform: translateX(5px);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+          border-left: 3px solid #e67e22;
         }
 
         .job-header {
@@ -314,29 +315,29 @@
           gap: 0.8rem;
 
           .company-logo-small {
-              width: 24px;
-              height: 24px;
-              object-fit: contain;
-              border-radius: 4px;
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            border-radius: 4px;
           }
 
           .company-name {
-              font-weight: 600;
-              color: #34495e;
-               a {
-                   color: #34495e !important;
-                   text-decoration: none;
-                   &:hover {
-                       color: #e67e22 !important;
-                       text-decoration: underline;
-                   }
-               }
+            font-weight: 600;
+            color: #34495e;
+            a {
+              color: #34495e !important;
+              text-decoration: none;
+              &:hover {
+                color: #e67e22 !important;
+                text-decoration: underline;
+              }
+            }
           }
 
           .job-location {
-              color: #95a5a6;
-              font-size: 0.9rem;
-              font-style: italic;
+            color: #95a5a6;
+            font-size: 0.9rem;
+            font-style: italic;
           }
         }
 
@@ -358,206 +359,242 @@
   }
 
   .education-grid {
-      display: grid;
-      gap: 1.5rem;
+    display: grid;
+    gap: 1.5rem;
   }
 
   .education-card {
-      display: flex;
-      gap: 1.5rem;
-      align-items: flex-start;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      border-color: rgba(230, 126, 34, 0.3);
+    }
+
+    .edu-logo {
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
       background: #fff;
-      padding: 1.5rem;
-      border-radius: 12px;
-      border: 1px solid #f0f0f0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-      transition: all 0.3s ease;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      &:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-          border-color: rgba(230, 126, 34, 0.3);
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .edu-details {
+      flex: 1;
+
+      .degree {
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin: 0 0 0.3rem 0;
+        color: #2c3e50;
       }
 
-      .edu-logo {
-          flex-shrink: 0;
-          width: 60px;
-          height: 60px;
-          background: #fff;
-          padding: 8px;
-          border-radius: 8px;
-          border: 1px solid #eee;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          img {
-              max-width: 100%;
-              max-height: 100%;
-              object-fit: contain;
-          }
+      .school {
+        font-size: 1.05rem;
+        color: #555;
+        margin: 0 0 0.5rem 0;
+        font-weight: 500;
       }
 
-      .edu-details {
-          flex: 1;
+      .edu-meta {
+        font-size: 0.95rem;
+        color: #7f8c8d;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
 
-          .degree {
-              font-size: 1.15rem;
-              font-weight: 700;
-              margin: 0 0 0.3rem 0;
-              color: #2c3e50;
-          }
+        .date {
+          background: #f8f9fa;
+          padding: 0.2rem 0.6rem;
+          border-radius: 4px;
+        }
 
-          .school {
-              font-size: 1.05rem;
-              color: #555;
-              margin: 0 0 0.5rem 0;
-              font-weight: 500;
-          }
-
-          .edu-meta {
-              font-size: 0.95rem;
-              color: #7f8c8d;
-              margin-bottom: 0.5rem;
-              display: flex;
-              align-items: center;
-              gap: 1rem;
-
-              .date {
-                  background: #f8f9fa;
-                  padding: 0.2rem 0.6rem;
-                  border-radius: 4px;
-              }
-
-              .gpa {
-                  color: #e67e22;
-                  font-weight: 700;
-              }
-          }
-
-          .edu-notes {
-              margin: 0.5rem 0 0 0;
-              font-size: 0.95rem;
-              color: #34495e;
-              padding-top: 0.5rem;
-              border-top: 1px dashed #eee;
-          }
+        .gpa {
+          color: #e67e22;
+          font-weight: 700;
+        }
       }
+
+      .edu-notes {
+        margin: 0.5rem 0 0 0;
+        font-size: 0.95rem;
+        color: #34495e;
+        padding-top: 0.5rem;
+        border-top: 1px dashed #eee;
+      }
+    }
   }
 }
 
 // Dark Mode Overrides
-body.dark, html[data-theme="dark"] {
-    .resume-wrapper {
-        .resume-header {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            border-color: #34495e;
+body.dark,
+html[data-theme="dark"] {
+  .resume-wrapper {
+    .resume-header {
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      border-color: #34495e;
 
-            .header-image {
-                border-color: #2c3e50;
-            }
+      .header-image {
+        border-color: #2c3e50;
+      }
 
-            .name { color: #ecf0f1; }
-            .title { color: #e67e22; }
+      .name {
+        color: #ecf0f1;
+      }
+      .title {
+        color: #e67e22;
+      }
 
-            .contact-info .contact-item {
-                background: rgba(255,255,255,0.05);
-                color: #bdc3c7;
+      .contact-info .contact-item {
+        background: rgba(255, 255, 255, 0.05);
+        color: #bdc3c7;
 
-                &:hover {
-                    background: #34495e;
-                    color: #fff;
-                }
-            }
+        &:hover {
+          background: #34495e;
+          color: #fff;
         }
-
-        .resume-section h3 {
-            color: #ecf0f1;
-        }
-
-        .summary p {
-            color: #dcdde1;
-            background: #2c3e50;
-            border-left-color: #e67e22;
-        }
-
-        .skills-container .skill-category {
-            background: #2c3e50;
-            border-color: #34495e;
-            box-shadow: none;
-
-            h4 { color: #ecf0f1; border-bottom-color: #34495e; }
-        }
-
-        .tags .tag {
-            background: #34495e;
-            color: #ecf0f1;
-            border-color: #465a69;
-
-            &.strength {
-                background: rgba(230, 126, 34, 0.15);
-                color: #e67e22;
-                border-color: rgba(230, 126, 34, 0.3);
-            }
-        }
-
-        .distinctions-list li { color: #bdc3c7; }
-
-        .timeline .timeline-item {
-             &:not(:last-child):before { background: #34495e; }
-
-             .timeline-marker {
-                 border-color: #2c3e50;
-             }
-
-             .timeline-content {
-                 background: #2c3e50;
-                 border-color: #34495e;
-                 box-shadow: none;
-
-                 &:hover {
-                     border-left-color: #e67e22;
-                     background: #34495e; // Keep same bg
-                 }
-
-                 .job-header {
-                     .job-title { color: #ecf0f1; }
-                     .job-date { color: #e67e22; background: rgba(230, 126, 34, 0.15); }
-                 }
-
-                 .job-company {
-                     .company-name, .company-name a { color: #bdc3c7 !important; }
-                     .company-name a:hover { color: #e67e22 !important; }
-                     .job-location { color: #7f8c8d; }
-                 }
-
-                 .job-description ul li { color: #bdc3c7; }
-             }
-        }
-
-        .education-card {
-            background: #2c3e50;
-            border-color: #34495e;
-            box-shadow: none;
-
-            &:hover {
-                border-color: #e67e22;
-            }
-
-            .edu-logo {
-                background: #fff; // Keep logo bg light
-                border-color: #34495e;
-            }
-
-            .edu-details {
-                .degree { color: #ecf0f1; }
-                .school { color: #bdc3c7; }
-                .edu-meta {
-                    color: #95a5a6;
-                    .date { background: #34495e; color: #bdc3c7; }
-                }
-                .edu-notes { color: #95a5a6; border-top-color: #34495e; }
-            }
-        }
+      }
     }
+
+    .resume-section h3 {
+      color: #ecf0f1;
+    }
+
+    .summary p {
+      color: #dcdde1;
+      background: #2c3e50;
+      border-left-color: #e67e22;
+    }
+
+    .skills-container .skill-category {
+      background: #2c3e50;
+      border-color: #34495e;
+      box-shadow: none;
+
+      h4 {
+        color: #ecf0f1;
+        border-bottom-color: #34495e;
+      }
+    }
+
+    .tags .tag {
+      background: #34495e;
+      color: #ecf0f1;
+      border-color: #465a69;
+
+      &.strength {
+        background: rgba(230, 126, 34, 0.15);
+        color: #e67e22;
+        border-color: rgba(230, 126, 34, 0.3);
+      }
+    }
+
+    .distinctions-list li {
+      color: #bdc3c7;
+    }
+
+    .timeline .timeline-item {
+      &:not(:last-child):before {
+        background: #34495e;
+      }
+
+      .timeline-marker {
+        border-color: #2c3e50;
+      }
+
+      .timeline-content {
+        background: #2c3e50;
+        border-color: #34495e;
+        box-shadow: none;
+
+        &:hover {
+          border-left-color: #e67e22;
+          background: #34495e; // Keep same bg
+        }
+
+        .job-header {
+          .job-title {
+            color: #ecf0f1;
+          }
+          .job-date {
+            color: #e67e22;
+            background: rgba(230, 126, 34, 0.15);
+          }
+        }
+
+        .job-company {
+          .company-name,
+          .company-name a {
+            color: #bdc3c7 !important;
+          }
+          .company-name a:hover {
+            color: #e67e22 !important;
+          }
+          .job-location {
+            color: #7f8c8d;
+          }
+        }
+
+        .job-description ul li {
+          color: #bdc3c7;
+        }
+      }
+    }
+
+    .education-card {
+      background: #2c3e50;
+      border-color: #34495e;
+      box-shadow: none;
+
+      &:hover {
+        border-color: #e67e22;
+      }
+
+      .edu-logo {
+        background: #fff; // Keep logo bg light
+        border-color: #34495e;
+      }
+
+      .edu-details {
+        .degree {
+          color: #ecf0f1;
+        }
+        .school {
+          color: #bdc3c7;
+        }
+        .edu-meta {
+          color: #95a5a6;
+          .date {
+            background: #34495e;
+            color: #bdc3c7;
+          }
+        }
+        .edu-notes {
+          color: #95a5a6;
+          border-top-color: #34495e;
+        }
+      }
+    }
+  }
 }
