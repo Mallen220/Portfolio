@@ -493,7 +493,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Initialize Masonry when page loads
-  initMasonry();
+  if (typeof Masonry !== 'undefined') {
+    initMasonry();
+  }
 
   // Initialize lightbox functionality
   initLightbox();
