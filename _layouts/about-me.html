@@ -9,7 +9,8 @@ layout: default
         <a href="/">
           <img
             src="{{site.url}}{{site.baseurl}}/assets/img/{{ site.author_logo }}"
-            class="profile-img"
+            class="profile-img smooth-load"
+            loading="eager"
           />
         </a>
         <h1 class="profile-name">{{ site.title }}</h1>
@@ -75,6 +76,8 @@ layout: default
                 <img
                   src="{{site.url}}{{site.baseurl}}/{{post.original}}"
                   width="100px"
+                  class="smooth-load"
+                  loading="lazy"
                 />
                 {% endif %}
               </div>
@@ -111,7 +114,8 @@ layout: default
           <div class="col-md-2">
             <img
               src="{{site.url}}{{site.baseurl}}/assets/img/experience/{{ exp.company_logo }}"
-              class="company-logo"
+              class="company-logo smooth-load"
+              loading="lazy"
             />
           </div>
           <div class="col-md-6">
@@ -133,7 +137,8 @@ layout: default
           <div class="col-md-2">
             <img
               src="{{site.url}}{{site.baseurl}}/assets/img/experience/{{ detail.college_logo}}"
-              class="company-logo"
+              class="company-logo smooth-load"
+              loading="lazy"
             />
           </div>
           <div class="col-md-6">

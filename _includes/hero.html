@@ -1,4 +1,12 @@
-<div class="hero-section" style="background-image: url('{{site.baseurl}}/assets/img/{{site.hero_cover_img}}');">
+<div class="hero-section">
+  <div class="hero-background" data-bg="{{site.baseurl}}/assets/img/{{site.hero_cover_img}}"></div>
+  <noscript>
+    <style>
+      .hero-background {
+        background-image: url('{{site.baseurl}}/assets/img/{{site.hero_cover_img}}');
+      }
+    </style>
+  </noscript>
   <div class="hero-overlay"></div>
   <div class="hero-content container">
     <div class="row align-items-center">
@@ -24,9 +32,10 @@
       </div>
       <div class="col-lg-4 d-none d-lg-block text-center">
         <img
-          class="hero-profile-img"
+          class="hero-profile-img smooth-load"
           src="{{site.url}}{{site.baseurl}}/assets/img/{{site.author_logo}}"
           alt="{{site.author}}"
+          loading="eager"
         />
       </div>
     </div>
