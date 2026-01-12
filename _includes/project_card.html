@@ -1,0 +1,50 @@
+<div class="col-lg-6 col-md-6 mb-4">
+  <div class="card project-card h-100">
+    <a
+      href="{{ post.url | prepend: site.baseurl }}"
+      class="card-link-wrapper h-100 d-flex flex-column"
+    >
+      <div class="project-thumbnail-wrapper">
+        {% if post.thumbnail %}
+        <img
+          class="card-img-top smooth-load"
+          loading="lazy"
+          src="{{ site.url }}{{ site.baseurl }}/{{ post.thumbnail }}"
+          alt="{{ post.title }}"
+        />
+        {% else %}
+        <div class="placeholder-img h-100 w-100">
+          <span class="text-muted">No Image</span>
+        </div>
+        {% endif %}
+      </div>
+      <div class="card-body d-flex flex-column">
+        <h4 class="card-title font-weight-bold mb-2">{{ post.title }}</h4>
+        <div class="mb-2">
+          {% for category in post.category limit:3 %}
+          <span class="badge badge-secondary">{{ category }}</span>
+          {% endfor %}
+        </div>
+        <h6 class="card-subtitle mb-3 text-muted">
+          {{ post.date | date: "%B %Y" }}
+        </h6>
+        <p class="card-text flex-grow-1">
+          {{ post.summary | truncatewords: 20 }}
+        </p>
+        <div class="mt-3">
+          <span class="btn btn-outline-dark btn-sm">Read More</span>
+          {% if post.github_url %}
+          <a
+            href="{{ post.github_url }}"
+            class="btn btn-sm btn-dark float-right"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-github"></i> Source
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
