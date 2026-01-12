@@ -13,6 +13,7 @@ github_url: "https://github.com/Mallen220/Windows-AutoClicker"
 pagination:
   enabled: true
   collection: projects
+featured: true
 ---
 
 ### Smart Clicker (Previously Windows-Autoclicker)
