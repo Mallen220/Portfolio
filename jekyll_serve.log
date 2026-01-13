@@ -1,0 +1,434 @@
+Configuration file: /app/_config.yml
+            Source: /app
+       Destination: ./_site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+       Jekyll Feed: Generating feed for posts
+                    done in 10.848 seconds.
+ Auto-regeneration: enabled for '/app'
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+      Regenerating: 1 file(s) changed at 2026-01-13 02:51:18
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.05851012 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:51:27
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.024219017 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:51:36
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.145386331 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:51:46
+                    jekyll_serve.log
+[2026-01-13 02:51:47] ERROR '/assets/bower_components/typewrite/dist/typewrite.min.js' not found.
+[2026-01-13 02:51:47] ERROR Errno::ENOENT: No such file or directory @ rb_sysopen - ./_site/404.html
+	/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/serve.rb:191:in `read'
+	/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/serve.rb:191:in `create_error_page'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpresponse.rb:417:in `set_error'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:101:in `rescue in run'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:97:in `run'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/server.rb:309:in `block in start_thread'
+[2026-01-13 02:51:47] ERROR '/assets/js/on-scroll-progress.js' not found.
+[2026-01-13 02:51:47] ERROR Errno::ENOENT: No such file or directory @ rb_sysopen - ./_site/404.html
+	/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/serve.rb:191:in `read'
+	/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/serve.rb:191:in `create_error_page'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpresponse.rb:417:in `set_error'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:101:in `rescue in run'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:97:in `run'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/server.rb:309:in `block in start_thread'
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.444546446 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:51:55
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.093512699 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:52:04
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 8.939244866 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:52:13
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 8.964304387 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:52:22
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 8.974148184 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:52:31
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 8.975633119 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:52:41
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 8.921921513 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:52:50
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 8.878851212 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:52:59
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 8.879417662 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:53:07
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 8.882607328 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:53:16
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 8.903921616 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:53:25
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.134603 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:53:35
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.483516189 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:53:44
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.791308821 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:53:54
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.106869366 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:54:03
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 12.11973726 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:54:16
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 8.995537706 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:54:25
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.022816891 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:54:34
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.057377795 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:54:43
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.137987614 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:54:52
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.265370149 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:55:02
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.435086699 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:55:11
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.091595664 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:55:20
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.146225417 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:55:30
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.078986232 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:55:39
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.372439419 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:55:48
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.106708212 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:55:57
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.040050232 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:56:07
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.074147859 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:56:16
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.006997138 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:56:25
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.003571269 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:56:34
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.234196861 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:56:43
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.561916001 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:56:53
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.460587338 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:57:03
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.406700352 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:57:12
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.064606572 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:57:21
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.416415364 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:57:31
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 11.257077678 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:57:42
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.415944932 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:57:52
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 10.057785706 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:58:02
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 10.368250328 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:58:12
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 8.994054549 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:58:21
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.086728047 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:58:31
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.026209884 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:58:40
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.111527553 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:58:49
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.047134419 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:58:58
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.069396492 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:59:07
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 10.138497631 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:59:17
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.203734159 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:59:27
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.893881733 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:59:37
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.680412219 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:59:47
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.262229408 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 02:59:56
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.18362027 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 03:00:05
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 11.323088527 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 03:00:17
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 10.453126128 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 03:00:27
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.499950918 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 03:00:37
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.731154317 seconds.
+
+      Regenerating: 1 file(s) changed at 2026-01-13 03:00:47
+                    jekyll_serve.log
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.285443975 seconds.
+
+      Regenerating: 2 file(s) changed at 2026-01-13 03:00:56
+                    jekyll_serve.log
+                    jekyll.log
+       Jekyll Feed: Generating feed for posts
+[2026-01-13 03:01:06] ERROR Errno::ECONNRESET: Connection reset by peer @ io_fillbuf - fd:23
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:82:in `eof?'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:82:in `run'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/server.rb:309:in `block in start_thread'
+[2026-01-13 03:01:06] ERROR Errno::ECONNRESET: Connection reset by peer @ io_fillbuf - fd:24
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:82:in `eof?'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:82:in `run'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/server.rb:309:in `block in start_thread'
+[2026-01-13 03:01:07] ERROR Errno::ECONNRESET: Connection reset by peer @ io_fillbuf - fd:24
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:82:in `eof?'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:82:in `run'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/server.rb:309:in `block in start_thread'
+E, [2026-01-13T03:01:08.992652 #10290] ERROR -- : Exception rescued in listen-run_thread:
+INotify::QueueOverflowError: inotify event queue has overflowed.
+/var/lib/gems/3.2.0/gems/rb-inotify-0.11.1/lib/rb-inotify/event.rb:120:in `initialize'
+/var/lib/gems/3.2.0/gems/rb-inotify-0.11.1/lib/rb-inotify/event.rb:100:in `new'
+/var/lib/gems/3.2.0/gems/rb-inotify-0.11.1/lib/rb-inotify/event.rb:100:in `consume'
+/var/lib/gems/3.2.0/gems/rb-inotify-0.11.1/lib/rb-inotify/notifier.rb:299:in `read_events'
+/var/lib/gems/3.2.0/gems/rb-inotify-0.11.1/lib/rb-inotify/notifier.rb:259:in `process'
+/var/lib/gems/3.2.0/gems/rb-inotify-0.11.1/lib/rb-inotify/notifier.rb:231:in `block in run'
+/var/lib/gems/3.2.0/gems/rb-inotify-0.11.1/lib/rb-inotify/notifier.rb:228:in `synchronize'
+/var/lib/gems/3.2.0/gems/rb-inotify-0.11.1/lib/rb-inotify/notifier.rb:228:in `run'
+/var/lib/gems/3.2.0/gems/listen-3.9.0/lib/listen/adapter/linux.rb:38:in `_run'
+/var/lib/gems/3.2.0/gems/listen-3.9.0/lib/listen/adapter/base.rb:79:in `block in start'
+/var/lib/gems/3.2.0/gems/listen-3.9.0/lib/listen/thread.rb:26:in `rescue_and_log'
+/var/lib/gems/3.2.0/gems/listen-3.9.0/lib/listen/thread.rb:18:in `block in new'
+--- Thread.new ---
+/var/lib/gems/3.2.0/gems/listen-3.9.0/lib/listen/adapter/base.rb:75:in `start'
+/usr/lib/ruby/3.2.0/forwardable.rb:240:in `start'
+/var/lib/gems/3.2.0/gems/listen-3.9.0/lib/listen/listener.rb:71:in `block in <class:Listener>'
+/var/lib/gems/3.2.0/gems/listen-3.9.0/lib/listen/fsm.rb:124:in `instance_eval'
+/var/lib/gems/3.2.0/gems/listen-3.9.0/lib/listen/fsm.rb:124:in `call'
+/var/lib/gems/3.2.0/gems/listen-3.9.0/lib/listen/fsm.rb:105:in `transition_with_callbacks!'
+/var/lib/gems/3.2.0/gems/listen-3.9.0/lib/listen/fsm.rb:72:in `transition'
+/var/lib/gems/3.2.0/gems/listen-3.9.0/lib/listen/listener.rb:92:in `start'
+/var/lib/gems/3.2.0/gems/jekyll-watch-2.2.1/lib/jekyll/watcher.rb:26:in `watch'
+/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/build.rb:94:in `call'
+/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/build.rb:94:in `watch'
+/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/build.rb:43:in `process'
+/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/serve.rb:93:in `block in start'
+/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/serve.rb:93:in `each'
+/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/serve.rb:93:in `start'
+/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/serve.rb:75:in `block (2 levels) in init_with_program'
+/var/lib/gems/3.2.0/gems/mercenary-0.3.6/lib/mercenary/command.rb:220:in `block in execute'
+/var/lib/gems/3.2.0/gems/mercenary-0.3.6/lib/mercenary/command.rb:220:in `each'
+/var/lib/gems/3.2.0/gems/mercenary-0.3.6/lib/mercenary/command.rb:220:in `execute'
+/var/lib/gems/3.2.0/gems/mercenary-0.3.6/lib/mercenary/program.rb:42:in `go'
+/var/lib/gems/3.2.0/gems/mercenary-0.3.6/lib/mercenary.rb:19:in `program'
+/var/lib/gems/3.2.0/gems/jekyll-3.10.0/exe/jekyll:15:in `<top (required)>'
+/usr/local/bin/jekyll:25:in `load'
+/usr/local/bin/jekyll:25:in `<main>'
+                    ...done in 12.79584314 seconds.
+
+      Regenerating: 3 file(s) changed at 2026-01-13 03:01:09
+                    jekyll_serve.log
+                    jekyll.log
+                    verify_gallery.py
+[2026-01-13 03:01:12] ERROR '/assets/img/gallery/BUPhotoAdventures/BUPhotoAdventures.jpg' not found.
+[2026-01-13 03:01:12] ERROR '/assets/img/gallery/MensIceHockey10-12-2024/BU-Hockey-10-12-2024--10.jpg' not found.
+[2026-01-13 03:01:12] ERROR Errno::ENOENT: No such file or directory @ rb_sysopen - ./_site/404.html
+	/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/serve.rb:191:in `read'
+	/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/serve.rb:191:in `create_error_page'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpresponse.rb:417:in `set_error'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:101:in `rescue in run'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:97:in `run'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/server.rb:309:in `block in start_thread'
+[2026-01-13 03:01:12] ERROR '/gallery/BUPhotoAdventures' not found.
+[2026-01-13 03:01:12] ERROR '/assets/img/gallery/BURugby10-6-2024/BU-Rugby-10-6-2024--11.jpg' not found.
+[2026-01-13 03:01:12] ERROR '/assets/img/gallery/BURugby9-29-2024/BURugby9-29-2024.jpg' not found.
+[2026-01-13 03:01:12] ERROR Errno::ENOENT: No such file or directory @ rb_sysopen - ./_site/404.html
+	/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/serve.rb:191:in `read'
+	/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/serve.rb:191:in `create_error_page'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpresponse.rb:417:in `set_error'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:101:in `rescue in run'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:97:in `run'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/server.rb:309:in `block in start_thread'
+[2026-01-13 03:01:12] ERROR Errno::ENOENT: No such file or directory @ rb_sysopen - ./_site/404.html
+	/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/serve.rb:191:in `read'
+	/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/serve.rb:191:in `create_error_page'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpresponse.rb:417:in `set_error'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:101:in `rescue in run'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:97:in `run'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/server.rb:309:in `block in start_thread'
+[2026-01-13 03:01:12] ERROR Errno::ENOENT: No such file or directory @ rb_sysopen - ./_site/404.html
+	/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/serve.rb:191:in `read'
+	/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/serve.rb:191:in `create_error_page'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpresponse.rb:417:in `set_error'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:101:in `rescue in run'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:97:in `run'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/server.rb:309:in `block in start_thread'
+[2026-01-13 03:01:12] ERROR Errno::ENOENT: No such file or directory @ rb_sysopen - ./_site/404.html
+	/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/serve.rb:191:in `read'
+	/var/lib/gems/3.2.0/gems/jekyll-3.10.0/lib/jekyll/commands/serve.rb:191:in `create_error_page'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpresponse.rb:417:in `set_error'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:101:in `rescue in run'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:97:in `run'
+	/var/lib/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/server.rb:309:in `block in start_thread'
+       Jekyll Feed: Generating feed for posts
+                    ...done in 9.540423349 seconds.
