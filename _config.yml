@@ -76,15 +76,15 @@ author_education_details:
 
 # Projects
 author_project_details:
-  - project_thumbnail: gamershub.png
-    project_title: Gamers Hub
-    project_description: A Platform built for Gamers and Game Devs
-    project_url: https://gamershub.in
+  - project_thumbnail: tetris-ml.png
+    project_title: Tetris ML
+    project_description: A reinforcement-learning agent that learns to play Tetris
+    project_url: https://github.com/Mallen220/Tetris-ML
     visibility: true
-  - project_thumbnail: hack4r.PNG
-    project_title: Hack4r
-    project_description: A Platform built for Hackers and Penetration Testers
-    project_url: https://hack4r.com
+  - project_thumbnail: smart-clicker.png
+    project_title: Smart Auto Clicker
+    project_description: An adaptive auto clicker with smart timing and safety features
+    project_url: https://github.com/Mallen220/smart-clicker
     visibility: true
 
 # social links

@@ -39,7 +39,8 @@
   <div class="card-body" itemprop="articleBody">
     {% if page.thumbnail %}
     <img
-      class="card-img-top"
+      class="card-img-top smooth-load"
+      loading="eager"
       src="{{ page.thumbnail | relative_url }}"
       alt="{{ page.title }}"
     />

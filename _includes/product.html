@@ -1,5 +1,5 @@
 <div class="projects-project card product">
-    <img src="{{site.url}}{{site.baseurl}}{{ product.image }}" alt="{{ product.name }} product image" class="product__image card-img-top">
+    <img src="{{site.url}}{{site.baseurl}}{{ product.image }}" alt="{{ product.name }} product image" class="product__image card-img-top smooth-load" loading="lazy">
     <div class="product__information">
        <!-- <h2 class="product__title">{{ product.name }}</h2> -->
        <p class="product__description">{{ product.content | remove: '<p>' | remove: '</p>' }}</p>
