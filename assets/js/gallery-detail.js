@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const grid = document.getElementById("lightgallery");
+  const grid = document.getElementById("gallery-masonry");
   const loader = document.getElementById("gallery-loader");
   const endMessage = document.getElementById("gallery-end");
 
@@ -8,23 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const { pictures, basePath, initialCount } = galleryConfig;
   let currentIndex = initialCount;
   const batchSize = 12;
-  let isLightGalleryInit = false;
-
-  // Initialize LightGallery
-  function initLightGallery() {
-    if (window.jQuery && window.jQuery(grid).lightGallery) {
-      window.jQuery(grid).lightGallery({
-        selector: '.gallery-item',
-        mode: 'lg-fade',
-        download: true,
-        zoom: true
-      });
-      isLightGalleryInit = true;
-    }
-  }
-
-  // Initial init
-  initLightGallery();
 
   // Infinite Scroll Observer
   const observer = new IntersectionObserver((entries) => {
@@ -57,24 +40,30 @@ document.addEventListener("DOMContentLoaded", function () {
       const pic = pictures[i];
       const caption = pic.title || pic.filename;
 
+      const item = document.createElement("div");
+      item.className = "gallery-item"; // Wrapper compatible with lightbox.js
+
       const a = document.createElement("a");
-      a.href = `${basePath}/${pic.original}`;
-      a.className = "gallery-item";
-      a.setAttribute("data-sub-html", `<h4>${caption}</h4>`);
+      a.href = "#"; // Prevent navigation
+      a.className = "gallery-link";
+      a.setAttribute("data-src", `${basePath}/${pic.filename}`);
+      a.setAttribute("data-original", `${basePath}/${pic.original}`);
+      a.setAttribute("data-caption", caption);
 
       const img = document.createElement("img");
-      img.src = `${basePath}/${pic.filename}`; // Or use placeholder/lazy loading logic if desired
+      img.src = `${basePath}/${pic.filename}`;
       img.alt = caption;
       img.loading = "lazy";
       img.className = "smooth-load";
 
       const overlay = document.createElement("div");
-      overlay.className = "gallery-item-overlay";
+      overlay.className = "gallery-overlay";
       overlay.innerHTML = '<i class="fa fa-expand"></i>';
 
       a.appendChild(img);
       a.appendChild(overlay);
-      fragment.appendChild(a);
+      item.appendChild(a);
+      fragment.appendChild(item);
     }
 
     grid.appendChild(fragment);
@@ -83,12 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (window.initImageLoader) {
       window.initImageLoader(grid);
     }
-
-    // Destroy and Re-init LightGallery to pick up new items
-    if (window.jQuery && window.jQuery(grid).data('lightGallery')) {
-       window.jQuery(grid).data('lightGallery').destroy(true);
-    }
-    initLightGallery();
 
     currentIndex = endIndex;
 

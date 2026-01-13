@@ -29,19 +29,24 @@ layout: default
       {% endif %}
     </div>
 
-    <div class="gallery-grid" id="lightgallery">
+    <!-- Gallery Masonry Container -->
+    <div class="gallery-masonry" id="gallery-masonry">
       {% assign initial_load_count = 24 %}
       {% if site.data.galleries[page.picture_path] %}
         {% for picture in site.data.galleries[page.picture_path].pictures limit:initial_load_count %}
           {% assign caption = picture.title | default: picture.filename %}
-          <a href="{{ site.baseurl }}/assets/img/gallery/{{ page.picture_path }}/{{ picture.original }}"
-             class="gallery-item"
-             data-sub-html="<h4>{{ caption }}</h4>">
-            <img loading="lazy" class="smooth-load" src="{{ site.baseurl }}/assets/img/gallery/{{ page.picture_path }}/{{ picture.filename }}" alt="{{ caption }}" />
-            <div class="gallery-item-overlay">
-              <i class="fa fa-expand"></i>
-            </div>
-          </a>
+          <div class="gallery-item">
+             <a href="#"
+                class="gallery-link"
+                data-src="{{ site.baseurl }}/assets/img/gallery/{{ page.picture_path }}/{{ picture.filename }}"
+                data-original="{{ site.baseurl }}/assets/img/gallery/{{ page.picture_path }}/{{ picture.original }}"
+                data-caption="{{ caption }}">
+              <img loading="lazy" class="smooth-load" src="{{ site.baseurl }}/assets/img/gallery/{{ page.picture_path }}/{{ picture.filename }}" alt="{{ caption }}" />
+              <div class="gallery-overlay">
+                <i class="fa fa-expand"></i>
+              </div>
+            </a>
+          </div>
         {% endfor %}
       {% else %}
         <div class="alert alert-danger">Gallery data not found for {{ page.picture_path }}</div>
@@ -72,4 +77,5 @@ layout: default
   {%- endif -%}
 </script>
 
+<script src="{{ site.baseurl }}/assets/js/lightbox.js"></script>
 <script src="{{ site.baseurl }}/assets/js/gallery-detail.js"></script>

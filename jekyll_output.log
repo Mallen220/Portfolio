@@ -1,0 +1,10 @@
+Configuration file: /app/_config.yml
+            Source: /app
+       Destination: ./_site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+       Jekyll Feed: Generating feed for posts
+                    done in 34.18 seconds.
+ Auto-regeneration: disabled when running server detached.
+    Server address: http://127.0.0.1:4000/
+Server detached with pid '27922'. Run `pkill -f jekyll' or `kill -9 27922' to stop the server.
