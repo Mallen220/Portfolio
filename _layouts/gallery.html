@@ -2,252 +2,80 @@
 layout: default
 ---
 
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/lightbox.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
-<script src="{{ site.baseurl }}/assets/js/lightbox.js"></script>
-
-<style>
-  .gallery-grid {
-    margin: 0 auto;
-  }
-
-  .gallery-item {
-    width: calc(25% - 20px);
-    margin-bottom: 20px;
-    break-inside: avoid;
-    page-break-inside: avoid;
-    -webkit-column-break-inside: avoid;
-  }
-
-  .gallery-grid-sizer {
-    width: calc(25% - 20px);
-  }
-
-  .gallery-thumbnail {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 4px;
-    transition: transform 0.3s ease;
-  }
-
-  .gallery-thumbnail:hover {
-    transform: scale(1.02);
-  }
-
-  #loader {
-    text-align: center;
-    padding: 20px;
-    display: none;
-  }
-
-  @media (max-width: 1200px) {
-    .gallery-item,
-    .gallery-grid-sizer {
-      width: calc(33.333% - 20px);
-    }
-  }
-
-  @media (max-width: 768px) {
-    .gallery-item,
-    .gallery-grid-sizer {
-      width: calc(50% - 15px);
-    }
-  }
-
-  @media (max-width: 480px) {
-    .gallery-item,
-    .gallery-grid-sizer {
-      width: 100%;
-    }
-  }
-</style>
-
-{% include gallery_breadcrumb.html %}
-
 <div class="gallery-page">
   <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="gallery-header">
-          <h1>{{ page.title }}</h1>
-          {% if page.private %}
-          <div class="alert alert-warning">
-            <strong>Private Gallery:</strong> This gallery is private and
-            requires a password to view.
-          </div>
+    <br/><br/><br/>
+    <a href="{{ site.baseurl }}/gallery/" class="gallery-back-link">
+      <i class="fa fa-arrow-left"></i> Back to All Galleries
+    </a>
 
-          {% else %} {% if page.description %}
-          <p class="gallery-description">{{ page.description }}</p>
-          {% endif %} {% if page.google_photos_album %}
-          <div class="album-link">
-            <a
-              href="{{ page.google_photos_album }}"
-              class="btn btn-album"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fa fa-image"></i> View Full Album on Google Photos
+    <div class="gallery-header mb-5">
+      <h1 class="mb-3">{{ page.title }}</h1>
+      {% if page.private %}
+      <div class="alert alert-warning">
+        <strong>Private Gallery:</strong> This gallery is private.
+      </div>
+      {% else %}
+        {% if page.description %}
+        <p class="gallery-description lead">{{ page.description }}</p>
+        {% endif %}
+        {% if page.google_photos_album %}
+        <div class="album-link mt-3">
+          <a href="{{ page.google_photos_album }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
+            <i class="fa fa-google"></i> View on Google Photos
+          </a>
+        </div>
+        {% endif %}
+      {% endif %}
+    </div>
+
+    <!-- Gallery Masonry Container -->
+    <div class="gallery-masonry" id="gallery-masonry">
+      {% assign initial_load_count = 24 %}
+      {% if site.data.galleries[page.picture_path] %}
+        {% for picture in site.data.galleries[page.picture_path].pictures limit:initial_load_count %}
+          {% assign caption = picture.title | default: picture.filename %}
+          <div class="gallery-item">
+             <a href="#"
+                class="gallery-link"
+                data-src="{{ site.baseurl }}/assets/img/gallery/{{ page.picture_path }}/{{ picture.filename }}"
+                data-original="{{ site.baseurl }}/assets/img/gallery/{{ page.picture_path }}/{{ picture.original }}"
+                data-caption="{{ caption }}">
+              <img loading="lazy" class="smooth-load" src="{{ site.baseurl }}/assets/img/gallery/{{ page.picture_path }}/{{ picture.filename }}" alt="{{ caption }}" />
+              <div class="gallery-overlay">
+                <i class="fa fa-expand"></i>
+              </div>
             </a>
           </div>
-          <br />
-          {% endif %}
-        </div>
-
-        <div class="gallery-container">
-          <div
-            class="gallery-grid"
-            id="gallery-{{ page.picture_path | slugify }}"
-          >
-            <div class="gallery-grid-sizer"></div>
-
-            {% assign initial_load_count = 12 %} {% for picture in
-            site.data.galleries[page.picture_path].pictures
-            limit:initial_load_count %} {% assign caption = picture.title |
-            default: picture.filename %}
-
-            <div class="gallery-item">
-              <a
-                href="javascript:void(0);"
-                class="gallery-link"
-                data-src="{{ site.baseurl }}/assets/img/gallery/{{ page.picture_path }}/{{ picture.original }}"
-                data-original="{{ site.baseurl }}/assets/img/gallery/{{ page.picture_path }}/{{ picture.filename }}"
-                data-caption="{{ caption }}"
-              >
-                <img
-                  loading="lazy"
-                  class="gallery-thumbnail smooth-load"
-                  alt="{{ caption }}"
-                  src="{{ site.baseurl }}/assets/img/gallery/{{ page.picture_path }}/{{ picture.filename }}"
-                />
-              </a>
-            </div>
-            {% endfor %}
-          </div>
-          <div id="loader">Loading more photos...</div>
-        </div>
-      </div>
+        {% endfor %}
+      {% else %}
+        <div class="alert alert-danger">Gallery data not found for {{ page.picture_path }}</div>
+      {% endif %}
     </div>
-    {% endif%}
+
+    <div id="gallery-loader" class="text-center py-5" style="display: none;">
+      <i class="fa fa-circle-o-notch fa-spin fa-2x text-muted"></i>
+    </div>
+
+    <div id="gallery-end" class="text-center py-5" style="display: none;">
+      <p class="text-muted">End of gallery</p>
+    </div>
+
   </div>
 </div>
 
 <script>
   {%- assign gallery_data = site.data.galleries[page.picture_path] -%}
-  {%- if gallery_data and gallery_data.pictures.size > 0 -%}
-
-  const allPictures = {{ gallery_data.pictures | jsonify }};
-  const baseImgUrl = "{{ site.baseurl }}/assets/img/gallery/{{ page.picture_path }}";
-  const picturePath = "{{ page.picture_path }}";
-
-  const initialLoadCount = 12;
-  const batchSize = 8;
-  let currentIndex = initialLoadCount;
-  let isLoading = false;
-  let masonry;
-
-  $(document).ready(function () {
-    const $grid = $("#gallery-{{ page.picture_path | slugify }}");
-
-    function initMasonry() {
-      if (typeof Masonry !== 'undefined') {
-        masonry = new Masonry($grid[0], {
-          itemSelector: ".gallery-item",
-          columnWidth: ".gallery-grid-sizer",
-          percentPosition: true,
-          gutter: 20
-        });
-      }
-    }
-
-    function updateLightbox() {
-      if (typeof window.updateLightboxItems === 'function') {
-        window.updateLightboxItems();
-      }
-      else if (typeof initLightbox === 'function') {
-        initLightbox();
-      }
-    }
-
-    function checkAndLoad() {
-      if (isLoading) return;
-
-      const buffer = 750;
-      if ($(window).scrollTop() + $(window).height() >= $(document).height() - buffer) {
-        loadMoreImages();
-      }
-    }
-
-    $grid.imagesLoaded(function() {
-      initMasonry();
-      updateLightbox();
-      checkAndLoad();
-    });
-
-    function loadMoreImages() {
-      if (isLoading || currentIndex >= allPictures.length) {
-        if (currentIndex >= allPictures.length) {
-          $('#loader').hide();
-        }
-        return;
-      }
-
-      isLoading = true;
-      $("#loader").show();
-
-      let itemsHtml = '';
-      const endIndex = Math.min(currentIndex + batchSize, allPictures.length);
-
-      for (let i = currentIndex; i < endIndex; i++) {
-        const picture = allPictures[i];
-        const caption = picture.title || picture.filename;
-        const safeCaption = caption.replace(/"/g, '&quot;');
-        itemsHtml += `
-          <div class="gallery-item">
-            <a href="javascript:void(0);" class="gallery-link"
-               data-src="${baseImgUrl}/${picture.original}"
-               data-original="${baseImgUrl}/${picture.filename}"
-               data-caption="${safeCaption}">
-              <img loading="lazy" class="gallery-thumbnail smooth-load" alt="${safeCaption}"
-                   src="${baseImgUrl}/${picture.filename}" />
-            </a>
-          </div>
-        `;
-      }
-
-      const $newItems = $(itemsHtml);
-      $grid.append($newItems);
-
-      // Initialize image loader for new items if available
-      if (typeof window.initImageLoader === 'function') {
-        window.initImageLoader($grid[0]);
-      }
-
-      $newItems.imagesLoaded().done(function() {
-        if (masonry) {
-          masonry.appended($newItems);
-          masonry.layout();
-        }
-
-        updateLightbox();
-
-        isLoading = false;
-        $("#loader").hide();
-        checkAndLoad();
-      });
-
-      currentIndex = endIndex;
-    }
-
-    $(window).on("scroll", checkAndLoad);
-  });
-
+  {%- if gallery_data -%}
+  const galleryConfig = {
+    pictures: {{ gallery_data.pictures | jsonify }},
+    basePath: "{{ site.baseurl }}/assets/img/gallery/{{ page.picture_path }}",
+    initialCount: {{ initial_load_count }}
+  };
   {%- else -%}
-  console.error(
-    "Jekyll Gallery Error: Could not find picture data for '{{ page.picture_path | default: 'undefined' }}'. " +
-    "Ensure 'picture_path' is set in the page's front matter and that a corresponding file exists in the _data/galleries/ directory."
-  );
+  const galleryConfig = null;
   {%- endif -%}
 </script>
+
+<script src="{{ site.baseurl }}/assets/js/lightbox.js"></script>
+<script src="{{ site.baseurl }}/assets/js/gallery-detail.js"></script>

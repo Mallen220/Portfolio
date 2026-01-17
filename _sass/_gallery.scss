@@ -1,0 +1,204 @@
+/* _sass/_gallery.scss */
+
+/* Gallery Index Hero */
+.gallery-hero {
+    position: relative;
+    padding: 80px 0;
+    margin-bottom: 40px;
+    background: var(--card-background-color);
+    border-bottom: 1px solid var(--light-border-color);
+    text-align: center;
+}
+
+.gallery-hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--bold-color);
+}
+
+.gallery-hero p {
+    font-size: 1.25rem;
+    color: var(--main-text-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Gallery Index Grid */
+.gallery-index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    padding-bottom: 60px;
+}
+
+.gallery-album-card {
+    background: var(--card-background-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--light-border-color);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none !important;
+}
+
+.gallery-album-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1);
+}
+
+.album-preview {
+    position: relative;
+    padding-top: 66.66%; /* 3:2 Aspect Ratio */
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.album-preview img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.gallery-album-card:hover .album-preview img {
+    transform: scale(1.05);
+}
+
+.album-info {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.album-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--bold-color);
+    line-height: 1.3;
+}
+
+.album-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    color: var(--main-text-color);
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.album-date {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.album-count {
+    background: var(--light-border-color);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--main-text-color);
+}
+
+
+/* Gallery Detail - Masonry (CSS Columns) */
+.gallery-masonry {
+    column-count: 3;
+    column-gap: 20px;
+    padding-bottom: 40px;
+}
+
+.gallery-item {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #eee;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-link {
+    display: block;
+    position: relative;
+    cursor: zoom-in;
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-link:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay i {
+    color: white;
+    font-size: 2rem;
+    transform: scale(0.8);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.gallery-link:hover .gallery-overlay i {
+    transform: scale(1);
+}
+
+/* Back Link */
+.gallery-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 30px;
+    color: var(--link-color) !important;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.gallery-back-link:hover {
+    transform: translateX(-5px);
+    text-decoration: none;
+}
+
+/* Responsive Columns */
+@media (max-width: 1024px) {
+    .gallery-masonry {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-masonry {
+        column-count: 1;
+    }
+    .gallery-index-grid {
+        grid-template-columns: 1fr;
+    }
+}

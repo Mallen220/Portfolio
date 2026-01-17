@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const loader = document.createElement("div");
   loader.className = "custom-lightbox-loader";
-  loader.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+  loader.innerHTML = '<i class="fa fa-circle-o-notch fa-spin"></i>';
 
   const img = document.createElement("img");
   img.className = "custom-lightbox-img";
@@ -27,13 +27,13 @@ document.addEventListener("DOMContentLoaded", function () {
   downloadBtn.className = "custom-lightbox-btn";
   downloadBtn.id = "custom-lightbox-download";
   downloadBtn.title = "Download Original";
-  downloadBtn.innerHTML = '<i class="fas fa-download"></i>';
+  downloadBtn.innerHTML = '<i class="fa fa-download"></i>';
 
   const closeBtn = document.createElement("button");
   closeBtn.className = "custom-lightbox-btn";
   closeBtn.id = "custom-lightbox-close";
   closeBtn.title = "Close (Esc)";
-  closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+  closeBtn.innerHTML = '<i class="fa fa-times"></i>';
 
   controls.appendChild(downloadBtn);
   controls.appendChild(closeBtn);
@@ -46,13 +46,13 @@ document.addEventListener("DOMContentLoaded", function () {
   prevBtn.className = "custom-nav-btn";
   prevBtn.id = "custom-lightbox-prev";
   prevBtn.title = "Previous (←)";
-  prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+  prevBtn.innerHTML = '<i class="fa fa-chevron-left"></i>';
 
   const nextBtn = document.createElement("button");
   nextBtn.className = "custom-nav-btn";
   nextBtn.id = "custom-lightbox-next";
   nextBtn.title = "Next (→)";
-  nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+  nextBtn.innerHTML = '<i class="fa fa-chevron-right"></i>';
 
   nav.appendChild(prevBtn);
   nav.appendChild(nextBtn);
@@ -65,19 +65,19 @@ document.addEventListener("DOMContentLoaded", function () {
   zoomOutBtn.className = "custom-zoom-btn";
   zoomOutBtn.id = "custom-lightbox-zoom-out";
   zoomOutBtn.title = "Zoom Out (-)";
-  zoomOutBtn.innerHTML = '<i class="fas fa-search-minus"></i>';
+  zoomOutBtn.innerHTML = '<i class="fa fa-search-minus"></i>';
 
   const zoomResetBtn = document.createElement("button");
   zoomResetBtn.className = "custom-zoom-btn";
   zoomResetBtn.id = "custom-lightbox-zoom-reset";
   zoomResetBtn.title = "Reset Zoom (0)";
-  zoomResetBtn.innerHTML = '<i class="fas fa-sync-alt"></i>';
+  zoomResetBtn.innerHTML = '<i class="fa fa-sync-alt"></i>';
 
   const zoomInBtn = document.createElement("button");
   zoomInBtn.className = "custom-zoom-btn";
   zoomInBtn.id = "custom-lightbox-zoom-in";
   zoomInBtn.title = "Zoom In (+)";
-  zoomInBtn.innerHTML = '<i class="fas fa-search-plus"></i>';
+  zoomInBtn.innerHTML = '<i class="fa fa-search-plus"></i>';
 
   zoomControls.appendChild(zoomOutBtn);
   zoomControls.appendChild(zoomResetBtn);
@@ -111,9 +111,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Track preloaded originals
   const preloadedOriginals = new Set();
   function refreshGalleryItems() {
+    // Select all items that are compatible with this lightbox
+    // We expect .gallery-item wrapper
     const newItemsList = Array.from(document.querySelectorAll(".gallery-item"));
 
-    if (newItemsList.length > galleryItems.length) {
+    if (newItemsList.length > 0) {
       galleryItems = newItemsList;
 
       if (lightbox.classList.contains("active")) {
@@ -123,34 +125,6 @@ document.addEventListener("DOMContentLoaded", function () {
         preloadOriginalRange(preloadStart, preloadEnd);
       }
     }
-  }
-
-  function initMasonry() {
-    document.querySelectorAll(".gallery-grid").forEach((grid) => {
-      if (grid.dataset.masonryInitialized) return;
-      grid.dataset.masonryInitialized = true;
-
-      // Add grid sizer if not exists
-      if (!grid.querySelector(".gallery-grid-sizer")) {
-        const sizer = document.createElement("div");
-        sizer.className = "gallery-grid-sizer";
-        grid.prepend(sizer);
-      }
-
-      // Initialize Masonry
-      const masonry = new Masonry(grid, {
-        itemSelector: ".gallery-item",
-        columnWidth: ".gallery-grid-sizer",
-        gutter: 15,
-        percentPosition: true,
-        transitionDuration: "0.3s",
-      });
-
-      // Use imagesLoaded to trigger layout after images load
-      imagesLoaded(grid).on("progress", function () {
-        masonry.layout();
-      });
-    });
   }
 
   // Preload original images
@@ -164,6 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const item = galleryItems[index];
     const link = item.querySelector(".gallery-link");
+    if (!link) return;
     const originalSrc = link.dataset.original;
 
     if (!originalSrc) return;
@@ -183,33 +158,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize lightbox functionality
   function initLightbox() {
-    const grid = document.querySelector(".gallery-grid");
-    if (!grid) return;
-
-    grid.addEventListener("click", function (e) {
+    // We bind to document body for delegation since items are dynamic
+    document.body.addEventListener("click", function (e) {
       const galleryItem = e.target.closest(".gallery-item");
 
       if (galleryItem) {
-        e.preventDefault();
+        // Update items list just in case
+        refreshGalleryItems();
 
-        galleryItems = Array.from(document.querySelectorAll(".gallery-item"));
-
+        // Find index
         const index = galleryItems.indexOf(galleryItem);
 
         if (index > -1) {
-          openLightbox(index);
+             e.preventDefault();
+             openLightbox(index);
         }
       }
     });
-
-    // Preload first 5 original images on page load
-    const initialItems = Array.from(document.querySelectorAll(".gallery-item"));
-    const initialPreloadEnd = Math.min(4, initialItems.length - 1);
-    preloadOriginalRange(0, initialPreloadEnd);
-
-    // This observer watches for new items being added to the grid
-    const observer = new MutationObserver(refreshGalleryItems);
-    observer.observe(grid, { childList: true });
 
     closeBtn.addEventListener("click", closeLightbox);
     prevBtn.addEventListener("click", goToPrev);
@@ -265,6 +230,9 @@ document.addEventListener("DOMContentLoaded", function () {
     img.addEventListener("dragstart", function (e) {
       e.preventDefault();
     });
+
+    // Initial refresh
+    refreshGalleryItems();
   }
 
   // Open lightbox
@@ -302,8 +270,10 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateLightbox() {
     const item = galleryItems[currentIndex];
     const link = item.querySelector(".gallery-link");
-    const src = link.dataset.src;
-    const originalSrc = link.dataset.original;
+    if (!link) return;
+
+    const src = link.dataset.src; // optimized src
+    const originalSrc = link.dataset.original; // full res
     const captionText = link.dataset.caption || "";
 
     // Reset state
@@ -319,14 +289,15 @@ document.addEventListener("DOMContentLoaded", function () {
     // Update caption
     caption.textContent = captionText;
 
-    // Load 1600px version
+    // Load Image
     const imgObj = new Image();
     imgObj.onload = function () {
       img.src = this.src;
       img.style.display = "block";
       loader.style.display = "none";
     };
-    imgObj.src = src;
+    // Use original if available, else src
+    imgObj.src = originalSrc || src;
 
     // Preload current original
     if (originalSrc && !preloadedOriginals.has(currentIndex)) {
@@ -336,30 +307,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function checkAndLoadNextBatch() {
-    const preloadThreshold = 10; // When to trigger loading more
-    if (currentIndex >= galleryItems.length - preloadThreshold) {
-      if (typeof window.loadMoreImages === "function") {
-        window.loadMoreImages();
-      }
-    }
-  }
-
-  function syncScrollPosition() {
-    if (galleryItems[currentIndex]) {
-      galleryItems[currentIndex].scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }
-  }
-
   function goToPrev() {
     currentIndex =
       (currentIndex - 1 + galleryItems.length) % galleryItems.length;
     updateLightbox();
-    syncScrollPosition();
-    checkAndLoadNextBatch();
 
     const preloadStart = Math.max(0, currentIndex - 3);
     const preloadEnd = Math.min(galleryItems.length - 1, currentIndex + 1);
@@ -369,8 +320,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function goToNext() {
     currentIndex = (currentIndex + 1) % galleryItems.length;
     updateLightbox();
-    syncScrollPosition();
-    checkAndLoadNextBatch();
 
     const preloadStart = Math.max(0, currentIndex - 1);
     const preloadEnd = Math.min(galleryItems.length - 1, currentIndex + 3);
@@ -383,11 +332,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     currentZoom += 0.25;
     applyTransform();
-
-    // Load original if zooming beyond 100% and not already loaded
-    if (currentZoom > 1 && !isOriginalLoaded) {
-      loadOriginal();
-    }
   }
 
   function zoomOut() {
@@ -418,24 +362,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function applyTransform() {
     img.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentZoom})`;
-  }
-
-  // Load original resolution
-  function loadOriginal() {
-    const item = galleryItems[currentIndex];
-    const link = item.querySelector(".gallery-link");
-    const originalSrc = link.dataset.original;
-
-    // Show loader
-    loader.style.display = "flex";
-
-    const imgObj = new Image();
-    imgObj.onload = function () {
-      img.src = this.src;
-      loader.style.display = "none";
-      isOriginalLoaded = true;
-    };
-    imgObj.src = originalSrc;
   }
 
   // Download original
@@ -491,9 +417,6 @@ document.addEventListener("DOMContentLoaded", function () {
         break;
     }
   }
-
-  // Initialize Masonry when page loads
-  initMasonry();
 
   // Initialize lightbox functionality
   initLightbox();

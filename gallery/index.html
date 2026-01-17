@@ -4,138 +4,78 @@ title: Gallery Home
 permalink: /gallery/
 ---
 
+<!-- Gallery Hero Section -->
+<div class="gallery-hero">
+  <div class="container">
+    <h1>{{ page.title }}</h1>
+    <p>A collection of moments and memories.</p>
+  </div>
+</div>
+
 <div class="gallery-index">
   <div class="container">
-    <br />
-    <br />
-    <br />
-    <h1 class="text-center mb-4">{{ page.title }}</h1>
-
     {% if site.data.galleries.overview %}
     <!-- Create array of galleries with dates -->
-    {% assign galleries_with_dates = "" | split: "" %} {% for gallery in
-    site.data.galleries.overview %} {% assign gallery_page = site.galleries |
-    where: "picture_path", gallery.directory | first %} {% if gallery_page.date
-    %} {% assign gallery_entry = gallery %} {% assign gallery_entry.date =
-    gallery_page.date %} {% assign galleries_with_dates = galleries_with_dates |
-    push: gallery_entry %} {% else %}
-    <!-- Galleries without dates will be placed at the end -->
-    {% assign gallery_entry = gallery %} {% assign gallery_entry.date =
-    "1900-01-01" %} {% assign galleries_with_dates = galleries_with_dates |
-    push: gallery_entry %} {% endif %} {% endfor %}
+    {% assign galleries_with_dates = "" | split: "" %}
+    {% for gallery in site.data.galleries.overview %}
+      {% assign gallery_page = site.galleries | where: "picture_path", gallery.directory | first %}
+      {% if gallery_page.date %}
+        {% assign gallery_entry = gallery %}
+        {% assign gallery_entry.date = gallery_page.date %}
+        {% assign galleries_with_dates = galleries_with_dates | push: gallery_entry %}
+      {% else %}
+        <!-- Galleries without dates will be placed at the end -->
+        {% assign gallery_entry = gallery %}
+        {% assign gallery_entry.date = "1900-01-01" %}
+        {% assign galleries_with_dates = galleries_with_dates | push: gallery_entry %}
+      {% endif %}
+    {% endfor %}
 
     <!-- Sort galleries by date -->
-    {% assign sorted_galleries = galleries_with_dates | sort: "date" | reverse
-    %}
+    {% assign sorted_galleries = galleries_with_dates | sort: "date" | reverse %}
 
-    <div class="row">
-      {% for gallery in sorted_galleries %} {% comment %} Get gallery data from
-      site.data.galleries[gallery.directory] {% endcomment %} {% assign
-      gallery_data = site.data.galleries[gallery.directory] %} {% assign
-      gallery_page = site.galleries | where: "picture_path", gallery.directory |
-      first %}
+    <div class="gallery-index-grid">
+      {% for gallery in sorted_galleries %}
+        {% assign gallery_data = site.data.galleries[gallery.directory] %}
+        {% assign gallery_page = site.galleries | where: "picture_path", gallery.directory | first %}
 
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="gallery-card card">
-          <a
-            href="{{ site.baseurl }}/gallery/{{ gallery.directory }}"
-            class="gallery-card-link"
-          >
+        <a href="{{ site.baseurl }}/gallery/{{ gallery.directory }}" class="gallery-album-card">
+          <div class="album-preview">
             {% if gallery.preview and gallery.preview.filename %}
-            <img
-              loading="lazy"
-              class="card-img-top"
-              alt="{{ gallery.title }}"
-              src="{{ site.baseurl }}/assets/img/gallery/{{ gallery.directory }}/{{ gallery.preview.filename }}"
-            />
+              <img
+                loading="lazy"
+                class="smooth-load"
+                alt="{{ gallery.title }}"
+                src="{{ site.baseurl }}/assets/img/gallery/{{ gallery.directory }}/{{ gallery.preview.filename }}"
+              />
             {% else %}
-            <div
-              class="card-img-placeholder bg-light d-flex align-items-center justify-content-center"
-            >
-              <i class="fa fa-image fa-3x text-muted"></i>
-            </div>
+              <div class="d-flex align-items-center justify-content-center h-100 bg-light">
+                <i class="fa fa-image fa-3x text-muted"></i>
+              </div>
             {% endif %}
+          </div>
 
-            <div class="card-body">
-              <h5 class="card-title">{{ gallery.title }}</h5>
-
-              <!-- Display date if available -->
+          <div class="album-info">
+            <h3 class="album-title">{{ gallery.title }}</h3>
+            <div class="album-meta">
               {% if gallery_page.date %}
-              <p class="card-date text-muted small">
-                {{ gallery_page.date | date: "%B %d, %Y" }}
-              </p>
-              {% endif %} {% if gallery_data and gallery_data.pictures %}
-              <p class="card-text">{{ gallery_data.pictures | size }} photos</p>
+                <span class="album-date">
+                  <i class="fa fa-calendar-o"></i>
+                  {{ gallery_page.date | date: "%B %d, %Y" }}
+                </span>
+              {% endif %}
+              {% if gallery_data and gallery_data.pictures %}
+                <span class="album-count">{{ gallery_data.pictures | size }} Photos</span>
               {% endif %}
             </div>
-          </a>
-        </div>
-      </div>
+          </div>
+        </a>
       {% endfor %}
     </div>
     {% else %}
     <div class="alert alert-warning text-center">
       <p>No galleries found. Please check your gallery configuration.</p>
-      <p class="mb-0">
-        Debug info: site.data.galleries.overview = {{
-        site.data.galleries.overview | inspect }}
-      </p>
     </div>
     {% endif %}
   </div>
 </div>
-
-<style>
-  .gallery-card {
-    transition: transform 0.3s ease;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 85%;
-  }
-
-  .gallery-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  }
-
-  .gallery-card-link {
-    color: inherit;
-    text-decoration: none;
-    display: block;
-    height: 100%;
-  }
-
-  .gallery-card .card-img-top {
-    height: 175px;
-    object-fit: cover;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .gallery-card .card-body {
-    padding: 1.25rem;
-  }
-
-  .card-date {
-    margin-bottom: 0.5rem;
-    font-size: 0.85rem;
-  }
-
-  .card-img-placeholder {
-    height: 200px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  /* Date badge for visual indication */
-  .date-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    z-index: 1;
-  }
-</style>
