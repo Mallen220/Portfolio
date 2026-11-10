@@ -63,20 +63,34 @@ layout: default
       <h3>Skills</h3>
       <div class="skills-container">
         <div class="skill-category">
-          <h4>Languages & Tools</h4>
+          <h4>Languages</h4>
           <div class="tags">
             {% for skill in site.data.resume.skills.languages %}
-            <span class="tag">{{ skill }}</span>
-            {% endfor %} {% for skill in site.data.resume.skills.tools %}
             <span class="tag">{{ skill }}</span>
             {% endfor %}
           </div>
         </div>
         <div class="skill-category">
-          <h4>Strengths</h4>
+          <h4>Frameworks &amp; Infrastructure</h4>
           <div class="tags">
-            {% for strength in site.data.resume.skills.strengths %}
-            <span class="tag strength">{{ strength }}</span>
+            {% for skill in site.data.resume.skills.frameworks %}
+            <span class="tag">{{ skill }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="skill-category">
+          <h4>Practices &amp; APIs</h4>
+          <div class="tags">
+            {% for skill in site.data.resume.skills.practices %}
+            <span class="tag">{{ skill }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="skill-category">
+          <h4>Spoken Languages</h4>
+          <div class="tags">
+            {% for skill in site.data.resume.skills.spoken %}
+            <span class="tag strength">{{ skill }}</span>
             {% endfor %}
           </div>
         </div>
@@ -93,42 +107,17 @@ layout: default
 
     <section class="resume-section experience">
       <h3>Experience</h3>
-      <div class="timeline">
-        {% for job in site.data.resume.experience %}
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="job-header">
-              <h4 class="job-title">{{ job.role }}</h4>
-              <span class="job-date">{{ job.date }}</span>
-            </div>
-            <div class="job-company">
-              {% if job.logo %}
-              <img
-                src="{{ site.baseurl }}/assets/img/experience/{{ job.logo }}"
-                alt="{{ job.company }}"
-                class="company-logo-small smooth-load"
-                loading="lazy"
-              />
-              {% endif %}
-              <span class="company-name">
-                {% if job.url %}
-                <a href="{{ job.url }}" target="_blank">{{ job.company }}</a>
-                {% else %} {{ job.company }} {% endif %}
-              </span>
-              <span class="job-location"> | {{ job.location }}</span>
-            </div>
-            <div class="job-description">
-              <ul>
-                {% for item in job.description %}
-                <li>{{ item }}</li>
-                {% endfor %}
-              </ul>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
+      {% include resume_timeline.html items=site.data.resume.experience %}
+    </section>
+
+    <section class="resume-section experience">
+      <h3>Projects</h3>
+      {% include resume_timeline.html items=site.data.resume.projects %}
+    </section>
+
+    <section class="resume-section experience">
+      <h3>Leadership</h3>
+      {% include resume_timeline.html items=site.data.resume.leadership %}
     </section>
 
     <section class="resume-section education">
@@ -165,3 +154,54 @@ layout: default
     </section>
   </div>
 </div>
+
+<script>
+  (function () {
+    var repo = "Mallen220/TurtleTracer";
+    if (!document.querySelector("[data-tt]")) return;
+
+    function show(key, text) {
+      document.querySelectorAll('[data-tt="' + key + '"]').forEach(function (el) {
+        el.textContent = text;
+      });
+    }
+
+    function getReleases(page, all) {
+      return fetch(
+        "https://api.github.com/repos/" + repo + "/releases?per_page=100&page=" + page
+      )
+        .then(function (r) {
+          return r.ok ? r.json() : Promise.reject();
+        })
+        .then(function (batch) {
+          all = all.concat(batch);
+          return batch.length === 100 ? getReleases(page + 1, all) : all;
+        });
+    }
+
+    getReleases(1, [])
+      .then(function (releases) {
+        var downloads = 0;
+        releases.forEach(function (rel) {
+          (rel.assets || []).forEach(function (a) {
+            downloads += a.download_count;
+          });
+        });
+        show("downloads", downloads.toLocaleString("en-US"));
+        show("releases", String(releases.length));
+      })
+      .catch(function () {});
+
+    fetch(
+      "https://raw.githubusercontent.com/" + repo + "/main/README_Content/coverage-badge.svg"
+    )
+      .then(function (r) {
+        return r.ok ? r.text() : Promise.reject();
+      })
+      .then(function (svg) {
+        var m = svg.match(/Coverage: ([\d.]+)%/);
+        if (m) show("coverage", parseFloat(m[1]).toFixed(1));
+      })
+      .catch(function () {});
+  })();
+</script>

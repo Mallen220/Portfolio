@@ -1,24 +1,22 @@
 name: Matthew Allen
-title: Computer Science Student
+title: Computer Science Student & Founding Engineer
 email: allenmc220@gmail.com
 phone: 816-325-9060
-location: Boston, MA & Kansas City, MO
+location: Boston, MA
 linkedin: allenmc220
 github: mallen220
 portfolio: https://mallen220.github.io/Portfolio
 
 bio: |
-  I am a student at Boston University studying Computer Science with minors in German and Data Science. I have a strong background in Java, Python, and C++, with leadership experience in robotics and teaching. I am passionate about creating efficient solutions and fostering technical growth in others.
-
-summary: |
-  Programming in Java, Python, and C++ with strong project leadership experience. Collaboration and mentoring through robotics and teaching roles. Proven adaptability and initiative in high-stakes technical competitions (CyberPatriots, Robotics). Effective communicator with experience managing projects, leading teams, and presenting technical work.
+  I'm a Computer Science major with a minor in German at Boston University's Kilachand Honors College. I'm the founding engineer at Informally, a student–alumni mentorship platform, and I created Turtle Tracer, an open-source path planner for FTC robotics teams. I am also a head coach of an FTC team in Brookline.
 
 education:
-  - degree: B.A. in Computer Science, Minor in German and Data Science
+  - degree: B.A. in Computer Science; Minor in German
     school: Boston University – Kilachand Honors College
     location: Boston, MA
-    date: May 2028
-    gpa: 4.0
+    date: Expected May 2028
+    gpa: 3.83
+    details: "Coursework: Analysis of Algorithms, Algebraic Algorithms, Geometric Algorithms, Combinatoric Structures, Computer Systems, Programming Languages, Intro to AI, Databases, Information Security"
     logo: Boston_University.svg
     url: https://www.bu.edu/
   - degree: IB Diploma, High School Diploma with Honors
@@ -31,6 +29,17 @@ education:
     url: https://lsnhs.lsr7.org/
 
 experience:
+  - role: Founding Engineer
+    company: Informally
+    location: Brookline, MA
+    date: Summer 2026 – Present
+    url: https://www.informally.app
+    logo: informally.svg
+    subtitle: Student–alumni mentorship platform
+    description:
+      - Wrote the product in Svelte and TypeScript on Supabase (PostgreSQL), deployed on Vercel, with Twilio for SMS and email reminders.
+      - Built a scheduling engine with mentor–mentee slot matching and two-way Google Calendar sync; prevented double-booking with a transaction-scoped Postgres advisory lock in a PL/pgSQL function.
+      - Launched publicly Sept 25, 2026; reached 48 users in six weeks through community outreach.
   - role: STEM Instructor
     company: Tech Academy
     location: Overland Park, KS
@@ -38,72 +47,97 @@ experience:
     url: https://www.techacademymn.com
     logo: TechAcademy.jpg
     description:
-      - Taught programming, LEGO robotics, and digital media to students ages 5–14.
-      - Led classes of up to 22 students, balancing instruction with guided exploration.
-      - Prepared and delivered engaging, hands-on lessons fostering problem-solving skills.
-      - Collaborated with site managers and instructors to ensure a structured, energetic learning environment.
+      - Taught programming, LEGO robotics and digital media to students ages 5–14, in classes of up to 22.
+
+projects:
+  - role: Turtle Tracer
+    company: Creator & Lead Developer
+    date: Nov 2025 – Present
+    url: https://www.turtletracer.com/
+    logo: turtle-tracer.png
+    links:
+      - text: GitHub
+        url: https://github.com/Mallen220/TurtleTracer
+    description:
+      - Open-source path planner that FTC teams use to draw, simulate and export autonomous routines, plus TurtleTracerLib, which runs those paths on the robot. <span data-tt="downloads">1,723</span> downloads.
+      - One TypeScript/Svelte codebase ships as a web app and an Electron desktop app (macOS, Windows, Linux, Microsoft Store). <span data-tt="releases">60</span> releases since Nov 2025, with <span data-tt="coverage">85.8</span>% branch coverage.
+      - Wrote the motion simulator (velocity, acceleration and turn-rate limits) and a path optimizer that moves control points to cut drive time without hitting obstacles.
+      - Generates Java for Pedro Pathing and FTC command libraries and commits it to teams’ repositories through the GitHub API. Reviews and merges pull requests from outside contributors.
+  - role: BRI Task Tracker
+    company: Creator
+    date: Apr 2026 – Present
+    logo: bri-task-tracker.png
+    subtitle: Private repository
+    description:
+      - Web app that four Brookline robotics teams (about 70 members) use to run their season, with task boards (four views), part requests, skill and goal tracking, and kiosk check-in at meetings.
+      - Built with SvelteKit and TypeScript. Each team has its own database, and the app installs on phones.
+  - role: Judge Scheduling System
+    company: Lee’s Summit North Speech & Debate
+    date: 2020 – 2024
+    description:
+      - Built a Google Sheets system that schedules judges without conflicts (6 tournaments, hundreds of judges).
+
+leadership:
   - role: Head Mentor
-    company: FTC Robotics Team 17218 (Brookline Bots)
+    company: FTC Team 17218 (Brookline Bots)
     location: Brookline, MA
-    date: 2025–Present
+    date: 2025 – Present
     url: https://brooklinebots.org/
     logo: BBots.png
+    subtitle: Also Board Member, Brookline Robotics Initiative
     description:
-      - Mentored an all-girls STEM robotics team in Java programming, robot design, build, and competition.
-      - Guided students through the engineering design process and competition readiness.
-      - Fostered technical growth in coding, mechanical design, and teamwork.
-  - role: Leader of Programming, Website, Media, and PR
-    company: Robotics Team, Lee’s Summit North High School
+      - Attend several team meetings a week to teach students how to design and write better code and to build their own skills.
+      - Help the team build a clearer leadership structure and communicate better in the shop.
+      - Coach the team through competition prep and strategy.
+      - Since I joined, the all-girls team built its first drivable robot and has kept more members than ever.
+  - role: Programming Lead
+    company: Lee’s Summit North Broncobots
     location: Lee’s Summit, MO
-    date: 2020–2024
-    logo: Transparent.png
+    date: 2020 – 2024
+    logo: broncobots.svg
     description:
-      - Led Java programming for four years, achieving globally recognized autonomous performance (Top 50 worldwide, 2022–2023).
-      - Rebuilt team website with modern responsive design and API integrations.
-      - Founded and managed the media team; directed PR campaigns to enhance outreach.
-      - Hosted annual summer camps for younger students, leading workshops in programming and media.
+      - Led Java programming for four years. Our autonomous ranked Top 50 worldwide (2022–23).
+      - Rebuilt the team website with a responsive design and API integrations.
+      - Founded and managed the media team and ran PR campaigns.
+      - Hosted annual summer camps teaching younger students programming and media.
+      - Presented for the team's Impact Award submission.
   - role: Cyber Security Team Lead
-    company: Cyber Patriots
+    company: CyberPatriots
     location: Lee’s Summit, MO
-    date: 2018–2024
+    date: 2018 – 2024
     description:
-      - Advanced to State Finals each year; twice to Nationals with “Best in Class” honors in four seasons.
-      - Led Linux security configurations, scripting, and optimization; mentored teammates on Windows OS.
-      - Recognized as Missouri’s top performer in 2020, placing top 35 nationally while soloing on a six-person team.
-  - role: Tournament Judge Program Manager
-    company: Speech & Debate, Lee’s Summit North
-    location: Lee’s Summit, MO
-    date: 2020–2024
-    description:
-      - Managed judge assignments and logistics across tournaments for four years.
-      - Designed a web-based database to automate scheduling, prevent conflicts, and streamline communication.
-      - Developed tools for postcards, notifications, and workflow automation, allowing tournaments to finish ahead of schedule.
-  - role: E-Commerce Photographer
-    company: Goodwill
-    location: Blue Springs, MO
-    date: Summer 2024
-    url: https://www.mokangoodwill.org/
-    logo: Goodwill.png
-    description:
-      - Captured high-quality product images using studio lighting and editing techniques.
-      - Delivered consistent photography meeting corporate standards.
+      - Missouri’s top performer in 2020 (top 35 nationally) competing solo; State Finals every season.
 
 skills:
   languages:
+    - TypeScript
+    - JavaScript
     - Java
     - Python
-    - C++
-    - HTML/CSS/JavaScript
-    - Shell/Bash
+    - C
+    - SQL
+    - HTML/CSS
+    - Bash
+  frameworks:
+    - Svelte/SvelteKit
+    - Electron
+    - Node.js
+    - Supabase
+    - Vercel
+    - GitHub Actions
+    - Linux
+  practices:
+    - GitHub
+    - Code review
+    - Automated testing
+    - SonarCloud
+    - Google Calendar & OAuth
+    - Twilio
+    - Web Push
+  spoken:
     - German
-    - ASL
-  tools:
-    - Adobe Suite
-  strengths:
-    - Effective Communication
-    - Consistency
-    - Initiative
-    - Collaborative Leadership
+    - American Sign Language (ASL)
   distinctions:
+    - FIRST Leadership Award, Lee’s Summit North Broncobots
     - Brookline Robotics Initiative Board Member
     - Adobe Certified Professional

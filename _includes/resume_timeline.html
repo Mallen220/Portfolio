@@ -1,0 +1,40 @@
+<div class="timeline">
+  {% for job in include.items %}
+  <div class="timeline-item">
+    <div class="timeline-marker"></div>
+    <div class="timeline-content">
+      <div class="job-header">
+        <h4 class="job-title">{{ job.role }}</h4>
+        {% if job.date %}<span class="job-date">{{ job.date }}</span>{% endif %}
+      </div>
+      <div class="job-company">
+        {% if job.logo %}
+        <img
+          src="{{ site.baseurl }}/assets/img/experience/{{ job.logo }}"
+          alt="{{ job.company }}"
+          class="company-logo-small smooth-load"
+          loading="lazy"
+        />
+        {% endif %}
+        <span class="company-name">
+          {% if job.url %}
+          <a href="{{ job.url }}" target="_blank" rel="noopener">{{ job.company }}</a>
+          {% else %} {{ job.company }} {% endif %}
+        </span>
+        {% if job.location %}<span class="job-location"> | {{ job.location }}</span>{% endif %}
+        {% if job.subtitle %}<span class="job-location"> | {{ job.subtitle }}</span>{% endif %}
+        {% for link in job.links %}
+        <span class="job-location"> | <a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.text }}</a></span>
+        {% endfor %}
+      </div>
+      <div class="job-description">
+        <ul>
+          {% for item in job.description %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
