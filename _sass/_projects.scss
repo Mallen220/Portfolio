@@ -42,3 +42,11 @@
   width: 100%;
   object-fit: cover;
 }
+
+/* Images and video inside a project write-up */
+[itemprop="articleBody"] img,
+[itemprop="articleBody"] video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

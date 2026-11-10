@@ -1,7 +1,7 @@
 # generate_language_pages.rb
 
 languages = [
-  "Python", "JavaScript", "Java", "HTML", "CSS", "SCSS",
+  "Python", "JavaScript", "TypeScript", "Java", "HTML", "CSS", "SCSS",
   "Ruby", "PHP", "Swift", "Kotlin", "Go", "Rust",
   "sample_language", "guides", "jekyll", "FTC_SDK", "FRC_SDK"
 ]
