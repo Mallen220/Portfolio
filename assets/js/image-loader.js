@@ -13,13 +13,18 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const element = entry.target;
-          const bgUrl = element.dataset.bg;
+          // Use the smaller hero image on narrow screens when one is provided
+          const small = element.dataset.bgSmall;
+          const bgUrl = small && window.matchMedia("(max-width: 900px)").matches
+            ? small
+            : element.dataset.bg;
 
           if (bgUrl) {
               const tempImage = new Image();
               tempImage.onload = () => {
                   element.style.backgroundImage = `url('${bgUrl}')`;
                   element.removeAttribute('data-bg');
+                  element.removeAttribute('data-bg-small');
                   element.classList.add("loaded");
               };
               tempImage.src = bgUrl;

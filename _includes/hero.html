@@ -1,9 +1,16 @@
+<link rel="preload" as="image" type="image/webp" href="{{site.baseurl}}/assets/img/{{site.hero_cover_img_small}}" media="(max-width: 900px)" fetchpriority="high">
+<link rel="preload" as="image" type="image/webp" href="{{site.baseurl}}/assets/img/{{site.hero_cover_img}}" media="(min-width: 901px)" fetchpriority="high">
 <div class="hero-section">
-  <div class="hero-background" data-bg="{{site.baseurl}}/assets/img/{{site.hero_cover_img}}"></div>
+  <div class="hero-background" data-bg="{{site.baseurl}}/assets/img/{{site.hero_cover_img}}" data-bg-small="{{site.baseurl}}/assets/img/{{site.hero_cover_img_small}}"></div>
   <noscript>
     <style>
       .hero-background {
         background-image: url('{{site.baseurl}}/assets/img/{{site.hero_cover_img}}');
+      }
+      @media (max-width: 900px) {
+        .hero-background {
+          background-image: url('{{site.baseurl}}/assets/img/{{site.hero_cover_img_small}}');
+        }
       }
     </style>
   </noscript>
