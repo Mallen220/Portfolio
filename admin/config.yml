@@ -46,7 +46,7 @@ collections:
           name: "layout",
           widget: "select",
           options:
-            ["about", "projects", "contact", "gallery", "page", "product"],
+            ["about", "projects", "contact", "gallery", "page"],
         }
       - { label: "Title", name: "title", widget: "string" }
       - {

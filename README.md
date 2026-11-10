@@ -19,7 +19,7 @@ Highly Customizable and No Hosting or Maintainence Cost is required !
 
 ![devlopr jekyll](https://github.com/sujaykundu777/devlopr-jekyll/blob/master/assets/img/screenshot.PNG?raw=true)
 
-devlopr uses Markdown Files to generate data like Projects Posts, Gallery, Shop Products etc. No external database is required.
+devlopr uses Markdown Files to generate data like Projects Posts, Gallery etc. No external database is required.
 
 ### Launch your Static Site using Devlopr in minutes :rocket:
 
@@ -245,7 +245,6 @@ This Project has actions to auto deploy jekyll to github pages and firebase. The
 - Comments using [Hyvor](https://talk.hyvor.com/) and [Disqus](https://disqus.com/)
 - SEO-optimized
 - Real Time Search - [Algolia](https://sujaykundu.com/projects/adding-real-time-search-to-jekyll-site-using-algolia/)
-- Sell Stuff (Ecommerce) in your Projects using [Snipcart](https://snipcart.com/)
 - Send Newsletters using [Mailchimp](https://mailchimp.com/)
 - Contact Forms Support for [Getform](https://getform.io), [Formspree](https://formspree.io/)
 - Coding Activity using [Wakatime](https://wakatime.com/)
