@@ -25,6 +25,7 @@ layout: default
               loading="lazy"
               src="{{ site.url }}{{ site.baseurl }}/{{ post.thumbnail }}"
               alt="{{ post.title }}"
+              {% if post.thumbnail_fit == "contain" %}style="object-fit: contain; padding: 1rem;"{% endif %}
             />
             {% else %}
             <div class="placeholder-img h-100 w-100">
