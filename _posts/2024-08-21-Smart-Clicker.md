@@ -3,7 +3,7 @@ layout: post
 title: "Smart Clicker (Previously Windows-Autoclicker)"
 summary: "Uses a great deal of logic and user input to create a powerful cross-platform automation tool."
 author: MatthewAllen
-date: "2024-08-21 0:00:00 +0530"
+date: "2024-08-21 12:00:00 +0000"
 category: ["Python"]
 thumbnail: assets/img/projects/SmartClicker.png
 keywords: devlopr jekyll, how to use devlopr, devlopr, how to use devlopr-jekyll, devlopr-jekyll tutorial,best jekyll themes, multi languages and tags

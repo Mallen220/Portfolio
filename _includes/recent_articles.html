@@ -7,37 +7,6 @@
   </div>
 
   <div class="row">
-    {% for post in site.posts limit:4 %}
-    <div class="col-lg-6 col-md-12 mb-4">
-      <div class="card project-card h-100">
-        <a href="{{site.url}}{{site.baseurl}}{{post.url}}" class="card-link-wrapper">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-               {% if post.thumbnail %}
-               <div class="project-thumbnail-wrapper">
-                 <img src="{{site.url}}{{site.baseurl}}/{{post.thumbnail}}" class="card-img smooth-load" alt="{{post.title}}" loading="lazy">
-               </div>
-               {% else %}
-               <div class="project-thumbnail-wrapper placeholder-img">
-                 <span>No Image</span>
-               </div>
-               {% endif %}
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">{{post.title}}</h5>
-                <p class="card-text"><small class="text-muted"><time datetime="{{ post.date }}">{{ post.date | date: "%b %-d, %Y" }}</time></small></p>
-                <div class="card-tags">
-                  {% for cat in post.category limit:2 %}
-                  <span class="badge badge-secondary">{{cat}}</span>
-                  {% endfor %}
-                </div>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-    {% endfor %}
+    {% for post in site.posts limit:4 %} {% include project_card.html %} {% endfor %}
   </div>
 </section>

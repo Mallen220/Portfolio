@@ -3,7 +3,7 @@ layout: post
 title: "Learn Java for FTC"
 summary: "Created a curriculum to teach Java to an FTC team. Focuses on the basics and quickly works up to more complex topics."
 author: MatthewAllen
-date: "2025-04-29 0:00:00 +0530"
+date: "2025-04-29 12:00:00 +0000"
 category: ["Java", "FTC_SDK"]
 thumbnail: assets/img/projects/javaForFTC.png
 keywords: devlopr jekyll, how to use devlopr, devlopr, how to use devlopr-jekyll, devlopr-jekyll tutorial,best jekyll themes, multi languages and tags

@@ -3,7 +3,7 @@ layout: post
 title: "Informally"
 summary: "A platform that connects high schoolers, college students and professionals for informal conversations. I'm the founding engineer."
 author: MatthewAllen
-date: "2026-06-01 0:00:00 +0530"
+date: "2026-06-01 12:00:00 +0000"
 category: ["TypeScript"]
 thumbnail: assets/img/projects/informally/preview.png
 thumbnail_fit: contain

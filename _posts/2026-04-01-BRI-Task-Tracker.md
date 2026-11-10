@@ -3,7 +3,7 @@ layout: post
 title: "BRI Task Tracker"
 summary: "A web app that Brookline robotics teams use to run their season: tasks, meeting logs, part requests, goals and attendance."
 author: MatthewAllen
-date: "2026-04-01 0:00:00 +0530"
+date: "2026-04-01 12:00:00 +0000"
 category: ["TypeScript"]
 thumbnail: assets/img/projects/bri-task-tracker/dashboard.webp
 usemathjax: true

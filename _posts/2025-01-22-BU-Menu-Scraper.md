@@ -3,7 +3,7 @@ layout: post
 title: "My first college project! BU Menu Scraper."
 summary: "Scrapes the BU Menu to find the likely favorite food for a given day."
 author: MatthewAllen
-date: "2025-01-12 0:00:00 +0530"
+date: "2025-01-12 12:00:00 +0000"
 category: ["Python"]
 thumbnail: assets/img/projects/BUMenuScraper.png
 keywords: devlopr jekyll, how to use devlopr, devlopr, how to use devlopr-jekyll, devlopr-jekyll tutorial,best jekyll themes, multi languages and tags

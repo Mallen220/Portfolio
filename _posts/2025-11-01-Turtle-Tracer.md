@@ -3,7 +3,7 @@ layout: post
 title: "Turtle Tracer"
 summary: "Open-source path planner that FTC teams use to draw, simulate and export autonomous routines."
 author: MatthewAllen
-date: "2025-11-01 0:00:00 +0530"
+date: "2025-11-01 12:00:00 +0000"
 category: ["TypeScript", "Java"]
 thumbnail: assets/img/projects/turtle-tracer/workspace.webp
 usemathjax: true
