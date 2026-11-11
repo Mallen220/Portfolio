@@ -26,7 +26,7 @@ author: Matthew Allen
 author_bio: Welcome to my portfolio! I'm a Computer Science student with a passion for programming, robotics, and mentoring. Explore my projects and experiences!
 author_email: "allenmc220@gmail.com"
 author_location: Boston & Kansas City
-author_website_url: "https://mallen220.github.io/Portfolio/" #TODO: Update this with my website URL
+author_website_url: "https://www.allenmc220.xyz/"
 typewrite-text: Hello! I'm a student at Boston University studying Computer Science!
 hero_cover_img: home_screen.webp # desktop cover (2400px wide). Image should be in /assets/img
 hero_cover_img_small: home_screen-small.webp # mobile cover (1200px wide, used under 900px)

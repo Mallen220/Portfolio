@@ -4,7 +4,7 @@ title: "Team Broncobots Website"
 summary: "Redesigned the entirety of the Broncobots website at teambroncobots.com"
 author: MatthewAllen
 date: "2024-08-20 12:00:00 +0000"
-category: ["HTML", "CSS", "JavaScript", "SCSS", "Ruby"]
+category: ["HTML", "CSS", "JavaScript", "SCSS"]
 thumbnail: assets/img/projects/teambroncobotswebsite.png
 keywords: devlopr jekyll, how to use devlopr, devlopr, how to use devlopr-jekyll, devlopr-jekyll tutorial,best jekyll themes, multi languages and tags
 usemathjax: true

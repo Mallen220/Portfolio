@@ -1,44 +1,47 @@
 {% comment %} Reads from _data/resume.yml, the same source as the About page. {% endcomment %}
 <section id="work-experience" class="section-padding">
-  <h2 class="section-title">Experience</h2>
-  <div class="row">
+  <div class="text-center">
+    <h2 class="section-title">Experience</h2>
+  </div>
+  <ol class="experience-timeline">
     {% assign roles = site.data.resume.experience | concat: site.data.resume.leadership %}
     {% for experience in roles %}
-    <div class="col-lg-6 col-md-12 mb-4">
-      <div class="card experience-card h-100">
-        <div class="card-body">
-          <div class="d-flex align-items-center mb-3">
-            {% if experience.logo %}
-            <img
-              src="{{site.url}}{{site.baseurl}}/assets/img/experience/{{experience.logo}}"
-              alt="{{experience.company}}"
-              class="company-logo-sm mr-3 smooth-load"
-              loading="lazy"
-            />
-            {% endif %}
-            <div>
-              <h5 class="card-title mb-0">
-                {% if experience.url %}
-                <a
-                  href="{{experience.url}}"
-                  target="_blank"
-                  rel="noopener"
-                  class="company-link"
-                  >{{experience.company}}</a
-                >
-                {% else %} {{experience.company}} {% endif %}
-              </h5>
-              <p class="card-subtitle text-muted">
-                {{experience.role}}{% if experience.date %} · {{experience.date}}{% endif %}
-              </p>
-            </div>
-          </div>
-          <p class="card-text">
-            {{ experience.description | first | strip_html | truncatewords: 30 }}
-          </p>
+    <li class="experience-item">
+      {% if experience.logo %}
+      <img
+        src="{{site.url}}{{site.baseurl}}/assets/img/experience/{{experience.logo}}"
+        alt=""
+        class="experience-logo smooth-load"
+        loading="lazy"
+      />
+      {% else %}
+      <span class="experience-logo experience-logo-fallback" aria-hidden="true"
+        >{{ experience.company | slice: 0 }}</span
+      >
+      {% endif %}
+      <div class="experience-content">
+        <div class="experience-heading">
+          <h5 class="experience-role">{{ experience.role }}</h5>
+          {% if experience.date %}<span class="experience-date">{{ experience.date }}</span>{% endif %}
         </div>
+        <p class="experience-company">
+          {% if experience.url %}<a
+            href="{{ experience.url }}"
+            target="_blank"
+            rel="noopener"
+            class="company-link"
+            >{{ experience.company }}</a
+          >{% else %}{{ experience.company }}{% endif %}{% if experience.location %}
+          <span class="text-muted">· {{ experience.location }}</span>{% endif %}
+        </p>
+        <p class="experience-summary">
+          {{ experience.description | first | strip_html | truncatewords: 30 }}
+        </p>
       </div>
-    </div>
+    </li>
     {% endfor %}
+  </ol>
+  <div class="text-center mt-4">
+    <a class="btn btn-outline-primary" href="{{ site.baseurl }}/about">Full resume</a>
   </div>
 </section>

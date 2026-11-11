@@ -1546,6 +1546,20 @@ footer {
   color: #e0e0e0;
 }
 
+/* The invisible sizer holds the full text so the heading reserves its final
+   height and the page doesn't jump when the typed text wraps. */
+.typewriter-container {
+  display: grid;
+}
+
+.typewriter-container > * {
+  grid-area: 1 / 1;
+}
+
+.typewriter-sizer {
+  visibility: hidden;
+}
+
 .hero-bio {
   font-size: 1.2rem;
   color: #ccc;
@@ -1735,4 +1749,147 @@ footer {
   .project-thumbnail-wrapper {
     height: 200px;
   }
+}
+
+/* Experience timeline (homepage) */
+.experience-timeline {
+  list-style: none;
+  margin: 0 auto !important; /* beats the global ol/ul margin-left rule */
+  padding: 0;
+  max-width: 860px;
+  position: relative;
+}
+
+.experience-timeline::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  bottom: 24px;
+  left: 27px;
+  width: 2px;
+  background-color: var(--light-border-color);
+}
+
+.experience-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+  padding-bottom: 28px;
+}
+
+.experience-item:last-child {
+  padding-bottom: 0;
+}
+
+.experience-logo {
+  flex: 0 0 56px;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  padding: 6px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid var(--light-border-color);
+  position: relative;
+}
+
+.experience-logo-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--link-color);
+  background-color: var(--card-background-color);
+}
+
+.experience-content {
+  flex: 1;
+  min-width: 0;
+  padding-top: 2px;
+}
+
+.experience-heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 16px;
+}
+
+.experience-role {
+  margin: 0;
+  font-weight: 700;
+}
+
+.experience-date {
+  font-size: 0.875rem;
+  color: var(--light-text-color);
+  white-space: nowrap;
+}
+
+.experience-company {
+  margin: 2px 0 8px;
+}
+
+.experience-summary {
+  margin: 0;
+  color: var(--main-text-color);
+}
+
+@media (max-width: 575px) {
+  .experience-item {
+    gap: 14px;
+  }
+  .experience-timeline::before {
+    left: 22px;
+  }
+  .experience-logo {
+    flex-basis: 46px;
+    width: 46px;
+    height: 46px;
+  }
+  .experience-date {
+    white-space: normal;
+  }
+}
+
+/* Project card actions */
+/* Global `a { color: ... !important }` forces link color, so override with
+   !important too. */
+.project-card .card-title a.project-card-link {
+  color: var(--bold-color) !important;
+  text-decoration: none;
+}
+
+.project-card:hover .card-title a.project-card-link {
+  color: var(--link-color) !important;
+}
+
+.project-card .stretched-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.project-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.project-card-source {
+  position: relative;
+  z-index: 2; /* above the card-wide title link */
+}
+
+/* Education details (coursework, honors) */
+.education-details {
+  margin: 14px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--light-text-color);
 }

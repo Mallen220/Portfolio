@@ -5,15 +5,7 @@
     <h4 class="post-meta">{{ page.summary }}</h4>
     {% endif %}
     <p class="post-summary">
-      Posted by :
-      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">
-          <a href="{{ '/posts/authors/' | append: page.author | relative_url }}"
-            >Matthew Allen</a
-          >
-        </span>
-      </span>
-      on
+      <meta itemprop="author" content="{{ site.author }}" />
       <time datetime="{{ page.date }}" itemprop="datePublished">
         {{ page.date | date: "%b %-d, %Y" }}
       </time>
@@ -46,8 +38,6 @@
     />
     <br /><br />
     {% endif %} {{ content }}
-    <br />
-    {%- include share_page.html -%} {% include author.html %}
   </div>
 
   <div class="comments">

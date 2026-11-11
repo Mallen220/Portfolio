@@ -1,6 +1,8 @@
 {% comment %} Reads from _data/resume.yml, the same source as the About page. {% endcomment %}
 <section id="education" class="section-padding">
-  <h2 class="section-title">Education</h2>
+  <div class="text-center">
+    <h2 class="section-title">Education</h2>
+  </div>
   <div class="row">
     {% for education in site.data.resume.education %}
     <div class="col-lg-6 col-md-12 mb-4">
@@ -28,9 +30,12 @@
               <p class="card-subtitle text-muted">{{education.degree}}</p>
             </div>
           </div>
-          <p class="card-text">
+          <p class="card-text mb-0">
             {{education.date}}{% if education.gpa %} · GPA {{education.gpa}}{% endif %}
           </p>
+          {% if education.details %}
+          <p class="education-details">{{ education.details }}</p>
+          {% endif %}
         </div>
       </div>
     </div>

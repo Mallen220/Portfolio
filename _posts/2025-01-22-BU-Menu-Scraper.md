@@ -9,7 +9,7 @@ thumbnail: assets/img/projects/BUMenuScraper.png
 keywords: devlopr jekyll, how to use devlopr, devlopr, how to use devlopr-jekyll, devlopr-jekyll tutorial,best jekyll themes, multi languages and tags
 usemathjax: true
 permalink: /projects/BU-Menu-Scraper/
-github_url: "https://github.com/Mallen220/BUMenuScraper"
+github_url: "https://github.com/Mallen220/BUMenuScrapper"
 pagination:
   enabled: true
   collection: projects

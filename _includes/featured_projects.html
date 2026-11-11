@@ -1,0 +1,9 @@
+{% assign featured_projects = site.posts | where: "featured", true %}
+{% if featured_projects.size > 0 %}
+<div class="row">
+  <div class="col-12 text-center mb-4">
+    <h2 class="section-title">Featured Projects</h2>
+  </div>
+  {% for post in featured_projects %}{% include project_card.html %}{% endfor %}
+</div>
+{% endif %}

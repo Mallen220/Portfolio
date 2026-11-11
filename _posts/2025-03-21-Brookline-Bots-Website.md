@@ -4,7 +4,7 @@ title: "Brookline Bots Website"
 summary: "Mentored Brookline Bots (FTC 17218) in creating their website at brooklinebots.org"
 author: MatthewAllen
 date: "2025-03-21 12:00:00 +0000"
-category: ["HTML", "CSS", "JavaScript", "SCSS", "Ruby"]
+category: ["HTML", "CSS", "JavaScript", "SCSS"]
 thumbnail: assets/img/projects/BrooklineBotsWebsite.png
 keywords: devlopr jekyll, how to use devlopr, devlopr, how to use devlopr-jekyll, devlopr-jekyll tutorial,best jekyll themes, multi languages and tags
 usemathjax: true

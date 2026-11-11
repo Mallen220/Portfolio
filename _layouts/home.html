@@ -13,19 +13,19 @@ layout: full-width
 {%- include hero.html -%}
 
 <div class="container main-content-wrapper">
-    <div class="col-lg-10 offset-lg-1">
-        {%- include recent_articles.html -%}
-
-        <hr class="section-divider">
-
-        {% if site.show_author_work_experiences %}
-        {%- include work_experience.html -%}
-        {% endif %}
-
-        <hr class="section-divider">
-
-        {% if site.show_author_education_details %}
-        {%- include education.html -%}
-        {% endif %}
+  <section id="featured-projects" class="section-padding">
+    {%- include featured_projects.html -%}
+    <div class="text-center mt-4">
+      <a class="btn btn-outline-primary" href="{{ site.baseurl }}/projects">
+        View all projects
+      </a>
     </div>
+  </section>
+
+  {% if site.show_author_work_experiences %}
+  <hr class="section-divider" />
+  {%- include work_experience.html -%} {% endif %} {% if
+  site.show_author_education_details %}
+  <hr class="section-divider" />
+  {%- include education.html -%} {% endif %}
 </div>
