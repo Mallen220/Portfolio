@@ -1,10 +1,11 @@
 <head>
+  {%- assign asset_v = site.time | date: "%s" -%}
   <meta charset="utf-8" />
   <title>
     {% if {page.title %}{{ page.title }} - {{site.title}}{% else %}{{ site.title
     }} - {{ site.subtitle }}{% endif %}
   </title>
-  <meta http-equip="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   {% if page.summary %}
   <meta
@@ -75,7 +76,7 @@
 
   <link
     rel="stylesheet"
-    href="{{site.url}}{{site.baseurl}}/assets/css/main.css"
+    href="{{site.url}}{{site.baseurl}}/assets/css/main.css?v={{ asset_v }}"
   />
   <!-- <link rel="stylesheet" href="{{site.url}}{{site.baseurl}}/assets/css/custom-style.css" /> -->
   <link
@@ -128,7 +129,7 @@
     crossorigin="anonymous"
   ></script>
   <!-- <script src="{{site.url}}{{site.baseurl}}/assets/bower_components/jquery/dist/jquery.min.js"></script> -->
-  <script src="{{site.url}}{{site.baseurl}}/assets/js/mode-switcher.js"></script>
+  <script src="{{site.url}}{{site.baseurl}}/assets/js/mode-switcher.js?v={{ asset_v }}"></script>
   <script src="{{site.url}}{{site.baseurl}}/assets/bower_components/jquery.easing/jquery.easing.min.js"></script>
   <script src="{{site.url}}{{site.baseurl}}/assets/bower_components/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="{{site.url}}{{site.baseurl}}/assets/bower_components/jquery-mousewheel/jquery.mousewheel.min.js"></script>
@@ -139,7 +140,7 @@
   <script src="{{site.url}}{{site.baseurl}}/assets/bower_components/nanobar/nanobar.min.js"></script>
   <script src="{{site.url}}{{site.baseurl}}/assets/bower_components/typewrite/dist/typewrite.min.js"></script>
   <!--  <script src="{{site.url}}{{site.baseurl}}/assets/js/search.js"></script>-->
-  <script src="{{site.url}}{{site.baseurl}}/assets/js/on-scroll-progress.js"></script>
+  <script src="{{site.url}}{{site.baseurl}}/assets/js/on-scroll-progress.js?v={{ asset_v }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
@@ -177,8 +178,8 @@
     data-y_margin="10"
   ></script>
 
-  <link rel="stylesheet" href="{{site.url}}{{site.baseurl}}/assets/css/image-loader.css" />
-  <script src="{{site.url}}{{site.baseurl}}/assets/js/image-loader.js"></script>
+  <link rel="stylesheet" href="{{site.url}}{{site.baseurl}}/assets/css/image-loader.css?v={{ asset_v }}" />
+  <script src="{{site.url}}{{site.baseurl}}/assets/js/image-loader.js?v={{ asset_v }}"></script>
   <noscript>
     <style>
       .smooth-load {
